@@ -3,7 +3,7 @@
 **Client:** SA Telecom Analytics (Simulated Engagement)  
 **Role:** Data Science Consultant  
 **Engagement Type:** Predictive Analytics & Business Intelligence  
-**Status:** Delivered  
+**Status:** Ongoing  
 **Date:** April 2026  
 
 ---
