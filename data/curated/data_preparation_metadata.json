@@ -1,0 +1,54 @@
+{
+    "preparation_date": "2026-04-23 14:08:53",
+    "shape": [
+        10006,
+        18
+    ],
+    "columns": [
+        "user_id",
+        "measurement_date",
+        "hours_streaming",
+        "hours_social",
+        "hours_messaging",
+        "hours_gaming",
+        "is_peak_hour_user",
+        "is_weekend",
+        "age_group",
+        "plan_type",
+        "device_type",
+        "network_type",
+        "data_usage_category",
+        "streaming_data_gb",
+        "social_data_gb",
+        "messaging_data_gb",
+        "gaming_data_gb",
+        "total_data_gb"
+    ],
+    "dtypes": {
+        "user_id": "object",
+        "measurement_date": "datetime64[ns]",
+        "hours_streaming": "float64",
+        "hours_social": "float64",
+        "hours_messaging": "float64",
+        "hours_gaming": "float64",
+        "is_peak_hour_user": "int64",
+        "is_weekend": "int64",
+        "age_group": "object",
+        "plan_type": "object",
+        "device_type": "object",
+        "network_type": "object",
+        "data_usage_category": "object",
+        "streaming_data_gb": "float64",
+        "social_data_gb": "float64",
+        "messaging_data_gb": "float64",
+        "gaming_data_gb": "float64",
+        "total_data_gb": "float64"
+    },
+    "target_variable": "total_data_gb",
+    "transformations_applied": [
+        "Converted MB columns to GB (\u00f7 1000)",
+        "Removed original MB columns",
+        "Any other transformations you did..."
+    ],
+    "columns_converted": "{'total_data_mb \u2192 total_data_gb', 'streaming_data_mb \u2192 streaming_data_gb', 'messaging_data_mb \u2192 messaging_data_gb', 'gaming_data_mb \u2192 gaming_data_gb', 'social_data_mb \u2192 social_data_gb'}"
+}
