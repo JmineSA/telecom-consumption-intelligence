@@ -334,12 +334,12 @@ print(user_data_usage['data_usage_category'].value_counts().sort_index())
 
 user_activity.to_csv('user_activity.csv', index=False)
 user_data_usage.to_csv('user_data_usage.csv', index=False)
-print("\n✅ Datasets exported to CSV files:")
+print("\n Datasets exported to CSV files:")
 print("   - user_activity.csv")
 print("   - user_data_usage.csv")
 
 print("\n" + "=" * 80)
-print("🎯 MACHINE LEARNING READY")
+print(" MACHINE LEARNING READY")
 print("=" * 80)
 print("""
 Features available for ML regression:
@@ -352,9 +352,9 @@ Features available for ML regression:
 Target variable: total_data_gb or total_data_mb
 
 This structure allows for:
-✅ Feature engineering (create ratios, interaction terms)
-✅ Time-series analysis (with measurement_date)
-✅ Cohort analysis (by plan type, device)
-✅ Anomaly detection (unusual usage patterns)
-✅ Customer segmentation (by usage category)
+ Feature engineering (create ratios, interaction terms)
+ Time-series analysis (with measurement_date)
+ Cohort analysis (by plan type, device)
+ Anomaly detection (unusual usage patterns)
+ Customer segmentation (by usage category)
 """)
