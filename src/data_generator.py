@@ -47,6 +47,36 @@ network_types = np.random.choice(
     p=[0.15, 0.45, 0.25, 0.15]
 )
 
+# Contract duration in months (influences churn)
+contract_duration = np.random.choice(
+    [1, 3, 6, 12, 24],
+    n_users,
+    p=[0.15, 0.15, 0.20, 0.30, 0.20]
+)
+
+# Customer tenure in months (how long they've been with the company)
+customer_tenure = np.random.choice(
+    [1, 3, 6, 12, 18, 24, 36, 48, 60],
+    n_users,
+    p=[0.10, 0.12, 0.15, 0.18, 0.15, 0.12, 0.08, 0.05, 0.05]
+)
+
+# Monthly bill amount in USD
+monthly_bill = np.where(
+    plan_types == 'Prepaid_Daily',
+    np.random.uniform(5, 15, n_users),
+    np.where(plan_types == 'Prepaid_Monthly',
+             np.random.uniform(15, 30, n_users),
+             np.where(plan_types == 'Postpaid_Basic',
+                      np.random.uniform(30, 50, n_users),
+                      np.where(plan_types == 'Postpaid_Premium',
+                               np.random.uniform(50, 90, n_users),
+                               np.random.uniform(80, 120, n_users))))
+)
+
+# Number of customer support calls in last 6 months
+support_calls = np.random.poisson(lam=2, size=n_users)
+
 # ============================================
 # 2. BASE USAGE PATTERNS (Hours per day)
 # ============================================
@@ -284,77 +314,318 @@ user_data_usage = pd.DataFrame({
 })
 
 # ============================================
-# 11. VALIDATION & QUALITY CHECKS
+# 11. CREATE DATASET 3: user_churn (NEW!)
 # ============================================
 
-# Ensure no missing values
+# Calculate churn probability based on realistic factors
+def calculate_churn_probability(age_group, plan_type, tenure, support_calls, 
+                                total_data_gb, monthly_bill, device_type, network_type):
+    """
+    Calculate churn probability based on telecom industry patterns.
+    
+    High churn risk factors:
+    - Prepaid customers (no contract lock-in)
+    - High support calls (frustrated customers)
+    - Low tenure (new customers still evaluating)
+    - High bill relative to usage (poor value perception)
+    - Old devices/network (poor experience)
+    - Very low or very high usage (dissatisfaction)
+    """
+    
+    # Base churn probability
+    base_prob = 0.15  # 15% industry average churn rate
+    
+    # Age factor (younger customers churn more)
+    age_factor = {
+        '18-24': 1.5,   # High churn - always looking for deals
+        '25-34': 1.3,   # Above average churn
+        '35-44': 1.0,   # Baseline
+        '45-54': 0.7,   # More loyal
+        '55+': 0.5      # Most loyal
+    }[age_group]
+    
+    # Plan factor (prepaid churns more, contract less)
+    plan_factor = {
+        'Prepaid_Daily': 2.0,      # Very easy to leave
+        'Prepaid_Monthly': 1.5,    # Easy to leave
+        'Postpaid_Basic': 1.0,     # Some commitment
+        'Postpaid_Premium': 0.7,   # Satisfied with premium
+        'Postpaid_Unlimited': 0.5  # Very satisfied
+    }[plan_type]
+    
+    # Tenure factor (longer tenure = more loyal)
+    if tenure <= 3:
+        tenure_factor = 2.0     # New customer - high churn risk
+    elif tenure <= 6:
+        tenure_factor = 1.5     # Still evaluating
+    elif tenure <= 12:
+        tenure_factor = 1.2     # Settling in
+    elif tenure <= 24:
+        tenure_factor = 1.0     # Established
+    elif tenure <= 36:
+        tenure_factor = 0.7     # Loyal
+    else:
+        tenure_factor = 0.5     # Very loyal
+    
+    # Support calls factor (more calls = more frustration)
+    if support_calls == 0:
+        support_factor = 0.8    # Happy customer
+    elif support_calls <= 2:
+        support_factor = 1.0    # Normal
+    elif support_calls <= 4:
+        support_factor = 1.5    # Some frustration
+    elif support_calls <= 6:
+        support_factor = 2.0    # Frustrated
+    else:
+        support_factor = 3.0    # Very frustrated
+    
+    # Bill-to-usage ratio (value perception)
+    # High bill with low usage = poor value → high churn
+    if total_data_gb > 0:
+        cost_per_gb = monthly_bill / (total_data_gb * 30)  # Monthly estimate
+        if cost_per_gb > 10:  # Very expensive per GB
+            value_factor = 2.0
+        elif cost_per_gb > 5:
+            value_factor = 1.5
+        elif cost_per_gb > 2:
+            value_factor = 1.0
+        else:
+            value_factor = 0.7  # Good value
+    else:
+        value_factor = 1.0
+    
+    # Device/Network factor (old tech = poor experience)
+    tech_factor = 1.0
+    if device_type == 'Basic_Phone':
+        tech_factor = 1.3  # Outdated device
+    if network_type == '3G':
+        tech_factor *= 1.3  # Slow network
+    
+    # Usage pattern factor (extreme usage patterns indicate dissatisfaction)
+    if total_data_gb < 0.1:  # Barely using service
+        usage_factor = 1.8
+    elif total_data_gb > 15:  # Extremely heavy usage (might switch for better deal)
+        usage_factor = 1.3
+    else:
+        usage_factor = 1.0
+    
+    # Calculate final probability
+    churn_prob = (base_prob * age_factor * plan_factor * tenure_factor * 
+                  support_factor * value_factor * tech_factor * usage_factor)
+    
+    # Cap probability between 0.01 and 0.95
+    churn_prob = np.clip(churn_prob, 0.01, 0.95)
+    
+    return churn_prob
+
+# Calculate churn probability for each user
+churn_probabilities = np.array([
+    calculate_churn_probability(age, plan, tenure, calls, gb, bill, device, network)
+    for age, plan, tenure, calls, gb, bill, device, network in 
+    zip(age_groups, plan_types, customer_tenure, support_calls, 
+        total_data_gb, monthly_bill, device_types, network_types)
+])
+
+# Determine churn status based on probability
+churn_status = np.random.binomial(1, churn_probabilities)
+
+# Churn reason assignment (only for churned customers)
+def assign_churn_reason(plan_type, support_calls, monthly_bill, total_data_gb, tenure):
+    """Assign realistic churn reasons based on user profile"""
+    
+    reasons_pool = []
+    weights = []
+    
+    # Price sensitivity (higher for prepaid and high bills)
+    if plan_type in ['Prepaid_Daily', 'Prepaid_Monthly']:
+        reasons_pool.append('Price Too High')
+        weights.append(0.3)
+    
+    if monthly_bill > 70:
+        reasons_pool.append('Better Competitor Offer')
+        weights.append(0.25)
+    
+    # Service quality
+    if support_calls > 3:
+        reasons_pool.append('Poor Customer Service')
+        weights.append(0.25)
+    
+    # Network quality
+    reasons_pool.append('Network Quality Issues')
+    weights.append(0.15)
+    
+    # Low usage
+    if total_data_gb < 0.5:
+        reasons_pool.append('Service Not Needed')
+        weights.append(0.2)
+    
+    # Relocation
+    reasons_pool.append('Relocation/Moving')
+    weights.append(0.1)
+    
+    # Normalize weights
+    weights = np.array(weights) / sum(weights)
+    
+    return np.random.choice(reasons_pool, p=weights)
+
+churn_reasons = [
+    assign_churn_reason(plan, calls, bill, gb, tenure) if churned else None
+    for plan, calls, bill, gb, tenure, churned in 
+    zip(plan_types, support_calls, monthly_bill, total_data_gb, customer_tenure, churn_status)
+]
+
+# Create churn dataset
+user_churn = pd.DataFrame({
+    'user_id': user_ids,
+    'customer_tenure_months': customer_tenure,
+    'contract_duration_months': contract_duration,
+    'monthly_bill_usd': np.round(monthly_bill, 2),
+    'support_calls_6months': support_calls,
+    'churn_probability': np.round(churn_probabilities, 3),
+    'churn_status': churn_status,  # 0 = Stayed, 1 = Churned
+    'churn_reason': churn_reasons,
+    'churn_risk_category': pd.cut(churn_probabilities, 
+                                   bins=[0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                                   labels=['Very_Low', 'Low', 'Medium', 'High', 'Very_High'])
+})
+
+# ============================================
+# 12. VALIDATION & QUALITY CHECKS
+# ============================================
+
+# Ensure no missing values (except churn_reason for non-churned)
 assert user_activity.isnull().sum().sum() == 0, "Missing values found in user_activity"
 assert user_data_usage.isnull().sum().sum() == 0, "Missing values found in user_data_usage"
+assert user_churn[['user_id', 'churn_status', 'churn_probability']].isnull().sum().sum() == 0, "Missing values in critical churn columns"
 
-# Ensure user_ids match perfectly
-assert all(user_activity['user_id'] == user_data_usage['user_id']), "User IDs don't match"
+# Ensure user_ids match perfectly across all datasets
+assert all(user_activity['user_id'] == user_data_usage['user_id']), "User IDs don't match: activity vs usage"
+assert all(user_activity['user_id'] == user_churn['user_id']), "User IDs don't match: activity vs churn"
+
+# Validate churn logic
+assert user_churn['churn_status'].isin([0, 1]).all(), "Invalid churn status values"
+assert (user_churn['churn_probability'] >= 0).all() and (user_churn['churn_probability'] <= 1).all(), "Invalid probability range"
 
 # ============================================
-# 12. DISPLAY DATASETS
+# 13. DISPLAY DATASETS
 # ============================================
 
 print("=" * 80)
 print("DATASET 1: USER_ACTIVITY (Raw Behavioral Data)")
 print("=" * 80)
 print(f"Shape: {user_activity.shape}")
-print(f"\nFirst 10 rows:")
-print(user_activity.head(10))
+print(f"\nFirst 5 rows:")
+print(user_activity.head())
 print(f"\nData Types:\n{user_activity.dtypes}")
-print(f"\nSummary Statistics:")
-print(user_activity.describe())
 
 print("\n" + "=" * 80)
 print("DATASET 2: USER_DATA_USAGE (Derived Target Data)")
 print("=" * 80)
 print(f"Shape: {user_data_usage.shape}")
-print(f"\nFirst 10 rows:")
-print(user_data_usage.head(10))
-print(f"\nData Types:\n{user_data_usage.dtypes}")
-print(f"\nSummary Statistics:")
-print(user_data_usage.describe())
+print(f"\nFirst 5 rows:")
+print(user_data_usage.head())
+
+print("\n" + "=" * 80)
+print("DATASET 3: USER_CHURN (Churn Prediction Data) 🆕")
+print("=" * 80)
+print(f"Shape: {user_churn.shape}")
+print(f"\nFirst 5 rows:")
+print(user_churn.head())
+print(f"\nData Types:\n{user_churn.dtypes}")
+print(f"\nChurn Summary Statistics:")
+print(user_churn.describe())
 
 print("\n" + "=" * 80)
 print("DATA QUALITY INSIGHTS")
 print("=" * 80)
 print(f"Total unique users: {user_activity['user_id'].nunique()}")
 print(f"Date range: {user_activity['measurement_date'].min()} to {user_activity['measurement_date'].max()}")
-print(f"\nPlan distribution:")
-print(user_activity['plan_type'].value_counts(normalize=True).round(3) * 100)
-print(f"\nData usage by category:")
-print(user_data_usage['data_usage_category'].value_counts().sort_index())
+
+print(f"\n📊 Churn Rate: {user_churn['churn_status'].mean() * 100:.1f}%")
+print(f"   - Stayed: {(1 - user_churn['churn_status'].mean()) * 100:.1f}%")
+print(f"   - Churned: {user_churn['churn_status'].mean() * 100:.1f}%")
+
+print(f"\nChurn Risk Distribution:")
+print(user_churn['churn_risk_category'].value_counts().sort_index())
+
+print(f"\nTop Churn Reasons (among churned users):")
+churned_users = user_churn[user_churn['churn_status'] == 1]
+print(churned_users['churn_reason'].value_counts())
+
+print(f"\nChurn Rate by Plan Type:")
+churn_by_plan = user_churn.groupby(user_activity['plan_type'])['churn_status'].mean() * 100
+print(churn_by_plan.round(2))
+
+print(f"\nImpact of Support Calls on Churn:")
+user_churn['support_calls_group'] = pd.cut(user_churn['support_calls_6months'], 
+                                            bins=[-1, 0, 2, 4, 10],
+                                            labels=['0 calls', '1-2 calls', '3-4 calls', '5+ calls'])
+print(user_churn.groupby('support_calls_group')['churn_status'].mean().round(3) * 100)
 
 # ============================================
-# 13. EXPORT TO CSV (Ready for Database)
+# 14. EXPORT TO CSV (Ready for Database)
 # ============================================
 
 user_activity.to_csv('user_activity.csv', index=False)
 user_data_usage.to_csv('user_data_usage.csv', index=False)
-print("\n Datasets exported to CSV files:")
-print("   - user_activity.csv")
-print("   - user_data_usage.csv")
+user_churn.to_csv('user_churn.csv', index=False)
 
 print("\n" + "=" * 80)
-print(" MACHINE LEARNING READY")
+print("Datasets exported to CSV files:")
+print("=" * 80)
+print("   1. user_activity.csv    - Raw behavioral data")
+print("   2. user_data_usage.csv  - Derived usage metrics")
+print("   3. user_churn.csv       - Churn prediction data 🆕")
+
+print("\n" + "=" * 80)
+print("MACHINE LEARNING READY - THREE DATASETS")
 print("=" * 80)
 print("""
-Features available for ML regression:
-- Hours streaming, social, messaging, gaming
-- Background data
-- Time features (peak hour, weekend)
-- Demographics (age group, plan type)
-- Device and network characteristics
+DATASET 1: user_activity (Features for ML)
+   - Regression: Predict data consumption
+   - Clustering: Segment users by behavior
 
-Target variable: total_data_gb or total_data_mb
+DATASET 2: user_data_usage (Targets for Regression)
+   - Target: total_data_gb
+   - Classification: data_usage_category
 
-This structure allows for:
- Feature engineering (create ratios, interaction terms)
- Time-series analysis (with measurement_date)
- Cohort analysis (by plan type, device)
- Anomaly detection (unusual usage patterns)
- Customer segmentation (by usage category)
+DATASET 3: user_churn (Classification Target)
+   - Binary Classification: churn_status (0/1)
+   - Probability Prediction: churn_probability
+   - Multi-class: churn_reason prediction
+
+🔗 Join all three on: user_id
+
+ Churn Analysis Ideas:
+   - Feature importance: What drives churn?
+   - Early warning system: Flag high-risk users
+   - Retention ROI: Which users are worth saving?
+   - A/B testing: Test retention offers on high-risk segments
 """)
+
+# ============================================
+# 15. SAMPLE ANALYSIS QUERIES (Bonus)
+# ============================================
+
+print("\n" + "=" * 80)
+print(" QUICK ANALYTICS PREVIEW")
+print("=" * 80)
+
+# Correlation between usage and churn
+print("\nData Usage vs Churn Rate:")
+churn_by_usage = user_churn.groupby(user_data_usage['data_usage_category'])['churn_status'].mean() * 100
+print(churn_by_usage.round(2))
+
+# High-value customers at risk
+high_value_at_risk = (
+    (user_churn['churn_probability'] > 0.5) & 
+    (user_data_usage['total_data_gb'] > 5)
+).sum()
+print(f"\n High-value customers at risk (high usage + high churn probability): {high_value_at_risk}")
+
+# Loyal customers
+loyal_customers = (
+    (user_churn['churn_probability'] < 0.2) & 
+    (user_churn['customer_tenure_months'] > 24)
+).sum()
+print(f" Loyal customers (low churn + long tenure): {loyal_customers}")

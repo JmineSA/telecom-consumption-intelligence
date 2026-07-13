@@ -1,0 +1,24 @@
+============================================================
+DATA PREPARATION SUMMARY
+============================================================
+
+Preparation Date: 2026-07-13 13:00:53
+Source File: user_activity_data_daily.csv
+Final Dataset Shape: 10006 rows, 18 columns
+Memory Usage: 4.21 MB
+
+Column Conversions:
+  * streaming_data_mb -> streaming_data_gb
+  * social_data_mb -> social_data_gb
+  * messaging_data_mb -> messaging_data_gb
+  * gaming_data_mb -> gaming_data_gb
+  * total_data_mb -> total_data_gb
+
+Date Range: 2026-03-19 to 2026-04-17
+Total Days: 29
+
+Transformations Applied:
+  * Converted MB columns to GB using telecom standard (÷ 1000)
+  * Removed original MB columns after conversion
+  * Converted measurement_date to datetime
+  * No rows dropped for missing values

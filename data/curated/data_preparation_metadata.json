@@ -1,54 +1,144 @@
 {
-    "preparation_date": "2026-04-23 14:08:53",
-    "shape": [
-        10006,
-        18
+    "preparation_date": "2026-07-13 13:00:53",
+    "stage": "curated",
+    "source_file": "user_activity_data_daily.csv",
+    "source_path": "G:\\Study\\DATA SCINCE\\PROJECTS\\POTFOLIO\\telecom-consumption-intelligence\\data\\processed",
+    "dataset_info": {
+        "shape": {
+            "rows": 10006,
+            "columns": 18
+        },
+        "columns": [
+            "user_id",
+            "measurement_date",
+            "hours_streaming",
+            "hours_social",
+            "hours_messaging",
+            "hours_gaming",
+            "is_peak_hour_user",
+            "is_weekend",
+            "age_group",
+            "plan_type",
+            "device_type",
+            "network_type",
+            "data_usage_category",
+            "streaming_data_gb",
+            "social_data_gb",
+            "messaging_data_gb",
+            "gaming_data_gb",
+            "total_data_gb"
+        ],
+        "dtypes": {
+            "user_id": "object",
+            "measurement_date": "datetime64[ns]",
+            "hours_streaming": "float64",
+            "hours_social": "float64",
+            "hours_messaging": "float64",
+            "hours_gaming": "float64",
+            "is_peak_hour_user": "int64",
+            "is_weekend": "int64",
+            "age_group": "object",
+            "plan_type": "object",
+            "device_type": "object",
+            "network_type": "object",
+            "data_usage_category": "object",
+            "streaming_data_gb": "float64",
+            "social_data_gb": "float64",
+            "messaging_data_gb": "float64",
+            "gaming_data_gb": "float64",
+            "total_data_gb": "float64"
+        },
+        "memory_usage_mb": 4.205280303955078
+    },
+    "transformations_applied": [
+        "Converted MB columns to GB using telecom standard (\u00f7 1000)",
+        "Removed original MB columns after conversion",
+        "Converted measurement_date to datetime",
+        "No rows dropped for missing values"
     ],
-    "columns": [
-        "user_id",
-        "measurement_date",
-        "hours_streaming",
-        "hours_social",
-        "hours_messaging",
-        "hours_gaming",
-        "is_peak_hour_user",
-        "is_weekend",
-        "age_group",
-        "plan_type",
-        "device_type",
-        "network_type",
-        "data_usage_category",
-        "streaming_data_gb",
-        "social_data_gb",
-        "messaging_data_gb",
-        "gaming_data_gb",
-        "total_data_gb"
-    ],
-    "dtypes": {
-        "user_id": "object",
-        "measurement_date": "datetime64[ns]",
-        "hours_streaming": "float64",
-        "hours_social": "float64",
-        "hours_messaging": "float64",
-        "hours_gaming": "float64",
-        "is_peak_hour_user": "int64",
-        "is_weekend": "int64",
-        "age_group": "object",
-        "plan_type": "object",
-        "device_type": "object",
-        "network_type": "object",
-        "data_usage_category": "object",
-        "streaming_data_gb": "float64",
-        "social_data_gb": "float64",
-        "messaging_data_gb": "float64",
-        "gaming_data_gb": "float64",
-        "total_data_gb": "float64"
+    "column_conversions": {
+        "streaming_data_mb": "streaming_data_gb",
+        "social_data_mb": "social_data_gb",
+        "messaging_data_mb": "messaging_data_gb",
+        "gaming_data_mb": "gaming_data_gb",
+        "total_data_mb": "total_data_gb"
+    },
+    "date_range": {
+        "min": "2026-03-19",
+        "max": "2026-04-17",
+        "total_days": 29
     },
     "target_variable": "total_data_gb",
-    "transformations_applied": [
-        "Converted MB columns to GB (\u00f7 1000)",
-        "Removed original MB columns",
-        "Any other transformations you did..."
-    ],
-    "columns_converted": "{'total_data_mb \u2192 total_data_gb', 'streaming_data_mb \u2192 streaming_data_gb', 'messaging_data_mb \u2192 messaging_data_gb', 'gaming_data_mb \u2192 gaming_data_gb', 'social_data_mb \u2192 social_data_gb'}"
+    "statistics": {
+        "hours_streaming": {
+            "mean": 1.6975244853088147,
+            "median": 1.05,
+            "std": 1.8402206476762624,
+            "min": 0.0,
+            "max": 8.0
+        },
+        "hours_social": {
+            "mean": 1.6548480911453127,
+            "median": 1.13,
+            "std": 1.5536784459961712,
+            "min": 0.0,
+            "max": 6.0
+        },
+        "hours_messaging": {
+            "mean": 0.5803188087147712,
+            "median": 0.3,
+            "std": 0.7567881236964122,
+            "min": 0.0,
+            "max": 4.0
+        },
+        "hours_gaming": {
+            "mean": 0.5936877873276034,
+            "median": 0.27,
+            "std": 0.8857734443791919,
+            "min": 0.0,
+            "max": 6.0
+        },
+        "is_peak_hour_user": {
+            "mean": 0.2947231661003398,
+            "median": 0.0,
+            "std": 0.4559410019052911,
+            "min": 0.0,
+            "max": 1.0
+        },
+        "is_weekend": {
+            "mean": 0.27873276034379374,
+            "median": 0.0,
+            "std": 0.44839815196850613,
+            "min": 0.0,
+            "max": 1.0
+        },
+        "streaming_data_gb": {
+            "mean": 2.738070453727763,
+            "median": 1.261215,
+            "std": 3.999998918914663,
+            "min": 0.0,
+            "max": 34.221239999999995
+        },
+        "social_data_gb": {
+            "mean": 0.4176967849290426,
+            "median": 0.251695,
+            "std": 0.44772896089946324,
+            "min": 0.0,
+            "max": 2.39545
+        },
+        "messaging_data_gb": {
+            "mean": 0.0073068698780731555,
+            "median": 0.003515,
+            "std": 0.010491025886174617,
+            "min": 0.0,
+            "max": 0.07983
+        },
+        "gaming_data_gb": {
+            "mean": 0.07096388866679992,
+            "median": 0.029670000000000002,
+            "std": 0.11877113875491228,
+            "min": 0.0,
+            "max": 1.18791
+        }
+    }
 }
