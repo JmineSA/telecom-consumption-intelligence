@@ -35,10 +35,10 @@ This resulted in:
 ## 3. Data Overview
 
 ### Dataset Summary
-- Number of users: [____]
-- Number of features: [____]
-- Time period: [____]
-- Data sources: [____]
+- Number of users: 8,004
+- Number of features: 18
+- Time period: March 2026 - April 2026
+- Data sources:  Synthetic dataset generated for analytical and modelling purposes
 
 ### Key Feature Groups
 - User demographics
