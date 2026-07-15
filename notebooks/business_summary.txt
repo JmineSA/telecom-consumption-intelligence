@@ -1,0 +1,223 @@
+
+================================================================================
+BUSINESS INSIGHTS & RECOMMENDATIONS DASHBOARD - SA TELECOM
+================================================================================
+
+1. PRICING STRATEGY INSIGHTS
+----------------------------------------
+Highest usage plan: Postpaid_Unlimited
+Recommended: Tiered pricing based on age_group and device_type
+
+2. NETWORK INVESTMENT PRIORITIES
+----------------------------------------
+Peak hour usage difference: 0.84 GB
+Recommend: Infrastructure upgrade during peak hours
+
+3. TARGET MARKETING SEGMENTS
+----------------------------------------
+Highest value age group: 18-24
+Highest value device: 5G_Device
+Recommend: Bundle promotions for 18-24 with 5G_Device
+
+4. PRODUCT BUNDLING OPPORTUNITIES
+----------------------------------------
+Highest activity correlation: streaming_data_gb & social_data_gb
+Recommend: Bundle streaming_data_gb with social_data_gb
+
+5. CHURN PREVENTION FOCUS
+----------------------------------------
+Users at high churn risk: 2958
+Recommend: Targeted retention campaigns for these users
+
+================================================================================
+6. PRICING STRATEGY & ARPU OPTIMIZATION (ZAR - SA RANDS)
+================================================================================
+
+ARPU DISTRIBUTION (ZAR)
+----------------------------------------
+Mean ARPU: R274.70
+Median ARPU: R186.88
+Std Dev: R255.61
+Min ARPU: R29.00
+Max ARPU: R1988.98
+
+ARPU BY SEGMENT (ZAR)
+----------------------------------------
+
+By Age Group:
+            mean  median    std  count
+age_group                             
+18-24     326.53  230.85 287.72   1988
+25-34     313.43  224.03 277.14   2450
+35-44     264.56  185.70 235.29   1663
+45-54     205.09  143.80 185.40   1129
+55+       142.35  106.60 120.98    774
+
+By Device Type:
+                     mean  median    std  count
+device_type                                    
+5G_Device          344.87  250.82 288.21   1564
+Basic_Phone        121.86   93.70 107.69    828
+Mid_Range          244.30  165.18 228.64   2778
+Premium_Smartphone 311.90  227.09 270.36   2448
+Tablet             301.20  214.30 260.71    386
+
+By Plan Type:
+                     mean  median    std  count
+plan_type                                      
+Postpaid_Basic     248.22  192.08 169.42   1518
+Postpaid_Premium   363.44  262.34 308.26   1637
+Postpaid_Unlimited 415.08  321.50 338.12   1231
+Prepaid_Daily      209.06  142.41 207.11   1583
+Prepaid_Monthly    189.22  134.79 165.22   2035
+
+By Data Usage Category:
+                      mean  median    std  count
+data_usage_category                             
+Heavy               533.75  518.82 108.21    956
+Light               135.50  133.48  39.77   3153
+Moderate            303.06  291.10  75.25   2173
+Power_User          991.23  912.42 282.63    530
+Very_Light           64.88   61.26  22.42   1192
+
+ARPU Cross-tab Analysis (ZAR):
+----------------------------------------
+By Age Group × Plan Type:
+plan_type  Postpaid_Basic  Postpaid_Premium  Postpaid_Unlimited  Prepaid_Daily  Prepaid_Monthly
+age_group                                                                                      
+18-24              280.95            436.76              501.60         256.31           222.75
+25-34              282.13            421.66              458.04         247.91           215.60
+35-44              239.86            334.75              422.78         187.36           184.24
+45-54              187.77            264.40              314.71         150.37           140.73
+55+                152.93            196.92              190.28          88.09           111.66
+
+By Device Type × Plan Type:
+plan_type           Postpaid_Basic  Postpaid_Premium  Postpaid_Unlimited  Prepaid_Daily  Prepaid_Monthly
+device_type                                                                                             
+5G_Device                   308.91            446.74              515.11         264.10           242.24
+Basic_Phone                 138.15            162.31              176.66          74.86            83.12
+Mid_Range                   226.99            336.49              367.70         175.95           165.70
+Premium_Smartphone          270.18            391.27              482.03         256.03           215.29
+Tablet                      250.99            413.74              456.91         214.31           236.99
+
+PRICING OPTIMIZATION RECOMMENDATIONS (ZAR)
+----------------------------------------
+
+1. Premium Price Point - Target 18-24 Segment
+   Current ARPU: R326.53
+   • Suggested Premium Plan: R408.16/month
+   • Value-adds: HD streaming, data rollover, priority support
+   • Benchmark: Vodacom Red Premium (~R599-799/month)
+   • Benchmark: MTN Sky Premium (~R499-699/month)
+
+2. Volume Discount - Target Postpaid_Unlimited Users
+   Current ARPU: R415.08
+   • Family Plan: R622.62/month for 3 users
+   • Business Plan: R1037.71/month for 5 users
+   • Loyalty: 5% discount for 12+ months, 10% for 24+ months
+   • Benchmark: MTN Family Plan from R399/month
+
+3. Tiered Pricing - Target 5G_Device Users
+   Current ARPU: R344.87
+   • Basic (5GB): R189.68/month
+   • Standard (15GB): R293.14/month
+   • Premium (30GB+): R482.81/month
+   • Benchmark: Cell C data bundles from R99/2GB
+
+4. Bundle Offers - High Correlation Services
+   • Bundle streaming_data_gb + social_data_gb: Save 15-20%
+   • Example: Streaming + Social bundle @ R199.50/month
+   • Benchmark: Vodacom Video & Social Bundle from R149/month
+
+COMPETITIVE MARKET POSITIONING (ZAR)
+----------------------------------------
+Your ARPU: R274.70
+Vodacom ARPU: ~R285 (postpaid), ~R95 (prepaid)
+MTN ARPU: ~R265 (postpaid), ~R85 (prepaid)
+Telkom ARPU: ~R195 (postpaid), ~R65 (prepaid)
+Cell C ARPU: ~R210 (postpaid), ~R75 (prepaid)
+Industry Average: ~R250-350
+
+Positioning: At industry average - focus on differentiation
+
+CROSS-SELL & UPSELL OPPORTUNITIES (ZAR)
+----------------------------------------
+Top 3 High-Value Customer Segments for Upsell:
+   • 18-24 + 5G_Device: R405.64 ARPU
+   • 25-34 + 5G_Device: R398.69 ARPU
+   • 18-24 + Premium_Smartphone: R367.16 ARPU
+
+Low-Value Segments with Growth Potential:
+   • 55+ + Basic_Phone: R77.61 ARPU
+   • 45-54 + Basic_Phone: R102.62 ARPU
+   • 35-44 + Basic_Phone: R117.40 ARPU
+
+PRICE ELASTICITY & OPTIMIZATION (ZAR)
+----------------------------------------
+
+   Postpaid_Basic (Users: 1,518)
+   • Avg Usage: 2.7GB | ARPU: R248.22
+   • Price Elasticity: High (price sensitive)
+   • Strategy: Reduce price by 10-15% to attract more users
+   • Suggested Price: R218.43
+
+   Postpaid_Premium (Users: 1,637)
+   • Avg Usage: 4.9GB | ARPU: R363.44
+   • Price Elasticity: High (price sensitive)
+   • Strategy: Reduce price by 10-15% to attract more users
+   • Suggested Price: R319.83
+
+   Postpaid_Unlimited (Users: 1,231)
+   • Avg Usage: 5.8GB | ARPU: R415.08
+   • Price Elasticity: Medium
+   • Strategy: Maintain price, add value-added services
+   • Suggested Price: R415.08
+
+   Prepaid_Daily (Users: 1,583)
+   • Avg Usage: 1.8GB | ARPU: R209.06
+   • Price Elasticity: High (price sensitive)
+   • Strategy: Reduce price by 10-15% to attract more users
+   • Suggested Price: R183.97
+
+   Prepaid_Monthly (Users: 2,035)
+   • Avg Usage: 2.1GB | ARPU: R189.22
+   • Price Elasticity: High (price sensitive)
+   • Strategy: Reduce price by 10-15% to attract more users
+   • Suggested Price: R166.51
+
+ARPU GROWTH PROJECTION (ZAR)
+----------------------------------------
+Current Average ARPU: R274.70
+
+Projected ARPU by Scenario:
+   • Conservative (10% uplift): R302.17 (+R27.47/user)
+   • Moderate (15% uplift): R315.91 (+R41.21/user)
+   • Aggressive (20% uplift): R329.64 (+R54.94/user)
+   • Optimistic (25% uplift): R343.38 (+R68.68/user)
+
+REVENUE IMPACT CALCULATOR (ZAR)
+----------------------------------------
+Total Active Users: 8,004
+Current Monthly Revenue: R2,198,729.45
+Current Annual Revenue: R26,384,753.40
+Optimized Annual Revenue (20% uplift): R31,661,704.08
+Revenue Uplift Potential: R5,276,950.68 per year
+USD Equivalent: $277,734.25 (at R19/USD)
+Percentage Increase: 20.0%
+
+================================================================================
+SUMMARY OF KEY METRICS
+================================================================================
+Total Users Analyzed: 8,004
+Average Data Usage: 3.30 GB
+Current ARPU: R274.70
+Projected ARPU (20% uplift): R329.64
+Annual Revenue Impact: R5,276,950.68
+High Churn Risk Users: 2,958
+Top Performing Age Group: 18-24
+Top Performing Device: 5G_Device
+Best Bundle Opportunity: streaming_data_gb & social_data_gb
+
+================================================================================
+END OF BUSINESS SUMMARY
+================================================================================

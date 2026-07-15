@@ -1,0 +1,21 @@
+
+CORRELATION MATRIX ANALYSIS
+==================================================
+
+Shape of correlation matrix: (13, 13)
+Total numeric features analyzed: 13
+
+TOP CORRELATIONS:
+--------------------------------------------------
+
+Most Positive Correlations:
+   hours_streaming ↔ hours_social: 0.31
+   hours_streaming ↔ hours_messaging: 0.24
+   hours_streaming ↔ hours_gaming: 0.22
+   hours_streaming ↔ is_peak_hour_user: 0.11
+   hours_streaming ↔ is_weekend: 0.09
+   hours_streaming ↔ streaming_data_gb: 0.85
+   hours_streaming ↔ social_data_gb: 0.30
+   hours_streaming ↔ messaging_data_gb: 0.23
+   hours_streaming ↔ gaming_data_gb: 0.20
+   hours_streaming ↔ total_data_gb: 0.84
