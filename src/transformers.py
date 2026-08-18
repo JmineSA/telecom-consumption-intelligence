@@ -1,4 +1,4 @@
-
+import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 
 # 1. Drop columns
@@ -40,3 +40,5 @@ class CyclicalFeatures(BaseEstimator, TransformerMixin):
         X['month_cos'] = np.cos(2 * np.pi * X['month'] / 12)
 
         return X.drop(columns=['day_of_week', 'month'])
+
+    
