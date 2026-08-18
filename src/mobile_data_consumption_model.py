@@ -9,7 +9,7 @@ from sklearn.metrics import (
     r2_score
 )
 
-from model_pipeline import build_model_pipeline
+from model_trainning_pipeline import build_model_pipeline
 
 
 # ============================================================
