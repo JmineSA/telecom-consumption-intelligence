@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 
-from src.transformers import DropColumns, DateFeatures, CyclicalFeatures
+from transformers import DropColumns, DateFeatures, CyclicalFeatures
 
 
 def build_pipeline():
@@ -20,7 +20,8 @@ def build_pipeline():
         'day_of_week',
         'hour',
         'arpu_zar',
-        'arpu_per_gb'
+        'arpu_per_gb',
+        'churn_risk_score'
     ]
 
 
@@ -59,8 +60,8 @@ def build_pipeline():
         'hours_messaging',
         'hours_gaming',
         'is_peak_hour_user',
-        'is_weekend',
-        'churn_risk_score'
+        'is_weekend'
+    
     ]
 
 
@@ -72,7 +73,8 @@ def build_pipeline():
             ('nom', onehot, nominal_cols),
             ('num', 'passthrough', numeric_cols)
         ],
-        remainder='drop'  #  prevents leakage
+        verbose_feature_names_out=False,
+        remainder='drop'  
     )
 
 
