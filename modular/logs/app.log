@@ -1,0 +1,49 @@
+2026-08-24 17:18:26,637 - telecom_app.src.data.loader - INFO - Loading data from: ../data/processed/train_data.parquet
+2026-08-24 17:18:26,718 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from ../data/processed/train_data.parquet
+2026-08-24 17:18:26,753 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:18:26,783 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:21:41,569 - telecom_app.src.data.loader - INFO - Loading data from: ../data/processed/train_data.parquet
+2026-08-24 17:21:41,627 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from ../data/processed/train_data.parquet
+2026-08-24 17:21:41,654 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:21:41,661 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:23:34,323 - telecom_app.src.data.loader - INFO - Loading data from: ../data/processed/train_data.parquet
+2026-08-24 17:23:34,386 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from ../data/processed/train_data.parquet
+2026-08-24 17:23:34,412 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:23:34,420 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:26:36,176 - telecom_app.src.data.loader - INFO - Loading data from: ../data/processed/train_data.parquet
+2026-08-24 17:26:36,237 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from ../data/processed/train_data.parquet
+2026-08-24 17:26:36,262 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:26:36,270 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:00,038 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:00,050 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:00,149 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-08-24 17:27:20,284 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:20,296 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:21,053 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:21,068 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:22,298 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:22,313 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:25,082 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:25,096 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:27:25,186 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-08-24 17:30:03,082 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:03,117 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:03,197 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-08-24 17:30:05,710 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:05,728 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:05,811 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-08-24 17:30:07,582 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:07,593 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:08,396 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:08,417 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:09,305 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:09,327 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:10,179 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:10,190 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:30:10,324 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-08-24 17:31:27,353 - telecom_app.src.data.loader - INFO - Loading data from: ../data/processed/train_data.parquet
+2026-08-24 17:31:27,414 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from ../data/processed/train_data.parquet
+2026-08-24 17:31:27,439 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:31:27,446 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl
+2026-08-24 17:35:51,946 - telecom_app.src.models.manager - INFO - Found existing model at: ../models/gradient_boosting_final.pkl
+2026-08-24 17:35:51,959 - telecom_app.src.models.manager - INFO - Loaded existing model from: ../models/gradient_boosting_final.pkl

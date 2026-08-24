@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 
-from transformers import DropColumns, DateFeatures, CyclicalFeatures
+from custom_transformers import DropColumns, DateFeatures, CyclicalFeatures
 
 
 def build_pipeline():

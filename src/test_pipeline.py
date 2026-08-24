@@ -1,11 +1,11 @@
 import pandas as pd
 
-from model_pipeline import build_model_pipeline
+from model_trainning_pipeline import build_model_pipeline
 
 
 # Load data
 df = pd.read_parquet(
-    "data/processed/train_data.parquet"
+    "data/processed/tra.parquet"
 )
 
 # Separate features and target
