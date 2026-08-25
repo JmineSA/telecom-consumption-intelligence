@@ -227,7 +227,8 @@ def render_predict(df: pd.DataFrame, model_info: Dict[str, Any]):
                     'plan': input_dict['plan_type'],
                     'device': input_dict['device_type'],
                     'hours': input_dict,
-                    'latency': latency
+                    'latency': latency,
+                    'input_df': input_df
                 }
                 
                 st.session_state.total_predictions += 1
@@ -264,6 +265,129 @@ def render_predict(df: pd.DataFrame, model_info: Dict[str, Any]):
                 </div>
             </div>
             """, unsafe_allow_html=True)
+            
+            # ========== SHAP EXPLANATION SECTION ==========
+            st.markdown("---")
+            st.subheader("🔍 Why This Prediction?")
+            
+            # Check if explainer is ready
+            if st.session_state.get('explainer_ready', False) and st.session_state.get('explainer') is not None:
+                
+                # Button to show explanation
+                if st.button("🔍 Explain This Prediction", key="explain_btn", use_container_width=True):
+                    with st.spinner("Generating explanation..."):
+                        try:
+                            # Get explainer and generate explanation
+                            explainer = st.session_state.explainer
+                            
+                            # Get the input data
+                            input_df = results.get('input_df')
+                            if input_df is not None:
+                                # Generate explanation
+                                explanation = explainer.explain_prediction(
+                                    model_info['model'], 
+                                    input_df
+                                )
+                                
+                                st.session_state.explanation = explanation
+                                st.session_state.show_explanation = True
+                            else:
+                                st.warning("No input data available for explanation")
+                                
+                        except Exception as e:
+                            st.error(f"Error generating explanation: {str(e)}")
+                
+                # Show explanation if available
+                if st.session_state.get('show_explanation', False) and st.session_state.get('explanation') is not None:
+                    explanation = st.session_state.explanation
+                    
+                    # Display summary
+                    from ..models.explainer import ModelExplainer
+                    temp_explainer = ModelExplainer()
+                    summary = temp_explainer.get_explanation_summary(explanation)
+                    
+                    st.markdown(f"""
+                    <div class="insight-modern primary" style="margin: 1rem 0;">
+                        <div class="title">📝 Explanation Summary</div>
+                        <div class="desc">{summary['summary']}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+                    
+                    # Show waterfall plot
+                    fig_waterfall = temp_explainer.plot_waterfall(explanation)
+                    if fig_waterfall:
+                        st.plotly_chart(fig_waterfall, use_container_width=True, key="waterfall_plot")
+                    
+                    # Show top contributing features
+                    col_inc, col_dec = st.columns(2)
+                    
+                    with col_inc:
+                        st.markdown("#### 📈 Increasing Factors")
+                        positive = explanation.get('top_positive', [])
+                        if positive:
+                            for item in positive:
+                                feature_name = item['feature'].replace('_', ' ').title()
+                                impact = item['impact']
+                                st.markdown(f"""
+                                <div style="background: #dcfce7; border-radius: 8px; padding: 0.5rem 1rem; margin: 0.3rem 0; display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-weight: 500;">{feature_name}</span>
+                                    <span style="color: #16a34a; font-weight: 700;">+{impact:.2f} GB</span>
+                                </div>
+                                """, unsafe_allow_html=True)
+                        else:
+                            st.info("No positive contributing factors")
+                    
+                    with col_dec:
+                        st.markdown("#### 📉 Reducing Factors")
+                        negative = explanation.get('top_negative', [])
+                        if negative:
+                            for item in negative:
+                                feature_name = item['feature'].replace('_', ' ').title()
+                                impact = abs(item['impact'])
+                                st.markdown(f"""
+                                <div style="background: #fee2e2; border-radius: 8px; padding: 0.5rem 1rem; margin: 0.3rem 0; display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-weight: 500;">{feature_name}</span>
+                                    <span style="color: #dc2626; font-weight: 700;">-{impact:.2f} GB</span>
+                                </div>
+                                """, unsafe_allow_html=True)
+                        else:
+                            st.info("No negative reducing factors")
+                    
+                    # Show SHAP summary plot (optional)
+                    if st.button("📊 Show SHAP Summary for All Features", key="shap_summary_btn"):
+                        with st.spinner("Generating SHAP summary..."):
+                            try:
+                                shap_fig = temp_explainer.plot_shap_summary(
+                                    model_info['model'], 
+                                    df
+                                )
+                                if shap_fig:
+                                    st.plotly_chart(shap_fig, use_container_width=True, key="shap_summary_plot")
+                            except Exception as e:
+                                st.error(f"Error generating SHAP summary: {str(e)}")
+                            
+            else:
+                st.info("💡 SHAP explanations are not available. Train the model with real data to enable this feature.")
+                
+                # Show fallback: simple feature importance
+                if hasattr(model_info['model'], 'feature_importances_'):
+                    st.markdown("#### 📊 Feature Importance (Simplified)")
+                    importance = model_info['model'].feature_importances_
+                    feature_df = pd.DataFrame({
+                        'Feature': EXPECTED_FEATURES[:len(importance)],
+                        'Importance': importance[:len(EXPECTED_FEATURES)]
+                    }).sort_values('Importance', ascending=False).head(5)
+                    
+                    for _, row in feature_df.iterrows():
+                        feature_name = row['Feature'].replace('_', ' ').title()
+                        imp = row['Importance']
+                        st.markdown(f"""
+                        <div style="background: #f1f5f9; border-radius: 8px; padding: 0.5rem 1rem; margin: 0.3rem 0; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 500;">{feature_name}</span>
+                            <span style="color: #1a237e; font-weight: 700;">{imp:.1%}</span>
+                        </div>
+                        """, unsafe_allow_html=True)
+            # ========== END EXPLANATION SECTION ==========
 
 
 def render_analytics(df: pd.DataFrame, analytics_vis, dashboard_vis):

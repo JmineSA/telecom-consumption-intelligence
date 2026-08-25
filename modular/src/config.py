@@ -35,13 +35,29 @@ class DataConfig:
     max_file_size_mb: int = 100
     supported_formats: List[str] = field(default_factory=lambda: ['csv', 'parquet'])
     
-    # These paths go up one level to access the parent project's data
+    # Get the absolute path to the data directory
+    @staticmethod
+    def _get_base_dir():
+        """Get the base directory (parent of modular)"""
+        # This file is in modular/src/config.py
+        # So we need to go up 2 levels to get the project root
+        current_file = os.path.abspath(__file__)
+        modular_dir = os.path.dirname(os.path.dirname(current_file))  # modular/
+        project_dir = os.path.dirname(modular_dir)  # telecom-consumption-intelligence/
+        return project_dir
+    
+    # Build paths dynamically
     default_data_paths: List[str] = field(default_factory=lambda: [
+        # Absolute paths using the project directory
+        os.path.join(DataConfig._get_base_dir(), 'data', 'processed', 'train_data.parquet'),
+        os.path.join(DataConfig._get_base_dir(), 'data', 'train_data.parquet'),
+        os.path.join(DataConfig._get_base_dir(), 'data', 'user_activity_data_daily.csv'),
+        os.path.join(DataConfig._get_base_dir(), 'data', 'user_activity_data_processed.csv'),
+        # Fallback relative paths
         '../data/processed/train_data.parquet',
         '../data/train_data.parquet',
-        '../data/processed/train_data.parquet',
         '../data/user_activity_data_daily.csv',
-        '../data/user_activity_data_processed.csv'
+        '../data/user_activity_data_processed.csv',
     ])
     sample_size_preview: int = 1000
 
