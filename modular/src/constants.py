@@ -82,7 +82,8 @@ TABS = {
     'maintenance': {'icon': '🔧', 'label': 'Maintenance'},
     'model': {'icon': '🧠', 'label': 'Model'},
     'data_explorer': {'icon': '📊', 'label': 'Data Explorer'},
-    'monitoring': {'icon': '📋', 'label': 'Monitoring'}
+    'monitoring': {'icon': '📋', 'label': 'Monitoring'},
+    'security': {'icon': '🔐', 'label': 'Security Demo'}  # ← ADD THIS
 }
 
 # Get tab keys in order
