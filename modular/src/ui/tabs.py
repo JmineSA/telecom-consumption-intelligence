@@ -4,7 +4,7 @@ Tab definitions and rendering - COMPLETE WITH ALL TABS
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.graph_objects as go  
+import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 from typing import Optional, Dict, Any
@@ -995,8 +995,8 @@ def render_ab_testing(df: pd.DataFrame):
                     st.json(results)
 
 
-def render_revenue(df: pd.DataFrame):
-    """Render Revenue tab - ENHANCED VERSION"""
+def render_revenue(df: pd.DataFrame, model_info: Dict[str, Any] = None):
+    """Render Revenue tab - ENHANCED VERSION with Full PDF Report Support"""
     UIComponents.section_title("💰 Revenue Opportunity & Financial Insights")
     
     st.markdown("""
@@ -1089,7 +1089,6 @@ def render_revenue(df: pd.DataFrame):
     
     with col1:
         if len(arpu_by_plan) > 0:
-            # FIX: Convert values to list for text display
             arpu_values = arpu_by_plan.values
             arpu_labels = arpu_by_plan.index.tolist()
             
@@ -1100,7 +1099,7 @@ def render_revenue(df: pd.DataFrame):
                 y=arpu_values,
                 marker_color=arpu_values,
                 marker_colorscale='Greens',
-                text=[f'R{x:.2f}' for x in arpu_values],  # FIX: Use list comprehension
+                text=[f'R{x:.2f}' for x in arpu_values],
                 textposition='outside',
                 name='ARPU by Plan'
             ))
@@ -1219,7 +1218,7 @@ def render_revenue(df: pd.DataFrame):
                     y=arpu_by_age.values,
                     marker_color=arpu_by_age.values,
                     marker_colorscale='Blues',
-                    text=[f'R{x:.2f}' for x in arpu_by_age.values],  # FIX: Use list comprehension
+                    text=[f'R{x:.2f}' for x in arpu_by_age.values],
                     textposition='outside'
                 ))
                 
@@ -1248,7 +1247,7 @@ def render_revenue(df: pd.DataFrame):
                     y=arpu_by_network.values,
                     marker_color=arpu_by_network.values,
                     marker_colorscale='Purples',
-                    text=[f'R{x:.2f}' for x in arpu_by_network.values],  # FIX: Use list comprehension
+                    text=[f'R{x:.2f}' for x in arpu_by_network.values],
                     textposition='outside'
                 ))
                 
@@ -1381,56 +1380,178 @@ def render_revenue(df: pd.DataFrame):
     st.plotly_chart(fig_forecast, use_container_width=True, key="revenue_forecast")
     
     # ============================================================================
-    # 7. REPORT GENERATION
+    # 7. COMPREHENSIVE REPORT GENERATION WITH PDF
     # ============================================================================
     st.markdown("---")
-    st.subheader("📄 Generate Revenue Report")
+    st.subheader("📄 Generate Comprehensive Business Report")
     
-    col1, col2, col3 = st.columns(3)
+    st.markdown("""
+    Generate a complete business intelligence report with:
+    - ✅ Executive Summary with Key Metrics
+    - ✅ Usage Analytics & Distribution
+    - ✅ Customer Segment Analysis (Plan, Age, Network)
+    - ✅ Revenue Analysis & ARPU Breakdown
+    - ✅ Recent Predictions Log
+    - ✅ Model Performance Metrics
+    - ✅ Strategic Recommendations with Priorities
+    - ✅ Multiple Export Formats: HTML, Markdown, JSON, PDF
+    """)
+    
+    col1, col2, col3, col4, col5 = st.columns(5)
     
     with col1:
-        if st.button("📄 Generate Report", use_container_width=True):
-            with st.spinner("Generating report..."):
-                from ..utils.report_generator import ReportGenerator
-                report_gen = ReportGenerator()
-                
-                # Generate HTML report
-                html_report = report_gen.generate_html_report(
-                    df, 
-                    metrics, 
-                    st.session_state.prediction_history
-                )
-                
-                st.session_state.html_report = html_report
-                st.success("✅ Report generated!")
+        if st.button("📊 Generate Report", use_container_width=True, type="primary"):
+            with st.spinner("Generating comprehensive report..."):
+                try:
+                    from ..utils.report_generator import ReportGenerator
+                    report_gen = ReportGenerator()
+                    
+                    # Generate full report
+                    report = report_gen.generate_full_report(
+                        df=df,
+                        metrics=metrics,
+                        predictions=st.session_state.prediction_history,
+                        model_info=model_info
+                    )
+                    
+                    st.session_state.full_report = report
+                    st.success("✅ Report generated successfully!")
+                    st.balloons()
+                    
+                except Exception as e:
+                    st.error(f"❌ Error generating report: {str(e)}")
+                    import traceback
+                    st.code(traceback.format_exc())
     
-    with col2:
-        if st.session_state.get('html_report'):
+    # ============================================================================
+    # DOWNLOAD BUTTONS
+    # ============================================================================
+    if st.session_state.get('full_report'):
+        report = st.session_state.full_report
+        pdf_available = report.get('pdf_available', False)
+        
+        st.markdown("### 📥 Download Report")
+        
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            html_report = report['formats']['html']
             st.download_button(
-                label="📥 Download HTML",
-                data=st.session_state.html_report,
-                file_name=f"revenue_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html",
+                label="📄 HTML",
+                data=html_report,
+                file_name=f"telecom_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html",
                 mime="text/html",
                 use_container_width=True
             )
-    
-    with col3:
-        if st.session_state.get('html_report'):
-            # Try PDF (may fail without WeasyPrint)
-            try:
-                from ..utils.report_generator import ReportGenerator
-                report_gen = ReportGenerator()
-                pdf_bytes = report_gen.export_to_pdf(st.session_state.html_report)
+        
+        with col2:
+            markdown_report = report['formats']['markdown']
+            st.download_button(
+                label="📝 Markdown",
+                data=markdown_report,
+                file_name=f"telecom_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
+                mime="text/markdown",
+                use_container_width=True
+            )
+        
+        with col3:
+            json_report = report['formats']['json']
+            st.download_button(
+                label="📊 JSON",
+                data=json_report,
+                file_name=f"telecom_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                mime="application/json",
+                use_container_width=True
+            )
+        
+        with col4:
+            if pdf_available:
+                pdf_bytes = report['formats'].get('pdf')
                 if pdf_bytes:
                     st.download_button(
-                        label="📥 Download PDF",
+                        label="📕 PDF",
                         data=pdf_bytes,
-                        file_name=f"revenue_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
+                        file_name=f"telecom_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
                         mime="application/pdf",
-                        use_container_width=True
+                        use_container_width=True,
+                        type="primary"
                     )
-            except:
-                st.info("💡 PDF generation requires WeasyPrint installation")
+                else:
+                    st.button("📕 PDF (Error)", disabled=True, use_container_width=True)
+            else:
+                st.button("📕 PDF (Not Available)", disabled=True, use_container_width=True)
+                st.caption("💡 Install reportlab for PDF: `pip install reportlab`")
+        
+        # PDF Status
+        if pdf_available:
+            st.success("✅ PDF generation is available")
+        else:
+            st.info("""
+            💡 **PDF Generation Options:**
+            - **Easy:** `pip install reportlab` (pure Python, no dependencies)
+            - **Better:** `pip install weasyprint` (better formatting, requires GTK)
+            - **Alternative:** `pip install pdfkit` (requires wkhtmltopdf)
+            """)
+    
+    # ============================================================================
+    # REPORT PREVIEW
+    # ============================================================================
+    if st.session_state.get('full_report'):
+        with st.expander("📄 Preview Report", expanded=False):
+            st.markdown("### 📊 Report Preview")
+            st.markdown("---")
+            
+            report_data = st.session_state.full_report['data']
+            summary = report_data.get('summary', {})
+            
+            col1, col2, col3, col4 = st.columns(4)
+            with col1:
+                st.metric("👥 Subscribers", f"{summary.get('total_subscribers', 0):,}")
+            with col2:
+                st.metric("📊 Avg Usage", f"{summary.get('avg_usage', 0):.1f} GB")
+            with col3:
+                st.metric("🔥 Heavy Users", f"{summary.get('pct_heavy', 0):.1f}%")
+            with col4:
+                st.metric("📡 5G Adoption", f"{summary.get('pct_5g', 0):.1f}%")
+            
+            st.markdown("---")
+            
+            # Usage statistics
+            usage = report_data.get('usage_analysis', {})
+            if usage:
+                st.markdown("### 📈 Usage Statistics")
+                stats = usage.get('statistics', {})
+                col1, col2, col3, col4 = st.columns(4)
+                with col1:
+                    st.metric("Mean", f"{stats.get('mean', 0):.2f} GB")
+                with col2:
+                    st.metric("Median", f"{stats.get('median', 0):.2f} GB")
+                with col3:
+                    st.metric("Min", f"{stats.get('min', 0):.2f} GB")
+                with col4:
+                    st.metric("Max", f"{stats.get('max', 0):.2f} GB")
+            
+            st.markdown("---")
+            
+            # Recommendations
+            recommendations = report_data.get('recommendations', [])
+            if recommendations:
+                st.markdown("### 💡 Top Recommendations")
+                for rec in recommendations[:3]:
+                    priority_color = {
+                        'High': '🔴',
+                        'Medium': '🟡',
+                        'Low': '🟢'
+                    }.get(rec.get('priority', 'Low'), '⚪')
+                    st.markdown(f"""
+                    **{priority_color} {rec['title']}**  
+                    {rec['description']}  
+                    *Action: {rec['action']}*  
+                    *Priority: {rec.get('priority', 'Low')} · Category: {rec.get('category', 'General')}*
+                    ---
+                    """)
+            
+            st.caption(f"📅 Report generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     # Revenue recommendations
     st.markdown("---")
