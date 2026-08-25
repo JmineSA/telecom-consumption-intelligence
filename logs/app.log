@@ -125,3 +125,458 @@
 2026-08-25 12:14:36,053 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
 2026-08-25 12:14:36,061 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
 2026-08-25 12:14:36,062 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:12,278 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:12,278 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:12,814 - telecom_app.src.data.loader - INFO - Loading data from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\data\processed\train_data.parquet
+2026-08-25 12:15:12,875 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\data\processed\train_data.parquet
+2026-08-25 12:15:12,905 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:12,906 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:12,906 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:12,914 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:15:12,915 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:15:14,894 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:15:14,903 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:15:14,904 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:20,863 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:20,863 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:20,900 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:20,900 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:20,901 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:20,911 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:15:20,911 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:15:20,936 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:15:20,943 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:15:20,944 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:24,591 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:24,592 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:24,630 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:24,631 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:24,631 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:24,641 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:15:24,641 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:15:24,667 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:15:24,675 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:15:24,676 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:27,553 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:27,554 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:27,592 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:27,592 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:27,592 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:27,600 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:15:27,600 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:15:27,627 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:15:27,635 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:15:27,636 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:28,909 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:28,910 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:28,942 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:28,943 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:28,943 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:28,953 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:15:28,953 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:15:28,976 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:15:28,984 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:15:28,985 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:29,067 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:29,067 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:29,070 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-08-25 12:15:32,549 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:32,550 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:32,586 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:32,587 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:32,587 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:32,597 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:15:32,597 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:15:32,617 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:15:32,629 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:15:32,630 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:32,733 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-08-25 12:15:52,177 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:52,177 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:52,215 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:52,216 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:52,216 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:52,225 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:15:52,225 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:15:52,246 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:15:52,255 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:15:52,256 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:52,365 - telecom_app.src.models.explainer - WARNING - SHAP explainer not ready
+2026-08-25 12:15:54,348 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:54,349 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:54,383 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:54,384 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:54,384 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:54,397 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:15:54,397 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:15:54,426 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:15:54,434 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:15:54,434 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:54,529 - telecom_app.src.models.explainer - WARNING - SHAP explainer not ready
+2026-08-25 12:15:57,348 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:15:57,349 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:57,386 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:15:57,387 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:57,387 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:15:57,397 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:15:57,397 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:15:57,413 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:15:57,423 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:15:57,424 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:15:57,530 - telecom_app.src.models.explainer - WARNING - SHAP explainer not ready
+2026-08-25 12:16:17,029 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:16:17,030 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:16:17,069 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:16:17,070 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:16:17,070 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:16:17,079 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:16:17,080 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:16:17,102 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:16:17,112 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:16:17,112 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:16:18,388 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:16:18,389 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:16:18,428 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:16:18,429 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:16:18,429 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:16:18,438 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:16:18,438 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:16:18,456 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:16:18,465 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:16:18,466 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:16:19,256 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:16:19,257 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:16:19,294 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:16:19,294 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:16:19,294 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:16:19,306 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:16:19,306 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:16:19,328 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:16:19,345 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:16:19,390 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:25,028 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:19:25,029 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:25,507 - telecom_app.src.data.loader - INFO - Loading data from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\data\processed\train_data.parquet
+2026-08-25 12:19:25,564 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\data\processed\train_data.parquet
+2026-08-25 12:19:25,593 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:25,594 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:25,594 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:25,601 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:19:25,601 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:19:27,433 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:19:27,440 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:19:27,441 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:34,408 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:19:34,408 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:34,450 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:34,451 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:34,451 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:34,465 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:19:34,465 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:19:34,491 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:19:34,505 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:19:34,505 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:37,486 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:19:37,487 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:37,518 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:37,519 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:37,519 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:37,530 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:19:37,530 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:19:37,561 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:19:37,574 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:19:37,574 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:37,910 - telecom_app.src.analytics.anomalies - INFO - Detected 1438 anomalies
+2026-08-25 12:19:42,782 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:19:42,782 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:42,822 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:42,822 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:42,822 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:42,830 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:19:42,831 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:19:42,850 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:19:42,860 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:19:42,860 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:44,538 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:19:44,539 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:44,573 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:44,573 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:44,574 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:44,583 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:19:44,583 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:19:44,600 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:19:44,611 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:19:44,612 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:46,367 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:19:46,368 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:46,400 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:46,401 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:46,401 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:46,410 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:19:46,410 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:19:46,430 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:19:46,445 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:19:46,446 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:47,302 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:19:47,302 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:47,337 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:47,337 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:47,338 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:47,345 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:19:47,345 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:19:47,361 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:19:47,375 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:19:47,376 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:48,593 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:19:48,594 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:48,627 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:48,628 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:48,628 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:48,636 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:19:48,637 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:19:48,651 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:19:48,662 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:19:48,663 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:49,222 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:19:49,223 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:49,261 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:19:49,262 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:49,262 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:19:49,274 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:19:49,274 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:19:49,374 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:19:49,390 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:19:49,392 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:19:49,716 - telecom_app.src.analytics.anomalies - INFO - Detected 402 anomalies
+2026-08-25 12:24:20,156 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:24:20,157 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:20,198 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:20,198 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:20,199 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:20,209 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:24:20,209 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:24:20,239 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:24:20,258 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:24:20,259 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:24:20,902 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:24:20,903 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:20,935 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:20,935 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:20,936 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:20,948 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:24:20,949 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:24:20,965 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:24:20,975 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:24:20,976 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:24:21,240 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:24:21,242 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:21,431 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:21,432 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:21,432 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:21,439 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:24:21,439 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:24:21,453 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:24:21,462 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:24:21,463 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:24:21,629 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:24:21,631 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:21,800 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:21,800 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:21,800 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:21,810 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:24:21,811 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:24:21,827 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:24:21,835 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:24:21,835 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:24:21,974 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:24:21,975 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:22,129 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:22,130 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:22,130 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:22,140 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:24:22,140 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:24:22,160 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:24:22,168 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:24:22,169 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:24:22,332 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:24:22,333 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:22,501 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:22,501 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:22,502 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:22,509 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:24:22,509 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:24:22,529 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:24:22,536 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:24:22,537 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:24:22,838 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:24:22,839 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:23,002 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:23,003 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:23,003 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:23,010 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:24:23,010 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:24:23,023 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:24:23,029 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:24:23,030 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:24:23,432 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:24:23,433 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:23,461 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:23,461 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:23,461 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:23,468 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:24:23,469 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:24:23,489 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:24:23,496 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:24:23,498 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:24:25,448 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:24:25,449 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:25,482 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:24:25,483 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:25,483 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:24:25,493 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:24:25,493 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:24:25,509 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:24:25,522 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:24:25,523 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:24:25,869 - telecom_app.src.analytics.anomalies - INFO - Detected 201 anomalies
+2026-08-25 12:25:29,768 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:25:29,768 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:29,813 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:29,814 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:29,814 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:29,826 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:25:29,827 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:25:29,851 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:25:29,861 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:25:29,862 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:25:30,353 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:25:30,354 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:30,387 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:30,387 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:30,387 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:30,399 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:25:30,399 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:25:30,421 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:25:30,429 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:25:30,431 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:25:30,891 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:25:30,892 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:30,920 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:30,921 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:30,921 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:30,931 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:25:30,931 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:25:30,966 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:25:31,021 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:25:31,022 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:25:32,192 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:25:32,193 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:32,228 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:32,229 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:32,230 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:32,240 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:25:32,240 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:25:32,259 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:25:32,275 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:25:32,277 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:25:33,553 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:25:33,553 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:33,588 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:25:33,589 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:33,589 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:25:33,598 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:25:33,598 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:25:33,613 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:25:33,627 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:25:33,628 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:25:33,950 - telecom_app.src.analytics.anomalies - INFO - Detected 95 anomalies
+2026-08-25 12:28:23,346 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:28:23,346 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:23,392 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:23,392 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:23,392 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:23,406 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:28:23,406 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:28:23,429 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:28:23,439 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:28:23,440 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:28:23,909 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:28:23,910 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:23,939 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:23,939 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:23,940 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:23,948 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:28:23,948 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:28:23,965 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:28:23,975 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:28:23,975 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:28:24,417 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:28:24,417 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:24,444 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:24,445 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:24,445 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:24,454 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:28:24,455 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:28:24,480 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:28:24,490 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:28:24,491 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:28:25,346 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:28:25,347 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:25,378 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:25,378 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:25,379 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:25,388 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:28:25,388 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:28:25,412 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:28:25,420 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:28:25,420 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:28:25,854 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:28:25,854 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:25,882 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:25,882 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:25,883 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:25,891 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:28:25,892 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:28:25,915 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:28:25,923 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:28:25,923 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:28:26,560 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:28:26,560 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:26,593 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:26,594 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:26,594 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:26,605 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:28:26,605 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:28:26,627 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:28:26,636 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:28:26,638 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:28:27,745 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:28:27,746 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:27,780 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:27,781 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:27,781 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:27,789 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:28:27,789 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:28:27,805 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:28:27,820 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:28:27,820 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:28:28,506 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:28:28,506 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:28,541 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:28,542 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:28,542 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:28,552 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:28:28,552 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:28:28,575 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:28:28,587 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:28:28,588 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-08-25 12:28:41,202 - telecom_app.src.models.manager - INFO - Project directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence
+2026-08-25 12:28:41,202 - telecom_app.src.models.manager - INFO - Models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:41,227 - telecom_app.src.models.manager - INFO - Checking models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models
+2026-08-25 12:28:41,227 - telecom_app.src.models.manager - INFO - Found model in project models directory: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:41,228 - telecom_app.src.models.manager - INFO - Loading model from: G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\models\gradient_boosting_final.pkl
+2026-08-25 12:28:41,235 - telecom_app.src.models.manager - INFO - Loaded existing model successfully
+2026-08-25 12:28:41,235 - telecom_app.src.models.manager - INFO - Model R²: 0.9512689659632382
+2026-08-25 12:28:41,254 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
+2026-08-25 12:28:41,265 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-08-25 12:28:41,265 - telecom_app.__main__ - INFO - SHAP explainer created: True
