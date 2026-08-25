@@ -6,6 +6,9 @@ import sys
 import os
 import pandas as pd
 from typing import Optional
+from src.ui.onboarding import OnboardingWizard
+from src.ui.shortcuts import KeyboardShortcuts
+from src.utils.report_generator import ReportGenerator
 
 # ============================================================================
 # FIX: Set up paths correctly

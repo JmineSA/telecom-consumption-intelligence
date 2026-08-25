@@ -277,9 +277,31 @@ class ModelMetrics:
     """Calculate and manage model metrics"""
     
     @staticmethod
-    def calculate_arpu(usage_gb: float, plan_type: str) -> float:
-        """Calculate ARPU based on usage and plan"""
-        pricing = PRICING_BENCHMARKS.get(plan_type, PRICING_BENCHMARKS['Prepaid'])
+    def calculate_arpu(usage_gb: float, plan_type) -> float:
+        """
+        Calculate ARPU based on usage and plan type
+        
+        Args:
+            usage_gb: Data usage in GB
+            plan_type: Plan type (can be string name or integer index)
+        
+        Returns:
+            Calculated ARPU in ZAR
+        """
+        from ..constants import PRICING_BENCHMARKS, REV_PLAN
+        import numpy as np
+        
+        # ============================================================================
+        # FIX: Convert plan_type to string if it's numeric
+        # ============================================================================
+        # If plan_type is numeric (0, 1, 2, 3, 4), convert to plan name
+        if isinstance(plan_type, (int, float, np.integer)):
+            plan_name = REV_PLAN.get(int(plan_type), 'Prepaid')
+        else:
+            plan_name = plan_type
+        
+        # Get pricing for the plan
+        pricing = PRICING_BENCHMARKS.get(plan_name, PRICING_BENCHMARKS['Prepaid'])
         data_charge = usage_gb * pricing['base_rate_per_gb']
         monthly_fee = pricing['monthly_fee']
         
@@ -295,7 +317,12 @@ class ModelMetrics:
         else:
             arpu = (data_charge * 1.15) + monthly_fee
         
-        min_arpu = 29 if 'Prepaid' in plan_type else 79
+        # Determine minimum ARPU based on plan type
+        if 'Prepaid' in plan_name:
+            min_arpu = 29
+        else:
+            min_arpu = 79
+        
         return round(max(min_arpu, arpu), 2)
     
     @staticmethod

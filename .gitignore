@@ -1,10 +1,22 @@
-# Python 
-__pycache__/ 
-*.pyc 
-.ipynb_checkpoints/ 
-data/*.csv 
-*.csv 
-*.pkl 
-*.joblib 
-.vscode/ 
-.env 
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Logs
+logs/
+*.log
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

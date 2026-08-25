@@ -20,6 +20,19 @@ def render_sidebar(train_df: Optional[pd.DataFrame],
                    model_info: Optional[Dict[str, Any]]):
     """Render the sidebar"""
     
+    # ========== DARK MODE TOGGLE ==========
+    st.markdown("### 🎨 Theme")
+    dark_mode = st.toggle(
+        "🌙 Dark Mode", 
+        value=st.session_state.get('dark_mode', False),
+        key="dark_mode_toggle"
+    )
+    if dark_mode != st.session_state.get('dark_mode', False):
+        st.session_state.dark_mode = dark_mode
+        st.rerun()
+    st.markdown("---")
+    # ========== END DARK MODE ==========
+    
     # Logo and header
     st.markdown("""
     <div style="text-align: center; padding: 1rem 0;">

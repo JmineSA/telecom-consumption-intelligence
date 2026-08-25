@@ -68,16 +68,22 @@ COLORS = {
     'gray': '#64748b'
 }
 
-# Tab configurations
+# Tab configurations - UPDATED WITH ALL TABS
 TABS = {
     'command_centre': {'icon': '🏠', 'label': 'Command Centre'},
     'predict': {'icon': '🎯', 'label': 'Predict & Explain'},
     'analytics': {'icon': '📊', 'label': 'Analytics'},
     'forecast': {'icon': '🔮', 'label': 'Forecast'},
     'segmentation': {'icon': '👥', 'label': 'Segmentation'},
+    'cohorts': {'icon': '📊', 'label': 'Cohort Analysis'},
+    'ab_testing': {'icon': '🧪', 'label': 'A/B Testing'},
     'revenue': {'icon': '💰', 'label': 'Revenue'},
     'network': {'icon': '📡', 'label': 'Network'},
+    'maintenance': {'icon': '🔧', 'label': 'Maintenance'},
     'model': {'icon': '🧠', 'label': 'Model'},
     'data_explorer': {'icon': '📊', 'label': 'Data Explorer'},
     'monitoring': {'icon': '📋', 'label': 'Monitoring'}
 }
+
+# Get tab keys in order
+TAB_KEYS = list(TABS.keys())
