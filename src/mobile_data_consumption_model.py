@@ -168,17 +168,44 @@ print(f"R² Gap: {overfitting_gap:.4f}")
 # 11. SAVE COMPLETE PIPELINE
 # ============================================================
 
-model_path = (
-    "models/mobile_data_consumption_pipeline.pkl"
-)
+from pathlib import Path
+import joblib
+import json
+from datetime import datetime
 
-joblib.dump(
-    pipeline,
-    model_path
-)
+model_dir = Path("models")
+model_dir.mkdir(parents=True, exist_ok=True)
 
-print("\n" + "=" * 70)
-print("MODEL SAVED")
-print("=" * 70)
+# Define paths
+model_path = model_dir / "mobile_data_consumption_pipeline.pkl"
+info_path = model_dir / "model_info.json"
 
-print(f"Saved to: {model_path}")
+# Save the model
+joblib.dump(pipeline, model_path)
+
+# Get feature information
+if hasattr(pipeline, 'feature_names_in_'):
+    feature_names = pipeline.feature_names_in_.tolist()
+elif hasattr(pipeline, 'get_feature_names_out'):
+    feature_names = pipeline.get_feature_names_out().tolist()
+else:
+    feature_names = []  # Replace with actual feature names
+
+# Collect comprehensive metadata
+model_info = {
+    'model_path': str(model_path),
+    'feature_names': feature_names,
+    'n_features': len(feature_names),
+    'model_type': type(pipeline).__name__,
+    'saved_date': datetime.now().isoformat(),
+    'n_samples': None,  # Add if you know
+    'feature_dtypes': None,  # Add if available
+    'description': 'Mobile data consumption prediction model'
+}
+
+with open(info_path, 'w') as f:
+    json.dump(model_info, f, indent=2)
+
+print(f"✓ Model saved to: {model_path}")
+print(f"✓ Model info saved to: {info_path}")
+print(f"✓ Features ({len(feature_names)}): {feature_names}")

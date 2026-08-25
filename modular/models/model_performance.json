@@ -1,0 +1,12 @@
+{
+  "r2_score": 0.9512689659632382,
+  "train_r2_score": 0.9785316120013157,
+  "rmse": 0.9206930982592131,
+  "mae": 0.45975231792836496,
+  "n_features": 13,
+  "training_samples": 6403,
+  "test_samples": 1601,
+  "target_column": "total_data_gb",
+  "timestamp": "2026-08-24T18:17:10.288360",
+  "dataset_rows": 8004
+}
