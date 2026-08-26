@@ -1,11 +1,11 @@
 """
-CSS styling for the application with COMPLETE Dark Mode support
+CSS styling for the application with Dark Mode support
 """
 import streamlit as st
 
 
 def load_css():
-    """Load all CSS styles with COMPLETE Dark Mode support"""
+    """Load all CSS styles with Dark Mode support"""
     
     # Base CSS - Always applied
     base_css = """
@@ -24,6 +24,25 @@ def load_css():
             background: #f8fafc;
         }
         
+        /* Modern Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 28px;
+            padding: 1.8rem;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+            border-color: rgba(57, 73, 171, 0.2);
+        }
+        
+        /* Modern Gradient Header */
         .main-header {
             font-size: 3.2rem;
             font-weight: 900;
@@ -44,6 +63,7 @@ def load_css():
             margin-top: 0.2rem;
         }
         
+        /* Premium Metric Cards */
         .metric-premium {
             background: white;
             border-radius: 20px;
@@ -103,6 +123,7 @@ def load_css():
         .trend-down { background: #fee2e2; color: #dc2626; }
         .trend-neutral { background: #f1f5f9; color: #64748b; }
         
+        /* Badge Styles */
         .badge-modern {
             padding: 0.3rem 1.2rem;
             border-radius: 40px;
@@ -119,6 +140,7 @@ def load_css():
         .badge-warning { background: #fef3c7; color: #d97706; border: 1px solid #fcd34d; }
         .badge-danger { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; }
         
+        /* Insight Cards */
         .insight-modern {
             background: white;
             border-radius: 16px;
@@ -145,6 +167,7 @@ def load_css():
             margin-top: 0.2rem;
         }
         
+        /* Recommendation Cards */
         .rec-card {
             background: white;
             border-radius: 20px;
@@ -160,10 +183,25 @@ def load_css():
             border-color: #e8edf3;
         }
         
-        .rec-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
-        .rec-card .title { font-weight: 700; color: #0f172a; font-size: 1rem; }
-        .rec-card .desc { color: #64748b; font-size: 0.85rem; line-height: 1.5; margin-top: 0.3rem; }
+        .rec-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
         
+        .rec-card .title {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 1rem;
+        }
+        
+        .rec-card .desc {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-top: 0.3rem;
+        }
+        
+        /* Source Badge */
         .source-badge {
             display: inline-flex;
             align-items: center;
@@ -178,6 +216,7 @@ def load_css():
         .source-badge.default { background: #dbeafe; color: #2563eb; }
         .source-badge.none { background: #f1f5f9; color: #64748b; }
         
+        /* Status Pulse */
         .status-pulse {
             display: inline-block;
             width: 10px;
@@ -196,6 +235,7 @@ def load_css():
         .status-pulse.yellow { background: #eab308; }
         .status-pulse.red { background: #ef4444; }
         
+        /* No Data Message */
         .no-data-modern {
             text-align: center;
             padding: 4rem;
@@ -205,9 +245,17 @@ def load_css():
             color: #64748b;
         }
         
-        .no-data-modern .icon { font-size: 5rem; margin-bottom: 1rem; }
-        .no-data-modern h3 { color: #0f172a; font-weight: 700; }
+        .no-data-modern .icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
         
+        .no-data-modern h3 {
+            color: #0f172a;
+            font-weight: 700;
+        }
+        
+        /* Footer */
         .app-footer {
             margin-top: 3rem;
             padding: 1.5rem 0;
@@ -217,6 +265,7 @@ def load_css():
             text-align: center;
         }
         
+        /* Tab Styling */
         .stTabs [data-baseweb="tab-list"] {
             gap: 6px;
             background: #f1f5f9;
@@ -252,6 +301,7 @@ def load_css():
             font-weight: 600;
         }
         
+        /* Button Styling */
         .stButton > button {
             background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
             color: white;
@@ -270,11 +320,13 @@ def load_css():
             box-shadow: 0 8px 32px rgba(26, 35, 126, 0.3);
         }
         
+        /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         
+        /* Responsive */
         @media (max-width: 768px) {
             .main-header { font-size: 2rem; }
             .metric-premium .value { font-size: 1.6rem; }
@@ -286,11 +338,12 @@ def load_css():
             padding-bottom: 1.5rem !important;
         }
         
-        /* Sidebar styling - Light Mode */
+        /* Sidebar styling */
         .css-1d391kg, .st-emotion-cache-1d391kg {
             background-color: white !important;
         }
         
+        /* Streamlit default overrides - Light Mode */
         .stSelectbox label, .stSlider label, .stMultiSelect label {
             color: #0f172a !important;
         }
@@ -307,6 +360,7 @@ def load_css():
             color: #0f172a !important;
         }
         
+        /* Metric container */
         div[data-testid="metric-container"] {
             background: white !important;
             border: 1px solid #f1f5f9 !important;
@@ -316,77 +370,37 @@ def load_css():
     </style>
     """
     
-    # ================================================================
-    # COMPLETE DARK MODE CSS - Applied when dark_mode is True
-    # ================================================================
+    # ================================================
+    # DARK MODE CSS - Applied when dark_mode is True
+    # ================================================
     dark_mode_css = """
     <style>
-        /* ============================================ */
-        /* MAIN BACKGROUNDS */
-        /* ============================================ */
-        .stApp, .main > div, .stApp > div {
+        /* Dark Mode Overrides */
+        .stApp {
             background: #0f172a !important;
         }
         
-        /* ============================================ */
-        /* SIDEBAR - COMPLETE DARK */
-        /* ============================================ */
-        .css-1d391kg, .st-emotion-cache-1d391kg,
-        section[data-testid="stSidebar"] > div,
-        .stSidebar > div,
-        [data-testid="stSidebar"] {
-            background-color: #0f172a !important;
-            border-right: 1px solid #1e293b !important;
+        /* Main background */
+        .main > div {
+            background: #0f172a !important;
         }
         
-        .css-1d391kg .stMarkdown, .st-emotion-cache-1d391kg .stMarkdown,
-        .css-1d391kg p, .st-emotion-cache-1d391kg p,
-        .css-1d391kg label, .st-emotion-cache-1d391kg label,
-        .css-1d391kg div, .st-emotion-cache-1d391kg div {
-            color: #e2e8f0 !important;
-        }
-        
-        .css-1d391kg .stSelectbox label, .st-emotion-cache-1d391kg .stSelectbox label,
-        .css-1d391kg .stSlider label, .st-emotion-cache-1d391kg .stSlider label {
-            color: #e2e8f0 !important;
-        }
-        
-        .css-1d391kg .stSelectbox div[data-baseweb="select"],
-        .st-emotion-cache-1d391kg .stSelectbox div[data-baseweb="select"] {
+        /* Sidebar */
+        .css-1d391kg, .st-emotion-cache-1d391kg {
             background-color: #1e293b !important;
-            border-color: #334155 !important;
+            border-right: 1px solid #334155 !important;
         }
         
-        .css-1d391kg .stSelectbox input, .st-emotion-cache-1d391kg .stSelectbox input {
+        /* Sidebar text */
+        .css-1d391kg .stMarkdown, .st-emotion-cache-1d391kg .stMarkdown {
             color: #e2e8f0 !important;
         }
         
-        .css-1d391kg .stSlider div[data-baseweb="slider"],
-        .st-emotion-cache-1d391kg .stSlider div[data-baseweb="slider"] {
-            background: #334155 !important;
-        }
-        
-        .css-1d391kg .stExpander, .st-emotion-cache-1d391kg .stExpander {
-            background: #0f172a !important;
-            border-color: #1e293b !important;
-        }
-        
-        .css-1d391kg .stExpander summary, .st-emotion-cache-1d391kg .stExpander summary {
+        .css-1d391kg label, .st-emotion-cache-1d391kg label {
             color: #e2e8f0 !important;
         }
         
-        .css-1d391kg .stExpander .stMarkdown, .st-emotion-cache-1d391kg .stExpander .stMarkdown {
-            color: #e2e8f0 !important;
-        }
-        
-        .css-1d391kg .stButton > button, .st-emotion-cache-1d391kg .stButton > button {
-            background: linear-gradient(135deg, #3949ab 0%, #5c6bc0 100%) !important;
-            color: white !important;
-        }
-        
-        /* ============================================ */
-        /* HEADERS */
-        /* ============================================ */
+        /* Headers */
         .main-header {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 30%, #94a3b8 60%, #64748b 100%);
             -webkit-background-clip: text;
@@ -398,13 +412,17 @@ def load_css():
             color: #94a3b8 !important;
         }
         
-        h1, h2, h3, h4, h5, h6 {
-            color: #f8fafc !important;
+        /* Glass cards */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.85) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
         }
         
-        /* ============================================ */
-        /* METRIC CARDS - COMPLETE DARK FIX */
-        /* ============================================ */
+        .glass-card:hover {
+            border-color: rgba(57, 73, 171, 0.4) !important;
+        }
+        
+        /* Metric Premium Cards */
         .metric-premium {
             background: #1e293b !important;
             border-color: #334155 !important;
@@ -418,25 +436,6 @@ def load_css():
             color: #94a3b8 !important;
         }
         
-        .metric-premium .trend {
-            color: #e2e8f0 !important;
-        }
-        
-        .metric-premium .trend-up {
-            background: #1a3a1a !important;
-            color: #4ade80 !important;
-        }
-        
-        .metric-premium .trend-down {
-            background: #3a1a1a !important;
-            color: #f87171 !important;
-        }
-        
-        .metric-premium .trend-neutral {
-            background: #2a2a2a !important;
-            color: #94a3b8 !important;
-        }
-        
         .metric-premium:hover {
             border-color: #4a5568 !important;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
@@ -446,18 +445,7 @@ def load_css():
             background: linear-gradient(90deg, #5c6bc0, #8e99d6) !important;
         }
         
-        /* Small text inside metrics */
-        .metric-premium .value span {
-            color: #94a3b8 !important;
-        }
-        
-        .metric-premium div:not(.label):not(.value) {
-            color: #94a3b8 !important;
-        }
-        
-        /* ============================================ */
-        /* INSIGHT CARDS */
-        /* ============================================ */
+        /* Insight Cards */
         .insight-modern {
             background: #1e293b !important;
             border-color: #334155 !important;
@@ -476,9 +464,7 @@ def load_css():
         .insight-modern.warning { border-left-color: #eab308 !important; background: #2a241a !important; }
         .insight-modern.danger { border-left-color: #ef4444 !important; background: #2a1a1a !important; }
         
-        /* ============================================ */
-        /* RECOMMENDATION CARDS */
-        /* ============================================ */
+        /* Recommendation Cards */
         .rec-card {
             background: #1e293b !important;
             border-color: #334155 !important;
@@ -492,18 +478,16 @@ def load_css():
             color: #94a3b8 !important;
         }
         
-        .rec-card .icon {
-            color: #e2e8f0 !important;
-        }
-        
         .rec-card:hover {
             border-color: #4a5568 !important;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
         }
         
-        /* ============================================ */
-        /* NO DATA MESSAGE */
-        /* ============================================ */
+        .rec-card .icon {
+            color: #e2e8f0 !important;
+        }
+        
+        /* No Data Message */
         .no-data-modern {
             background: #1e293b !important;
             border-color: #334155 !important;
@@ -517,9 +501,7 @@ def load_css():
             color: #94a3b8 !important;
         }
         
-        /* ============================================ */
-        /* TABS */
-        /* ============================================ */
+        /* Tab Styling */
         .stTabs [data-baseweb="tab-list"] {
             background: #1e293b !important;
             border-color: #334155 !important;
@@ -540,37 +522,23 @@ def load_css():
             border-color: #4a5568 !important;
         }
         
-        /* ============================================ */
-        /* BUTTONS */
-        /* ============================================ */
-        .stButton > button {
-            background: linear-gradient(135deg, #3949ab 0%, #5c6bc0 100%) !important;
-            color: white !important;
-            box-shadow: 0 4px 16px rgba(57, 73, 171, 0.3) !important;
-        }
-        
-        .stButton > button:hover {
-            box-shadow: 0 8px 32px rgba(57, 73, 171, 0.4) !important;
-        }
-        
-        /* ============================================ */
-        /* FOOTER */
-        /* ============================================ */
+        /* Footer */
         .app-footer {
             border-top-color: #334155 !important;
             color: #64748b !important;
         }
         
-        /* ============================================ */
-        /* SCROLLBAR */
-        /* ============================================ */
+        /* Dark mode scrollbar */
         ::-webkit-scrollbar-track { background: #1a2332 !important; }
         ::-webkit-scrollbar-thumb { background: #4a5568 !important; }
         ::-webkit-scrollbar-thumb:hover { background: #5c6bc0 !important; }
         
-        /* ============================================ */
-        /* BADGES - DARK */
-        /* ============================================ */
+        /* Dark mode status pulse */
+        .status-pulse.green { background: #4ade80 !important; }
+        .status-pulse.yellow { background: #facc15 !important; }
+        .status-pulse.red { background: #f87171 !important; }
+        
+        /* Dark mode badges */
         .badge-low { background: #1a3a1a !important; color: #4ade80 !important; border-color: #22c55e !important; }
         .badge-medium { background: #3a2a1a !important; color: #facc15 !important; border-color: #eab308 !important; }
         .badge-high { background: #3a1a1a !important; color: #f87171 !important; border-color: #ef4444 !important; }
@@ -579,27 +547,13 @@ def load_css():
         .badge-warning { background: #3a2a1a !important; color: #facc15 !important; border-color: #eab308 !important; }
         .badge-danger { background: #3a1a1a !important; color: #f87171 !important; border-color: #ef4444 !important; }
         
-        /* ============================================ */
-        /* SOURCE BADGE */
-        /* ============================================ */
+        /* Dark mode source badge */
         .source-badge.uploaded { background: #1a3a1a !important; color: #4ade80 !important; }
         .source-badge.default { background: #1a2a4a !important; color: #60a5fa !important; }
         .source-badge.none { background: #2a2a2a !important; color: #94a3b8 !important; }
         
-        /* ============================================ */
-        /* STREAMLIT DEFAULTS - COMPLETE DARK */
-        /* ============================================ */
-        .stMarkdown, .stMarkdown p, .stMarkdown li, .stMarkdown span {
-            color: #e2e8f0 !important;
-        }
-        
-        .stMarkdown a {
-            color: #60a5fa !important;
-        }
-        
-        /* Select boxes */
-        .stSelectbox label, .stSlider label, .stMultiSelect label,
-        .stNumberInput label, .stTextInput label {
+        /* Streamlit default overrides - Dark Mode */
+        .stSelectbox label, .stSlider label, .stMultiSelect label {
             color: #e2e8f0 !important;
         }
         
@@ -613,11 +567,80 @@ def load_css():
             color: #e2e8f0 !important;
         }
         
-        .stSelectbox div[data-baseweb="select"] svg {
-            fill: #e2e8f0 !important;
+        .stDataFrame {
+            background: #1e293b !important;
+            color: #e2e8f0 !important;
         }
         
-        /* Dropdown options */
+        .stDataFrame thead tr th {
+            background: #2d3748 !important;
+            color: #e2e8f0 !important;
+        }
+        
+        .stDataFrame tbody tr td {
+            background: #1e293b !important;
+            color: #e2e8f0 !important;
+            border-color: #334155 !important;
+        }
+        
+        .stDataFrame tbody tr:hover td {
+            background: #2d3748 !important;
+        }
+        
+        .stMarkdown {
+            color: #e2e8f0 !important;
+        }
+        
+        .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4 {
+            color: #f8fafc !important;
+        }
+        
+        .stMarkdown p, .stMarkdown li {
+            color: #e2e8f0 !important;
+        }
+        
+        /* Metric container */
+        div[data-testid="metric-container"] {
+            background: #1e293b !important;
+            border: 1px solid #334155 !important;
+            border-radius: 12px !important;
+            padding: 1rem !important;
+        }
+        
+        div[data-testid="metric-container"] label {
+            color: #94a3b8 !important;
+        }
+        
+        div[data-testid="metric-container"] div {
+            color: #f8fafc !important;
+        }
+        
+        /* Buttons in dark mode */
+        .stButton > button {
+            background: linear-gradient(135deg, #3949ab 0%, #5c6bc0 100%) !important;
+            color: white !important;
+            box-shadow: 0 4px 16px rgba(57, 73, 171, 0.3) !important;
+        }
+        
+        .stButton > button:hover {
+            box-shadow: 0 8px 32px rgba(57, 73, 171, 0.4) !important;
+        }
+        
+        /* Expander in dark mode */
+        .stExpander {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+        }
+        
+        .stExpander summary {
+            color: #e2e8f0 !important;
+        }
+        
+        .stExpander summary:hover {
+            color: #f8fafc !important;
+        }
+        
+        /* Selectbox dropdown in dark mode */
         div[role="listbox"] {
             background: #1e293b !important;
             border-color: #334155 !important;
@@ -636,7 +659,7 @@ def load_css():
             color: white !important;
         }
         
-        /* Sliders */
+        /* Slider in dark mode */
         .stSlider div[data-baseweb="slider"] {
             background: #334155 !important;
         }
@@ -645,101 +668,32 @@ def load_css():
             background: #5c6bc0 !important;
         }
         
-        .stSlider div[data-baseweb="slider"] div[role="slider"]:hover {
-            background: #7c8cd0 !important;
-        }
-        
-        /* Number inputs */
-        .stNumberInput input, .stTextInput input {
+        /* Number input in dark mode */
+        .stNumberInput input {
             background: #1e293b !important;
             border-color: #334155 !important;
             color: #e2e8f0 !important;
         }
         
-        .stNumberInput input:focus, .stTextInput input:focus {
-            border-color: #5c6bc0 !important;
-        }
-        
-        /* DataFrames - COMPLETE DARK */
-        .stDataFrame {
-            background: #1e293b !important;
-        }
-        
-        .stDataFrame table {
-            background: #1e293b !important;
-        }
-        
-        .stDataFrame thead tr th {
-            background: #2d3748 !important;
-            color: #e2e8f0 !important;
-        }
-        
-        .stDataFrame tbody tr td {
-            background: #1e293b !important;
-            color: #e2e8f0 !important;
-            border-color: #334155 !important;
-        }
-        
-        .stDataFrame tbody tr:hover td {
-            background: #2d3748 !important;
-        }
-        
-        /* Metrics */
-        div[data-testid="metric-container"] {
-            background: #1e293b !important;
-            border: 1px solid #334155 !important;
-            border-radius: 12px !important;
-            padding: 1rem !important;
-        }
-        
-        div[data-testid="metric-container"] label {
-            color: #94a3b8 !important;
-        }
-        
-        div[data-testid="metric-container"] div {
-            color: #f8fafc !important;
-        }
-        
-        /* Expanders */
-        .stExpander {
+        /* Text input in dark mode */
+        .stTextInput input {
             background: #1e293b !important;
             border-color: #334155 !important;
-        }
-        
-        .stExpander summary {
             color: #e2e8f0 !important;
         }
         
-        .stExpander summary:hover {
-            color: #f8fafc !important;
-        }
-        
-        .stExpander .stMarkdown {
-            color: #e2e8f0 !important;
-        }
-        
-        /* Alerts */
+        /* Info/Warning/Success/Error boxes */
         .stAlert {
             background: #1e293b !important;
             border-color: #334155 !important;
+            color: #e2e8f0 !important;
         }
         
         .stAlert div {
             color: #e2e8f0 !important;
         }
         
-        .stAlert .stMarkdown {
-            color: #e2e8f0 !important;
-        }
-        
-        .stAlert[data-testid="stInfo"] { background: #1a2a4a !important; border-color: #3b82f6 !important; }
-        .stAlert[data-testid="stSuccess"] { background: #1a3a1a !important; border-color: #22c55e !important; }
-        .stAlert[data-testid="stWarning"] { background: #3a2a1a !important; border-color: #eab308 !important; }
-        .stAlert[data-testid="stError"] { background: #3a1a1a !important; border-color: #ef4444 !important; }
-        
-        /* ============================================ */
-        /* PLOTLY CHARTS - DARK MODE */
-        /* ============================================ */
+        /* Plotly charts in dark mode */
         .js-plotly-plot .plotly .main-svg {
             background: transparent !important;
         }
@@ -752,32 +706,53 @@ def load_css():
             fill: transparent !important;
         }
         
+        /* Plotly text colors */
         .js-plotly-plot .plotly .annotation-text,
         .js-plotly-plot .plotly .xtick text,
-        .js-plotly-plot .plotly .ytick text,
+        .js-plotly-plot .plotly .ytick text {
+            fill: #e2e8f0 !important;
+        }
+        
         .js-plotly-plot .plotly .legend .traces .legendtext {
             fill: #e2e8f0 !important;
         }
         
+        /* Plotly axis lines */
         .js-plotly-plot .plotly .gridlayer path,
         .js-plotly-plot .plotly .cartesianlayer path {
             stroke: #334155 !important;
         }
         
-        .js-plotly-plot .plotly .legend .traces {
-            fill: #e2e8f0 !important;
+        /* Code blocks */
+        .stCodeBlock {
+            background: #1e293b !important;
+            border-color: #334155 !important;
         }
         
-        /* ============================================ */
-        /* STATUS PULSE - DARK */
-        /* ============================================ */
-        .status-pulse.green { background: #4ade80 !important; }
-        .status-pulse.yellow { background: #facc15 !important; }
-        .status-pulse.red { background: #f87171 !important; }
+        .stCodeBlock pre {
+            color: #e2e8f0 !important;
+        }
         
-        /* ============================================ */
-        /* FILE UPLOADER - DARK */
-        /* ============================================ */
+        /* Download button */
+        .stDownloadButton > button {
+            background: linear-gradient(135deg, #3949ab 0%, #5c6bc0 100%) !important;
+            color: white !important;
+        }
+        
+        /* Toggle/Switch */
+        .stToggle div[role="switch"] {
+            background: #334155 !important;
+        }
+        
+        .stToggle div[role="switch"][aria-checked="true"] {
+            background: #5c6bc0 !important;
+        }
+        
+        .stToggle div[role="switch"] span {
+            color: #e2e8f0 !important;
+        }
+        
+        /* File uploader */
         .stFileUploader {
             background: #1e293b !important;
             border-color: #334155 !important;
@@ -787,9 +762,7 @@ def load_css():
             color: #e2e8f0 !important;
         }
         
-        /* ============================================ */
-        /* MULTI-SELECT - DARK */
-        /* ============================================ */
+        /* Multi-select */
         .stMultiSelect div[data-baseweb="select"] {
             background: #1e293b !important;
             border-color: #334155 !important;
@@ -804,109 +777,13 @@ def load_css():
             color: #e2e8f0 !important;
         }
         
-        /* ============================================ */
-        /* CODE BLOCKS - DARK */
-        /* ============================================ */
-        .stCodeBlock {
-            background: #1e293b !important;
-            border-color: #334155 !important;
-        }
-        
-        .stCodeBlock pre {
-            color: #e2e8f0 !important;
-        }
-        
-        /* ============================================ */
-        /* TOGGLE/SWITCH - DARK */
-        /* ============================================ */
-        .stToggle div[role="switch"] {
-            background: #334155 !important;
-        }
-        
-        .stToggle div[role="switch"][aria-checked="true"] {
-            background: #5c6bc0 !important;
-        }
-        
-        .stToggle div[role="switch"] span {
-            color: #e2e8f0 !important;
-        }
-        
-        /* ============================================ */
-        /* DOWNLOAD BUTTON - DARK */
-        /* ============================================ */
-        .stDownloadButton > button {
-            background: linear-gradient(135deg, #3949ab 0%, #5c6bc0 100%) !important;
-            color: white !important;
-        }
-        
-        /* ============================================ */
-        /* PANDAS STYLED DATAFRAME - DARK */
-        /* ============================================ */
-        .dataframe {
-            background: #1e293b !important;
-            color: #e2e8f0 !important;
-        }
-        
-        .dataframe thead tr th {
-            background: #2d3748 !important;
-            color: #e2e8f0 !important;
-        }
-        
-        .dataframe tbody tr td {
-            color: #e2e8f0 !important;
-            border-color: #334155 !important;
-        }
-        
-        .dataframe tbody tr:nth-child(even) {
-            background: #1a2332 !important;
-        }
-        
-        .dataframe tbody tr:hover {
-            background: #2d3748 !important;
-        }
-        
-        /* ============================================ */
-        /* STREAMLIT CONTAINERS - DARK */
-        /* ============================================ */
-        .stContainer, .stBlock {
+        /* Sidebar expander */
+        .css-1d391kg .stExpander, .st-emotion-cache-1d391kg .stExpander {
             background: transparent !important;
         }
         
-        .stColumn > div {
-            background: transparent !important;
-        }
-        
-        /* ============================================ */
-        /* SLIDER LABELS - DARK */
-        /* ============================================ */
-        .stSlider .stMarkdown {
+        .css-1d391kg .stExpander summary, .st-emotion-cache-1d391kg .stExpander summary {
             color: #e2e8f0 !important;
-        }
-        
-        /* ============================================ */
-        /* SELECTBOX PLACEHOLDER - DARK */
-        /* ============================================ */
-        .stSelectbox div[data-baseweb="select"] div[role="combobox"] {
-            color: #e2e8f0 !important;
-        }
-        
-        .stSelectbox div[data-baseweb="select"] div[role="combobox"]:hover {
-            color: #f8fafc !important;
-        }
-        
-        /* ============================================ */
-        /* MULTISELECT PLACEHOLDER - DARK */
-        /* ============================================ */
-        .stMultiSelect div[data-baseweb="select"] div[role="combobox"] {
-            color: #e2e8f0 !important;
-        }
-        
-        /* ============================================ */
-        /* INPUT PLACEHOLDER - DARK */
-        /* ============================================ */
-        .stTextInput input::placeholder,
-        .stNumberInput input::placeholder {
-            color: #64748b !important;
         }
     </style>
     """
