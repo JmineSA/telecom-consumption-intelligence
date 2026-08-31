@@ -56,7 +56,7 @@ def run_model_training():
 def run_model_evaluation():
     """Run evaluate_model.py - Evaluates model performance."""
     return run_script(
-        "src/evaluation/evaluate_model.py",  # Changed: no core/
+        "src/evaluation/evaluate_model.py",  
         "MODEL EVALUATION"
     )
 
@@ -97,7 +97,7 @@ def run_all():
     
     scripts = [
         ("src/models/mobile_data_consumption_model.py", " Model Training"),
-        ("src/evaluation/evaluate_model.py", " Model Evaluation"),  # Changed
+        ("src/evaluation/evaluate_model.py", " Model Evaluation"),  
         ("src/models/model_insights.py", " Model Insights"),
         ("src/tests/test_model.py", " Scenario Tests"),
     ]

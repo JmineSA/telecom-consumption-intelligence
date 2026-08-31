@@ -1,0 +1,31 @@
+{
+  "model_path": "g:\\Study\\DATA SCINCE\\PROJECTS\\POTFOLIO\\telecom-consumption-intelligence\\models\\mobile_data_consumption_pipeline.pkl",
+  "feature_names": [
+    "age_group",
+    "plan_type",
+    "network_type",
+    "device_type_Basic_Phone",
+    "device_type_Mid_Range",
+    "device_type_Premium_Smartphone",
+    "device_type_Tablet",
+    "hours_streaming",
+    "hours_social",
+    "hours_messaging",
+    "hours_gaming",
+    "is_peak_hour_user",
+    "is_weekend"
+  ],
+  "n_features": 13,
+  "model_type": "Pipeline",
+  "saved_date": "2026-08-31T17:36:07.980832",
+  "n_samples": 8004,
+  "performance": {
+    "train_rmse": 0.4267674584559055,
+    "train_mae": 0.2635300503570491,
+    "train_r2": 0.9898629677006285,
+    "val_rmse": 0.9508050174201279,
+    "val_mae": 0.4757898024851784,
+    "val_r2": 0.9480292742745271,
+    "overfitting_gap": 0.04183369342610144
+  }
+}

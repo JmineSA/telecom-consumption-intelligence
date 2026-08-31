@@ -1,13 +1,20 @@
-from sklearn.pipeline import Pipeline
+
+import sys
+from pathlib import Path
+
+
+project_root = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(project_root))
+
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
-
-from custom_transformers import DropColumns, DateFeatures, CyclicalFeatures
-
+from sklearn.pipeline import Pipeline
+from src.core.custom_transformers import DropColumns, DateFeatures, CyclicalFeatures
 
 def build_pipeline():
-
-    #  Drop leakage + unnecessary columns
+    """Build the preprocessing pipeline."""
+    
+    # Drop leakage + unnecessary columns
     remove_cols = [
         'user_id',
         'data_usage_category',
@@ -24,11 +31,8 @@ def build_pipeline():
         'churn_risk_score'
     ]
 
-
     # Ordinal features
-
     ordinal_cols = ['age_group', 'plan_type', 'network_type']
-
     age_order = ['18-24', '25-34', '35-44', '45-54', '55+']
     plan_order = [
         'Prepaid_Daily', 'Prepaid_Monthly',
@@ -41,19 +45,15 @@ def build_pipeline():
         categories=[age_order, plan_order, network_order]
     )
 
-
     # Nominal features
-
     nominal_cols = ['device_type']
-
     onehot = OneHotEncoder(
         drop='first',
-        handle_unknown='ignore'
+        handle_unknown='ignore',
+        sparse_output=False
     )
 
-
-    # Numeric features 
-
+    # Numeric features
     numeric_cols = [
         'hours_streaming',
         'hours_social',
@@ -61,12 +61,9 @@ def build_pipeline():
         'hours_gaming',
         'is_peak_hour_user',
         'is_weekend'
-    
     ]
 
-
-    # Column Transformer 
-
+    # Column Transformer
     preprocessor = ColumnTransformer(
         transformers=[
             ('ord', ordinal_encoder, ordinal_cols),
@@ -74,12 +71,10 @@ def build_pipeline():
             ('num', 'passthrough', numeric_cols)
         ],
         verbose_feature_names_out=False,
-        remainder='drop'  
+        remainder='drop'
     )
 
-
     # Full Pipeline
-
     pipeline = Pipeline(steps=[
         ('drop_cols', DropColumns(remove_cols)),
         ('date_features', DateFeatures()),
