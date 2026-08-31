@@ -63,8 +63,8 @@ def run_model_evaluation():
 def run_model_insights():
     """Run model_insights.py - Generates insights and visualizations."""
     return run_script(
-        "src/models/model_insights.py",
-        "MODEL INSIGHTS"
+        "src/models/model_insignts.py",  # <- Match your misspelled filename
+        " MODEL INSIGHTS"
     )
 
 def run_scenario_tests():
