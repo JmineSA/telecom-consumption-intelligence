@@ -17,7 +17,7 @@
   ],
   "n_features": 13,
   "model_type": "Pipeline",
-  "saved_date": "2026-09-01T12:35:59.415568",
+  "saved_date": "2026-09-01T15:58:40.074274",
   "n_samples": 8004,
   "performance": {
     "train_rmse": 0.4267674584559055,

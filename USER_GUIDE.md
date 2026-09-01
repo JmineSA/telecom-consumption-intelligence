@@ -3,7 +3,7 @@
 ## Getting Started
 
 ### First Time Setup
-1. Install Python 3.8+
+1. Install Python 3.13+
 2. Clone/download the project
 3. Run `pip install -r requirements.txt`
 4. Run `python main.py --menu`

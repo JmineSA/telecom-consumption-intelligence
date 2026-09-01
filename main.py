@@ -160,7 +160,7 @@ Examples:
     if args.menu:
         while True:
             show_menu()
-            choice = input("\nEnter your choice (1-8): ").strip()
+            choice = input("\nEnter your choice (1-7): ").strip()
             
             if choice == "1":
                 run_model_training()
