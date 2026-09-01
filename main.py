@@ -63,8 +63,8 @@ def run_model_evaluation():
 def run_model_insights():
     """Run model_insights.py - Generates insights and visualizations."""
     return run_script(
-        "src/models/model_insignts.py",  # <- Match your misspelled filename
-        " MODEL INSIGHTS"
+        "src/models/model_insights.py",  # FIXED: was "model_insignts.py"
+        "MODEL INSIGHTS"
     )
 
 def run_scenario_tests():
@@ -81,12 +81,6 @@ def run_pipeline_test():
         "PIPELINE TEST"
     )
 
-def run_preprocessing():
-    """Run preprocessing_pipeline.py - Preprocesses data."""
-    return run_script(
-        "src/pipelines/preprocessing_pipeline.py",
-        "DATA PREPROCESSING"
-    )
 
 def run_all():
     """Run all core scripts in sequence."""
@@ -96,10 +90,10 @@ def run_all():
     print("=" * 70)
     
     scripts = [
-        ("src/models/mobile_data_consumption_model.py", " Model Training"),
-        ("src/evaluation/evaluate_model.py", " Model Evaluation"),  
-        ("src/models/model_insights.py", " Model Insights"),
-        ("src/tests/test_model.py", " Scenario Tests"),
+        ("src/models/mobile_data_consumption_model.py", "Model Training"),
+        ("src/evaluation/evaluate_model.py", "Model Evaluation"),  
+        ("src/models/model_insights.py", "Model Insights"),  # FIXED: was "model_insignts.py"
+        ("src/tests/test_model.py", "Scenario Tests"),
     ]
     
     success = True
@@ -130,9 +124,8 @@ def show_menu():
     print("  3. Generate Insights (model_insights.py)")
     print("  4. Run Scenario Tests (test_model.py)")
     print("  5. Test Pipeline (test_pipeline.py)")
-    print("  6. Preprocess Data (preprocessing_pipeline.py)")
-    print("  7. Run All (Training + Evaluation + Insights + Tests)")
-    print("  8. Exit")
+    print("  6. Run All (Training + Evaluation + Insights + Tests)")
+    print("  7. Exit")
     print("-" * 70)
 
 def main():
@@ -146,7 +139,6 @@ Examples:
   python main.py --insights       # Generate model insights
   python main.py --scenario       # Run scenario tests
   python main.py --test           # Test pipeline
-  python main.py --preprocess     # Preprocess data
   python main.py --all            # Run everything
         """
     )
@@ -156,7 +148,6 @@ Examples:
     parser.add_argument("--insights", action="store_true", help="Generate model insights")
     parser.add_argument("--scenario", action="store_true", help="Run scenario tests")
     parser.add_argument("--test", action="store_true", help="Test pipeline")
-    parser.add_argument("--preprocess", action="store_true", help="Preprocess data")
     parser.add_argument("--all", action="store_true", help="Run everything in sequence")
     parser.add_argument("--menu", action="store_true", help="Show interactive menu")
     
@@ -182,10 +173,8 @@ Examples:
             elif choice == "5":
                 run_pipeline_test()
             elif choice == "6":
-                run_preprocessing()
-            elif choice == "7":
                 run_all()
-            elif choice == "8":
+            elif choice == "7":
                 print("\n Goodbye!")
                 break
             else:
@@ -203,8 +192,6 @@ Examples:
             run_scenario_tests()
         if args.test:
             run_pipeline_test()
-        if args.preprocess:
-            run_preprocessing()
         if args.all:
             run_all()
 

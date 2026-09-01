@@ -1,7 +1,7 @@
 {
   "model_path": "g:\\Study\\DATA SCINCE\\PROJECTS\\POTFOLIO\\telecom-consumption-intelligence\\models\\mobile_data_consumption_pipeline.pkl",
   "test_data_path": "g:\\Study\\DATA SCINCE\\PROJECTS\\POTFOLIO\\telecom-consumption-intelligence\\data\\processed\\test_data.parquet",
-  "evaluation_date": "2026-08-31T17:57:31.229004",
+  "evaluation_date": "2026-09-01T12:36:01.824903",
   "n_samples": 2002,
   "metrics": {
     "rmse": 0.9569965557552342,
