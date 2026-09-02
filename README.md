@@ -313,30 +313,98 @@ Streamlit · Joblib
 telecom-consumption-intelligence/
 │
 ├── data/
-│   ├── raw/
-│   └── processed/
+│   ├── raw/                         # Original simulated telecom datasets
+│   │   ├── user_activity.csv
+│   │   ├── user_churn.csv
+│   │   └── user_data_usage.csv
+│   │
+│   ├── processed/                   # Processed data and modelling datasets
+│   │   ├── train_data.parquet
+│   │   ├── test_data.parquet
+│   │   └── scenario datasets
+│   │
+│   ├── curated/                     # Cleaned and validated datasets
+│   │   ├── user_activity_curated.csv
+│   │   └── user_activity_curated.parquet
+│   │
+│   └── eda/                         # Data samples used for exploration
 │
 ├── docs/
+│   └── telecom_report.pdf           # Project documentation and report
 │
 ├── models/
-│   ├── preprocessing_pipeline.pkl
-│   └── model artifacts
+│   ├── gradient_boosting_final.pkl  # Final trained model
+│   ├── preprocessing_pipeline.pkl   # Data preprocessing pipeline
+│   ├── mobile_data_consumption_pipeline.pkl
+│   ├── model_info.json
+│   └── model_performance.json
 │
 ├── notebooks/
+│   ├── 01_exploratory_data_analysis.ipynb
+│   ├── 02_model_development.ipynb
+│   └── 03_insights_and_recommendations.ipynb
 │
 ├── reports/
-│   ├── telecom_user_segments.csv
-│   ├── telecom_network_insights.csv
-│   └── telecom_service_profitability.csv
+│   ├── executive_summary.md
+│   ├── presentation_deck.md
+│   ├── technical_appendix.md
+│   ├── evaluation_results.json
+│   ├── customer and segment analysis
+│   ├── network and profitability analysis
+│   └── insights/
+│       ├── actual_vs_predicted.png
+│       ├── feature_importance.png
+│       └── residual_analysis.png
 │
-├── src/
-│   ├── data preparation
-│   ├── feature engineering
-│   ├── preprocessing
-│   ├── model training
-│   └── business analysis
+├── src/                             # Core data science pipeline
+│   ├── core/
+│   │   ├── data_generator.py
+│   │   ├── data_preparation.py
+│   │   └── custom_transformers.py
+│   │
+│   ├── pipelines/
+│   │   ├── preprocessing_pipeline.py
+│   │   └── training_pipeline.py
+│   │
+│   ├── models/
+│   │   ├── mobile_data_consumption_model.py
+│   │   └── model_insights.py
+│   │
+│   ├── evaluation/
+│   │   └── evaluate_model.py
+│   │
+│   └── tests/
+│       ├── test_model.py
+│       └── test_pipeline.py
+│
+├── modular/                         # Modular Streamlit application
+│   ├── app.py
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   │
+│   ├── src/
+│   │   ├── analytics/               # Cohorts, forecasting, A/B testing
+│   │   ├── data/                    # Data loading and validation
+│   │   ├── models/                  # Training, prediction and explainability
+│   │   ├── ui/                      # Streamlit interface components
+│   │   ├── utils/                   # Logging and helper functions
+│   │   └── visualizations/          # Analytics and dashboard visualisations
+│   │
+│   └── tests/
+│       ├── test_analytics/
+│       ├── test_data/
+│       ├── test_models/
+│       └── test_utils/
 │
 ├── visuals/
+│   ├── dashboard/
+│   │   ├── Dashboard (dark_mode).png
+│   │   ├── Dashboard (light_mode).png
+│   │   └── Revenue_Analytics.png
+│   │
+│   └── plots/                       # EDA, segmentation and model visuals
 │
-├── requirements.txt
-└── README.md
+├── main.py                          # Main project entry point
+├── requirements.txt                 # Project dependencies
+├── USER_GUIDE.md                    # Application usage guide
+└── README.md                        # Project documentation
