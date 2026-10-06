@@ -38,21 +38,101 @@ def render_sidebar(train_df: Optional[pd.DataFrame],
 
     # ========== NAVIGATION ==========
     from ..constants import TABS
-    tab_names = [f"{info['icon']} {info['label']}" for info in TABS.values()]
 
-    st.markdown(
-        '<div style="font-size: 0.7rem; font-weight: 700; color: #94a3b8; '
-        'letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.5rem;">'
-        '🧭 Navigation</div>',
-        unsafe_allow_html=True,
-    )
+    # Scoped CSS — only touches buttons inside .nav-shell, nothing else
+    st.markdown("""
+    <style>
+        /* Scoped: only buttons wrapped in .nav-shell get restyled */
+        .nav-shell div[class*="stButton"] > button {
+            width: 100% !important;
+            text-align: left !important;
+            justify-content: flex-start !important;
+            padding: 0.5rem 0.85rem !important;
+            border-radius: 10px !important;
+            border: 1px solid transparent !important;
+            background: transparent !important;
+            color: inherit !important;
+            font-weight: 500 !important;
+            font-size: 0.875rem !important;
+            transition: all 0.15s ease !important;
+            box-shadow: none !important;
+            min-height: 0 !important;
+            line-height: 1.3 !important;
+        }
+        .nav-shell div[class*="stButton"] > button:hover {
+            background: rgba(148, 163, 184, 0.15) !important;
+            border-color: rgba(148, 163, 184, 0.3) !important;
+        }
+        .nav-shell div[class*="stButton"] > button:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+        /* Active item */
+        .nav-shell .nav-active + div[class*="stButton"] > button,
+        .nav-shell .nav-active ~ div[class*="stButton"] > button {
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff) !important;
+            border-color: #c7d2fe !important;
+            color: #1a237e !important;
+            font-weight: 700 !important;
+        }
+        /* Section label */
+        .nav-section-label {
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: #94a3b8;
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+            margin: 14px 0 4px 4px;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
-    st.radio(
-        "Navigate",
-        tab_names,
-        label_visibility="collapsed",
-        key="main_navigation",
-    )
+    def _section(label: str):
+        st.markdown(
+            f'<div class="nav-section-label">{label}</div>',
+            unsafe_allow_html=True,
+        )
+
+    # Section mapping
+    section_map = {
+        "command_centre": "Main",
+        "predict":        "Main",
+        "analytics":      "Main",
+        "forecast":       "Analytics",
+        "segmentation":   "Analytics",
+        "cohorts":        "Analytics",
+        "ab_testing":     "Business",
+        "revenue":        "Business",
+        "network":        "Operations",
+        "maintenance":    "Operations",
+        "model":          "System",
+        "data_explorer":  "System",
+        "monitoring":     "System",
+    }
+
+    current = st.session_state.get("main_navigation", "")
+
+    # Wrapper so CSS only applies inside this container
+    st.markdown('<div class="nav-shell">', unsafe_allow_html=True)
+
+    last_section = None
+    for key, info in TABS.items():
+        label_full = f"{info['icon']} {info['label']}"
+
+        sec = section_map.get(key, "Other")
+        if sec != last_section:
+            _section(sec)
+            last_section = sec
+
+        is_active = label_full == current
+        if is_active:
+            st.markdown('<div class="nav-active"></div>', unsafe_allow_html=True)
+
+        if st.button(label_full, key=f"nav_{key}", use_container_width=True):
+            st.session_state["main_navigation"] = label_full
+            st.rerun()
+
+    st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -68,7 +148,7 @@ def render_sidebar(train_df: Optional[pd.DataFrame],
         st.rerun()
     st.markdown("---")
 
-    # Data management
+    # ========== DATA MANAGEMENT ==========
     st.markdown(
         '<div style="font-size: 0.7rem; font-weight: 700; color: #94a3b8; '
         'letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.5rem;">'
@@ -83,6 +163,7 @@ def render_sidebar(train_df: Optional[pd.DataFrame],
 
     st.markdown("---")
 
+    # ========== PROFILE / MODEL MANAGEMENT ==========
     if st.session_state.data_loaded:
         render_user_profile()
 
@@ -256,17 +337,15 @@ def get_user_profile() -> Tuple[pd.DataFrame, Dict[str, Any]]:
         is_weekend = st.selectbox("Weekend", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No", key="weekend")
 
     # -------------------------------------------------------------------
-    # IMPORTANT: measurement_date is REQUIRED by the saved pipeline's
-    # DateFeatures transformer. We supply today's date so day_of_week and
-    # month can be extracted. Without this, prediction crashes with
-    # KeyError: 'measurement_date'.
+    # The pipeline expects strings, not encoded integers, for age/plan/network.
+    # measurement_date is required by the DateFeatures step.
     # -------------------------------------------------------------------
     data = {
         'measurement_date': [pd.Timestamp.today().normalize()],
-        'age_group': [age_group],           # string: '18-24' etc.
-        'plan_type': [plan_type],           # string: 'Prepaid_Daily' etc.
-        'network_type': [network_type],     # string: '3G' etc.
-        'device_type': [device_type],       # string: 'Basic_Phone' etc.
+        'age_group': [age_group],
+        'plan_type': [plan_type],
+        'network_type': [network_type],
+        'device_type': [device_type],
         'hours_streaming': [hours_streaming],
         'hours_social': [hours_social],
         'hours_messaging': [hours_messaging],
@@ -274,6 +353,7 @@ def get_user_profile() -> Tuple[pd.DataFrame, Dict[str, Any]]:
         'is_peak_hour_user': [is_peak_hour_user],
         'is_weekend': [is_weekend]
     }
+
     input_dict = {
         'age_group': age_group,
         'plan_type': plan_type,
