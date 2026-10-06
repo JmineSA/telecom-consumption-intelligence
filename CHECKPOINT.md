@@ -1,21 +1,48 @@
-## Model Comparison — 2026-10-05
+## feature/data-v2 Migration — 2026-10-06 (End of Day)
 
-Benchmarked 7 models on time-based split (582K train / 104K val / 103K test).
+### Where We Are
+Branch: feature/data-v2
+Status: Model retrained on new ZAR dataset — NEEDS VERIFICATION TOMORROW
 
-| Model | Test R² | Test MAE | Overfit Gap | Train Time |
-|---|---|---|---|---|
-| RandomForest | 0.7727 | 2.01 GB | 0.010 | 80s |
-| GradientBoosting | 0.7722 | 2.01 GB | 0.006 | 928s |
-| **HistGradientBoosting** | **0.7701** | **2.02 GB** | **0.010** | **10.5s** ← CHOSEN |
-| LightGBM | 0.7681 | 2.03 GB | 0.020 | 10.1s |
-| XGBoost | 0.7661 | 2.03 GB | 0.033 | 14.9s |
-| Ridge / Linear | 0.7579 | 2.13 GB | 0.001 | ~1s |
+### Working State
+- Data generator rebuilt with ZAR pricing
+  - 10,000 users × 90 days = 817,568 rows
+  - monthly_bill_zar: R50 – R1,800 (realistic SA telecom)
+- Data preparation: 789,473 rows across time-based splits
+  - Train: 581,971 | Val: 104,192 | Test: 103,310
+  - Train dates: 2026-01-02 → 2026-03-03
+  - Val dates:   2026-03-04 → 2026-03-16
+  - Test dates:  2026-03-17 → 2026-03-30
+- Model retrained: 
+  - Train R² = 0.7736
+  - Val R²   = 0.7628
+  - Overfit gap = 0.0108 (small — good)
+  - Target: target_next_day_gb (D+1 forecast)
 
-**Decision:** HistGradientBoosting over RandomForest.
-- R² difference (0.0026) is within noise
-- 8× faster training → supports weekly retraining
-- 100× smaller artifact → faster deployment
-- Natively handles NaN → fewer production bugs
+### Unverified (Do First Tomorrow)
+- [ ] Confirm 'monthly_bill_zar' in model_info.json feature_names
+- [ ] Run python -m training.evaluation.evaluate_model
+      (expect test R² ≈ 0.76, congestion breakdown)
+- [ ] Regenerate model_insights.py outputs on the new ZAR model
+- [ ] Commit + push
 
-**Interview narrative:** "Model choice driven by engineering trade-offs, not just
-metrics. Linear baseline at 0.758 shows lag features carry most of the signal."
+### Files Changed Today
+- training/core/data_generator.py       (NEW — ZAR version)
+- training/core/data_preparation.py     (renamed monthly_bill_usd → monthly_bill_zar)
+- training/pipelines/preprocessing_pipeline.py (same)
+- models/mobile_data_consumption_pipeline.pkl (retrained)
+- models/model_info.json                (new schema)
+- training/models/model_insights.py     (permutation importance added)
+
+### Next Session Plan
+1. Run the two verification commands from last message
+2. If monthly_bill_zar in features → good, commit
+3. If not → fix preprocessing_pipeline.py, retrain
+4. Run evaluate_model.py
+5. Run model_insights.py
+6. Commit + push feature/data-v2
+7. Plan merge into main + app migration
+
+### Rollback
+- Branch: `git checkout feature/data-v2 && git reset --hard HEAD~1`
+- To main: `git checkout main` (still working with legacy model)
