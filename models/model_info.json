@@ -3,7 +3,7 @@
   "model_type": "HistGradientBoostingRegressor",
   "target": "target_next_day_gb",
   "forecast_horizon_days": 1,
-  "trained_at": "2026-10-06T16:48:32.080380",
+  "trained_at": "2026-10-06T17:18:06.877344",
   "n_features": 34,
   "n_train_samples": 581971,
   "n_val_samples": 104192,

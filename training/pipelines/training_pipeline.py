@@ -10,7 +10,7 @@ for path in (str(src_root), str(project_root)):
 
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import HistGradientBoostingRegressor
-from pipelines.preprocessing_pipeline import build_pipeline
+from training.pipelines.preprocessing_pipeline import build_pipeline
 
 
 def build_model_pipeline():

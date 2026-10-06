@@ -8,7 +8,7 @@ sys.path.insert(0, str(project_root))
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.pipeline import Pipeline
-from src.core.custom_transformers import DropColumns, CyclicalDayOfWeek
+from training.core.custom_transformers import DropColumns, CyclicalDayOfWeek
 
 
 DROP_COLS = [

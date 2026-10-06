@@ -21,7 +21,7 @@ import joblib
 import json
 from datetime import datetime
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from src.pipelines.training_pipeline import build_model_pipeline
+from training.pipelines.training_pipeline import build_model_pipeline
 
 
 TARGET = "target_next_day_gb"
