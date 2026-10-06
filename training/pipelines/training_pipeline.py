@@ -7,7 +7,7 @@ sys.path.insert(0, str(project_root))
 
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import GradientBoostingRegressor
-from src.pipelines.preprocessing_pipeline import build_pipeline
+from training.pipelines.preprocessing_pipeline import build_pipeline
 
 def build_model_pipeline():
     """Build the complete model pipeline with preprocessing and model."""

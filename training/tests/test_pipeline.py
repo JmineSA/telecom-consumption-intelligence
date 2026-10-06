@@ -6,7 +6,7 @@ project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 import pandas as pd
-from src.pipelines.training_pipeline import build_model_pipeline
+from training.pipelines.training_pipeline import build_model_pipeline
 
 # Load data
 df = pd.read_parquet(project_root / "data/processed/train_data.parquet")

@@ -1,0 +1,27 @@
+# Core — pinned to match the training environment
+scikit-learn==1.6.1
+joblib==1.6.0
+numpy==2.4.6
+pandas==3.0.6
+pyarrow==25.0.1
+scipy==1.16.0
+
+# App
+streamlit==1.65.0
+
+# Visualisation
+plotly==7.1.0
+matplotlib==3.11.2
+seaborn==0.13.2
+
+# Optional dependencies
+python-dotenv==1.1.1
+shap==0.48.0
+reportlab==4.4.4
+
+# Dev tools (harmless on Cloud, useful locally)
+pytest==8.4.2
+pytest-cov==6.0.0
+black==25.1.0
+flake8==7.3.0
+mypy==1.18.2

@@ -2038,3 +2038,1075 @@
 2026-09-01 16:56:05,578 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 13 features
 2026-09-01 16:56:05,588 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
 2026-09-01 16:56:05,589 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-10-06 10:25:02,550 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 10:25:02,550 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 10:25:02,798 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 10:25:02,840 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 10:25:02,875 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 10:25:02,876 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 10:25:02,880 - telecom_app.src.models.manager - ERROR - joblib.load failed: ModuleNotFoundError: No module named 'src.core'
+2026-10-06 10:25:02,880 - telecom_app.src.models.manager - ERROR - Traceback (most recent call last):
+  File "/workspaces/telecom-consumption-intelligence/modular/src/models/manager.py", line 129, in load
+    model = joblib.load(model_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 755, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 632, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.11/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'src.core'
+
+2026-10-06 11:01:06,743 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 11:01:06,744 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 11:01:06,969 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:01:06,995 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:01:07,031 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:01:07,032 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:01:07,034 - telecom_app.src.models.manager - ERROR - joblib.load failed: ModuleNotFoundError: No module named 'src.core'
+2026-10-06 11:01:07,035 - telecom_app.src.models.manager - ERROR - Traceback (most recent call last):
+  File "/workspaces/telecom-consumption-intelligence/modular/src/models/manager.py", line 143, in load
+    model = joblib.load(model_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 755, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 632, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.11/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'src.core'
+
+2026-10-06 11:01:16,942 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 11:01:16,944 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 11:01:16,971 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:01:16,972 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:01:16,973 - telecom_app.src.models.manager - ERROR - joblib.load failed: ModuleNotFoundError: No module named 'src.core'
+2026-10-06 11:01:16,973 - telecom_app.src.models.manager - ERROR - Traceback (most recent call last):
+  File "/workspaces/telecom-consumption-intelligence/modular/src/models/manager.py", line 143, in load
+    model = joblib.load(model_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 755, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 632, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.11/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'src.core'
+
+2026-10-06 11:02:38,588 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 11:02:38,588 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 11:02:38,619 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:02:38,619 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:02:38,621 - telecom_app.src.models.manager - ERROR - joblib.load failed: ModuleNotFoundError: No module named 'src.core'
+2026-10-06 11:02:38,622 - telecom_app.src.models.manager - ERROR - Traceback (most recent call last):
+  File "/workspaces/telecom-consumption-intelligence/modular/src/models/manager.py", line 143, in load
+    if model_path is None:
+                ^^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 755, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 632, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.11/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'src.core'
+
+2026-10-06 11:03:11,760 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 11:03:11,760 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 11:03:11,985 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:03:12,013 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:03:12,051 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:03:12,051 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:03:12,053 - telecom_app.src.models.manager - ERROR - joblib.load failed: ModuleNotFoundError: No module named 'src.core'
+2026-10-06 11:03:12,053 - telecom_app.src.models.manager - ERROR - Traceback (most recent call last):
+  File "/workspaces/telecom-consumption-intelligence/modular/src/models/manager.py", line 152, in load
+    model = joblib.load(model_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 755, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 632, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.11/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'src.core'
+
+2026-10-06 11:07:13,269 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 11:07:13,270 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 11:07:13,555 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:07:13,583 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:07:13,614 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:07:13,615 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:07:13,615 - telecom_app.src.models.manager - WARNING - Pre-import of src.core failed: No module named 'src.core'
+2026-10-06 11:07:13,617 - telecom_app.src.models.manager - ERROR - joblib.load failed: ModuleNotFoundError: No module named 'src.core'
+2026-10-06 11:07:13,618 - telecom_app.src.models.manager - ERROR - Traceback (most recent call last):
+  File "/workspaces/telecom-consumption-intelligence/modular/src/models/manager.py", line 168, in load
+    model = joblib.load(model_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 755, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 632, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.11/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'src.core'
+
+2026-10-06 11:09:27,435 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 11:09:27,435 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 11:09:27,661 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:09:27,688 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:09:27,733 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:09:27,734 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:09:27,734 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 11:09:27,734 - telecom_app.src.models.manager - INFO - <repo_root>/src/core exists: True
+2026-10-06 11:09:27,734 - telecom_app.src.models.manager - WARNING - Pre-import of src.core failed: No module named 'src.core'
+2026-10-06 11:09:27,737 - telecom_app.src.models.manager - ERROR - joblib.load failed: ModuleNotFoundError: No module named 'src.core'
+2026-10-06 11:09:27,737 - telecom_app.src.models.manager - ERROR - Traceback (most recent call last):
+  File "/workspaces/telecom-consumption-intelligence/modular/src/models/manager.py", line 179, in load
+    model = joblib.load(model_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 755, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "/home/vscode/.local/lib/python3.11/site-packages/joblib/numpy_pickle.py", line 632, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.11/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'src.core'
+
+2026-10-06 11:20:21,137 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 11:20:21,138 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 11:20:21,389 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:20:21,434 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 11:20:21,489 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:20:21,490 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 11:20:21,490 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 11:20:21,491 - telecom_app.src.models.manager - INFO - Purged cached modules: ['src', 'src.constants', 'src.ui.components', 'src.config', 'src.utils.logger']...
+2026-10-06 11:20:21,492 - telecom_app.src.models.manager - INFO - src.__file__: /workspaces/telecom-consumption-intelligence/src/__init__.py
+2026-10-06 11:20:21,493 - telecom_app.src.models.manager - INFO - src.__path__: ['/workspaces/telecom-consumption-intelligence/src']
+2026-10-06 11:20:21,495 - telecom_app.src.models.manager - INFO - Pre-imported src.core.custom_transformers
+2026-10-06 11:20:21,529 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 11:20:21,531 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 11:20:21,532 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:15:16,482 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:15:16,482 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:15:16,716 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:15:16,741 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:15:16,815 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:15:16,815 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:15:16,815 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:15:16,816 - telecom_app.src.models.manager - INFO - Purged cached modules: ['src', 'src.constants', 'src.ui.components', 'src.config', 'src.utils.logger']...
+2026-10-06 12:15:16,818 - telecom_app.src.models.manager - INFO - src.__file__: /workspaces/telecom-consumption-intelligence/modular/src/__init__.py
+2026-10-06 12:15:16,818 - telecom_app.src.models.manager - INFO - src.__path__: ['/workspaces/telecom-consumption-intelligence/modular/src']
+2026-10-06 12:15:16,818 - telecom_app.src.models.manager - WARNING - Pre-import of src.core failed: No module named 'src.core'
+2026-10-06 12:15:16,846 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:15:16,847 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:15:16,847 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:21:21,544 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:21:21,545 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:21:21,800 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:21:21,825 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:21:21,857 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:21:21,857 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:21:21,857 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:21:21,860 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:21:21,883 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:21:21,884 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:21:21,885 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:21:32,708 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:21:32,709 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:21:32,736 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:21:32,736 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:21:32,736 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:21:32,737 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:21:32,757 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:21:32,757 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:21:32,758 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:21:45,047 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:21:45,048 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:21:45,077 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:21:45,077 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:21:45,078 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:21:45,078 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:21:45,098 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:21:45,098 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:21:45,099 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:22:05,332 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:22:05,333 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:22:05,358 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:22:05,358 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:22:05,359 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:22:05,359 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:22:05,380 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:22:05,380 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:22:05,381 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:22:06,463 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:22:06,465 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:22:06,493 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:22:06,493 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:22:06,494 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:22:06,494 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:22:06,515 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:22:06,515 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:22:06,516 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:22:07,067 - telecom_app.src.analytics.anomalies - INFO - Detected 1172 anomalies
+2026-10-06 12:34:56,038 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:34:56,040 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:34:56,261 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:34:56,287 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:34:56,320 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:34:56,321 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:34:56,321 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:34:56,323 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:34:56,362 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:34:56,366 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:34:56,367 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:35:06,470 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:35:06,471 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:35:06,499 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:35:06,499 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:35:06,500 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:35:06,500 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:35:06,520 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:35:06,521 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:35:06,521 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:35:42,857 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:35:42,858 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:35:42,887 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:35:42,887 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:35:42,888 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:35:42,888 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:35:42,908 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:35:42,909 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:35:42,909 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:35:51,306 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:35:51,306 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:35:51,332 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:35:51,332 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:35:51,333 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:35:51,333 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:35:51,353 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:35:51,354 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:35:51,354 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:36:01,521 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:01,522 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:36:01,550 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:01,551 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:01,551 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:01,551 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:36:01,579 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:36:01,580 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:36:01,580 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:36:02,312 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:02,312 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:36:02,341 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:02,341 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:02,342 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:02,342 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:36:02,363 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:36:02,364 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:36:02,364 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:36:13,378 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:13,379 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:36:13,420 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:13,422 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:13,423 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:13,423 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:36:13,457 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:36:13,458 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:36:13,459 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:36:46,902 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:46,903 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:36:46,928 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:46,928 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:46,929 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:46,929 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:36:46,949 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:36:46,950 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:36:46,950 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:36:46,962 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:46,962 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:36:46,967 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-10-06 12:36:56,264 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:56,266 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:36:56,297 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:56,297 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:36:56,297 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:56,298 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:36:56,330 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:36:56,330 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:36:56,331 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:36:56,351 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:36:56,355 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:36:56,368 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-10-06 12:37:12,898 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:12,898 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:37:12,926 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:12,927 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:12,927 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:12,927 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:37:12,947 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:37:12,947 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:37:12,948 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:37:19,529 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:19,530 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:37:19,556 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:19,556 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:19,557 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:19,557 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:37:19,578 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:37:19,578 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:37:19,578 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:37:19,647 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:19,648 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:37:19,678 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:19,678 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:19,678 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:19,679 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:37:19,698 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:37:19,698 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:37:19,699 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:37:28,788 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:28,790 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:37:28,817 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:28,817 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:28,817 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:28,818 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:37:28,839 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:37:28,840 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:37:28,841 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:37:28,908 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:28,909 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:37:28,943 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:28,943 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:28,944 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:28,944 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:37:28,963 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:37:28,963 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:37:28,964 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:37:32,232 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:32,232 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:37:32,257 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:32,258 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:32,258 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:32,258 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:37:32,278 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:37:32,279 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:37:32,279 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:37:40,252 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:40,253 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:37:40,278 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:40,279 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:40,279 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:40,279 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:37:40,299 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:37:40,300 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:37:40,300 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:37:56,945 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:56,947 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:37:56,972 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:56,973 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:56,973 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:56,974 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:37:56,994 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:37:56,994 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:37:56,995 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:37:57,069 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:57,070 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:37:57,100 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:57,100 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:37:57,100 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:37:57,101 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:37:57,121 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:37:57,121 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:37:57,122 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:04,513 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:04,514 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:04,545 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:04,546 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:04,546 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:04,546 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:04,566 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:04,566 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:04,566 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:08,159 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:08,160 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:08,189 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:08,189 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:08,189 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:08,190 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:08,210 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:08,210 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:08,211 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:09,355 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:09,355 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:09,383 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:09,383 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:09,383 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:09,384 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:09,404 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:09,405 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:09,405 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:12,554 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:12,554 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:12,582 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:12,582 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:12,583 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:12,583 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:12,603 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:12,604 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:12,604 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:19,190 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:19,190 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:19,220 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:19,220 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:19,220 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:19,221 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:19,240 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:19,241 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:19,242 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:23,409 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:23,411 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:23,445 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:23,445 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:23,445 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:23,446 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:23,481 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:23,482 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:23,483 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:31,230 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:31,231 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:31,259 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:31,259 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:31,260 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:31,260 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:31,286 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:31,287 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:31,287 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:34,935 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:34,937 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:34,965 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:34,966 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:34,966 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:34,967 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:34,988 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:34,988 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:34,989 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:35,940 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:35,941 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:35,970 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:35,970 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:35,970 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:35,971 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:35,990 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:35,991 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:35,991 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:36,695 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:36,696 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:36,721 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:36,722 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:36,722 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:36,722 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:36,741 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:36,742 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:36,742 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:37,545 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:37,545 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:37,571 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:37,572 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:37,572 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:37,572 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:37,604 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:37,604 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:37,605 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:40,645 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:40,647 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:40,675 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:40,675 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:38:40,676 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:40,676 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:38:40,696 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:38:40,696 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:38:40,697 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:38:40,712 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:38:40,714 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:38:40,720 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-10-06 12:39:19,177 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:39:19,179 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:39:19,205 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:39:19,205 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:39:19,206 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:39:19,206 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:39:19,226 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:39:19,227 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:39:19,227 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:39:19,308 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:39:19,308 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:39:19,332 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:39:19,332 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:39:19,332 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:39:19,333 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:39:19,354 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:39:19,356 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:39:19,357 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:39:31,433 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:39:31,435 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:39:31,459 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:39:31,459 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:39:31,459 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:39:31,460 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:39:31,481 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:39:31,481 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:39:31,482 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:39:31,494 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:39:31,496 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:39:31,503 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-10-06 12:40:30,397 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:30,397 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:40:30,598 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:40:30,624 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:40:30,652 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:30,653 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:30,653 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:30,655 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:40:30,686 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:40:30,687 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:40:30,688 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:40:32,920 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:32,923 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:40:32,954 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:32,955 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:32,955 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:32,955 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:40:32,975 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:40:32,975 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:40:32,975 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:40:40,099 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:40,100 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:40:40,128 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:40,128 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:40,129 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:40,129 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:40:40,150 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:40:40,151 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:40:40,151 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:40:46,787 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:46,788 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:40:46,813 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:46,813 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:46,813 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:46,814 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:40:46,834 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:40:46,834 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:40:46,835 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:40:52,248 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:52,250 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:40:52,284 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:52,284 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:40:52,285 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:52,285 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:40:52,313 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:40:52,314 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:40:52,314 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:40:52,330 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:40:52,331 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:40:52,336 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-10-06 12:41:48,991 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:48,992 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:41:49,018 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:41:49,019 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:41:49,019 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:49,019 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:41:49,040 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:41:49,041 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:41:49,041 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:41:49,055 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:49,056 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:41:49,060 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-10-06 12:41:52,682 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:52,683 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:41:52,710 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:41:52,710 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:41:52,710 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:52,710 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:41:52,731 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:41:52,732 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:41:52,732 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:41:54,298 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:54,298 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:41:54,345 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:41:54,345 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:41:54,345 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:54,345 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:41:54,379 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:41:54,380 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:41:54,380 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:41:55,791 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:55,793 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:41:55,818 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:41:55,818 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:41:55,818 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:55,819 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:41:55,845 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:41:55,845 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:41:55,846 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:41:55,859 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:41:55,859 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:41:55,873 - telecom_app.src.data.processor - INFO - Prepared features: 1 rows, 13 features
+2026-10-06 12:49:32,341 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:32,341 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:49:32,609 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:49:32,655 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:49:32,703 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:32,704 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:32,704 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:32,706 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:49:32,752 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:49:32,753 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:49:32,754 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:49:41,322 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:41,323 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:49:41,349 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:41,349 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:41,349 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:41,349 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:49:41,370 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:49:41,371 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:49:41,371 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:49:42,889 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:42,889 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:49:42,919 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:42,920 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:42,920 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:42,920 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:49:42,943 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:49:42,944 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:49:42,944 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:49:45,100 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:45,100 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:49:45,131 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:45,132 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:45,132 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:45,132 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:49:45,169 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:49:45,170 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:49:45,170 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:49:45,184 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:45,186 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:49:50,511 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:50,512 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:49:50,539 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:50,539 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:50,540 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:50,540 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:49:50,561 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:49:50,562 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:49:50,563 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:49:53,630 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:53,631 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:49:53,662 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:53,662 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:49:53,662 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:53,663 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:49:53,684 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:49:53,684 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:49:53,685 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:49:53,697 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:49:53,697 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:50:31,124 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:50:31,124 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:50:31,366 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:50:31,407 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:50:31,440 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:50:31,440 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:50:31,440 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:50:31,442 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:50:31,460 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:50:31,461 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:50:31,461 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:50:41,152 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:50:41,152 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:50:41,182 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:50:41,182 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:50:41,182 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:50:41,183 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:50:41,203 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:50:41,204 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:50:41,204 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:50:42,636 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:50:42,637 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:50:42,664 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:50:42,665 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:50:42,665 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:50:42,665 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:50:42,685 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:50:42,686 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:50:42,686 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:50:46,119 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:50:46,124 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:50:46,157 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:50:46,157 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:50:46,158 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:50:46,158 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:50:46,197 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:50:46,197 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:50:46,198 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:50:46,217 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:50:46,218 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:53:00,222 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:53:00,222 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:53:00,260 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:53:00,260 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:53:00,261 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:53:00,261 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:53:00,294 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:53:00,295 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:53:00,298 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:53:03,155 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:53:03,159 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:53:03,198 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:53:03,201 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:53:03,201 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:53:03,201 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:53:03,238 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:53:03,239 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:53:03,239 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:53:03,251 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:53:03,253 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:53:48,626 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:53:48,627 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:53:48,660 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:53:48,660 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:53:48,660 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:53:48,661 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:53:48,682 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:53:48,682 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:53:48,683 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:53:48,698 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:53:48,700 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:54:05,196 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:05,197 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:54:05,232 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:54:05,232 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:54:05,233 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:05,233 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:54:05,270 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:54:05,271 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:54:05,272 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:54:05,315 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:05,316 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:54:39,342 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:39,342 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:54:39,625 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:54:39,651 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 12:54:39,688 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:54:39,688 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:54:39,689 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:39,691 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:54:39,741 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:54:39,743 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:54:39,744 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:54:42,132 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:42,133 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:54:42,159 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:54:42,159 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:54:42,159 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:42,159 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:54:42,180 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:54:42,181 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:54:42,181 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:54:44,755 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:44,757 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 12:54:44,784 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:54:44,785 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 12:54:44,785 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:44,785 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 12:54:44,806 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 12:54:44,806 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 12:54:44,807 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 12:54:44,819 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 12:54:44,821 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:01:37,312 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:01:37,313 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:01:37,321 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:01:37,321 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:01:37,452 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 13:01:37,515 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 13:01:37,679 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:01:37,686 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:01:37,686 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:01:37,690 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:01:37,797 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:01:37,800 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 13:01:37,804 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:01:38,640 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:01:38,640 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:01:38,640 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:01:38,641 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:01:38,689 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:01:38,692 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 13:01:38,694 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:01:40,265 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:01:40,266 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:01:40,298 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:01:40,298 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:01:40,299 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:01:40,299 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:01:40,327 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:01:40,328 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 13:01:40,329 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:01:42,085 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:01:42,085 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:01:42,113 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:01:42,113 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:01:42,114 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:01:42,114 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:01:42,138 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:01:42,138 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 13:01:42,138 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:01:42,154 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:01:42,156 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:10:04,780 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:04,814 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:10:05,056 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 13:10:05,130 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 13:10:05,174 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:10:05,175 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:10:05,175 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:05,176 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:10:05,199 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:10:05,199 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 13:10:05,200 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:10:08,229 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:08,230 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:10:08,258 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:10:08,259 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:10:08,259 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:08,259 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:10:08,280 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:10:08,281 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 13:10:08,281 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:10:10,418 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:10,421 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:10:10,448 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:10:10,448 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:10:10,448 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:10,449 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:10:10,469 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:10:10,470 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 13:10:10,470 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:10:10,484 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:10,487 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:10:20,508 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:20,511 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:10:20,542 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:10:20,543 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:10:20,543 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:20,544 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:10:20,565 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:10:20,565 - telecom_app.src.models.explainer - WARNING - SHAP not installed. Install with: pip install shap
+2026-10-06 13:10:20,566 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:10:20,579 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:10:20,580 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:12:42,778 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:12:42,790 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:12:43,021 - telecom_app.src.data.loader - INFO - Loading data from: /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 13:12:43,087 - telecom_app.src.data.loader - INFO - Loaded 8004 rows from /workspaces/telecom-consumption-intelligence/data/processed/train_data.parquet
+2026-10-06 13:12:43,128 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:12:43,129 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:12:43,129 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:12:43,135 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:12:43,161 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:12:47,989 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:12:47,993 - telecom_app.src.models.explainer - ERROR - Error creating SHAP explainer: Model type not yet supported by TreeExplainer: <class 'sklearn.pipeline.Pipeline'>
+2026-10-06 13:12:47,995 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:12:53,737 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:12:53,737 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:12:53,766 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:12:53,766 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:12:53,766 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:12:53,766 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:12:53,795 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:12:53,839 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:12:53,842 - telecom_app.src.models.explainer - ERROR - Error creating SHAP explainer: Model type not yet supported by TreeExplainer: <class 'sklearn.pipeline.Pipeline'>
+2026-10-06 13:12:53,842 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:12:56,161 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:12:56,162 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:12:56,192 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:12:56,193 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:12:56,194 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:12:56,194 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:12:56,222 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:12:56,250 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:12:56,252 - telecom_app.src.models.explainer - ERROR - Error creating SHAP explainer: Model type not yet supported by TreeExplainer: <class 'sklearn.pipeline.Pipeline'>
+2026-10-06 13:12:56,253 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:12:56,269 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:12:56,271 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:13:12,952 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:12,952 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:13:12,979 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:13:12,979 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:13:12,980 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:12,980 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:13:13,008 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:13:13,056 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:13:13,060 - telecom_app.src.models.explainer - ERROR - Error creating SHAP explainer: Model type not yet supported by TreeExplainer: <class 'sklearn.pipeline.Pipeline'>
+2026-10-06 13:13:13,061 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:13:14,418 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:14,418 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:13:14,444 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:13:14,445 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:13:14,445 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:14,446 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:13:14,466 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:13:14,490 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:13:14,493 - telecom_app.src.models.explainer - ERROR - Error creating SHAP explainer: Model type not yet supported by TreeExplainer: <class 'sklearn.pipeline.Pipeline'>
+2026-10-06 13:13:14,493 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:13:14,514 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:14,514 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:13:25,744 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:25,745 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:13:25,772 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:13:25,772 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:13:25,772 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:25,773 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:13:25,793 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.9480292742745271
+2026-10-06 13:13:25,832 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:13:25,835 - telecom_app.src.models.explainer - ERROR - Error creating SHAP explainer: Model type not yet supported by TreeExplainer: <class 'sklearn.pipeline.Pipeline'>
+2026-10-06 13:13:25,835 - telecom_app.__main__ - INFO - SHAP explainer created: False
+2026-10-06 13:13:25,848 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:25,849 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:13:25,855 - telecom_app.src.models.manager - INFO - Starting ad-hoc training...
+2026-10-06 13:13:25,882 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:13:27,340 - telecom_app.src.models.manager - INFO - Model saved to: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:13:27,341 - telecom_app.src.models.manager - INFO - Model trained with R²: 0.7084
+2026-10-06 13:13:27,448 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:27,449 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:13:27,474 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:13:27,475 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:13:27,475 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:13:27,475 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:13:27,491 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.7083600637268973
+2026-10-06 13:13:27,521 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:13:27,530 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-10-06 13:13:27,532 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-10-06 13:14:22,149 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:22,151 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:14:22,181 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:22,181 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:22,181 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:22,182 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:14:22,197 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.7083600637268973
+2026-10-06 13:14:22,234 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:14:22,241 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-10-06 13:14:22,242 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-10-06 13:14:27,397 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:27,397 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:14:27,432 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:27,432 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:27,433 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:27,433 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:14:27,449 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.7083600637268973
+2026-10-06 13:14:27,474 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:14:27,483 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-10-06 13:14:27,483 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-10-06 13:14:27,500 - telecom_app.src.data.loader - INFO - Loaded 5000 rows from uploaded file: scenario6_unlimited_plan_pattern_shift.parquet
+2026-10-06 13:14:36,329 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:36,329 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:14:36,357 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:36,357 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:36,357 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:36,357 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:14:36,375 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.7083600637268973
+2026-10-06 13:14:36,399 - telecom_app.src.data.processor - INFO - Prepared features: 8004 rows, 10 features
+2026-10-06 13:14:36,410 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-10-06 13:14:36,410 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-10-06 13:14:36,455 - telecom_app.src.data.processor - INFO - Prepared features: 5000 rows, 10 features
+2026-10-06 13:14:36,575 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:36,576 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:14:36,599 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:36,599 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:36,599 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:36,601 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:14:36,624 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.7083600637268973
+2026-10-06 13:14:36,627 - telecom_app.src.data.processor - INFO - Prepared features: 5000 rows, 10 features
+2026-10-06 13:14:36,633 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-10-06 13:14:36,633 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-10-06 13:14:46,833 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:46,834 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:14:46,851 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:46,851 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:46,852 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:46,852 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:14:46,868 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.7083600637268973
+2026-10-06 13:14:46,871 - telecom_app.src.data.processor - INFO - Prepared features: 5000 rows, 10 features
+2026-10-06 13:14:46,879 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-10-06 13:14:46,879 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-10-06 13:14:50,634 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:50,636 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:14:50,651 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:50,651 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:50,651 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:50,651 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:14:50,671 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.7083600637268973
+2026-10-06 13:14:50,676 - telecom_app.src.data.processor - INFO - Prepared features: 5000 rows, 10 features
+2026-10-06 13:14:50,686 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-10-06 13:14:50,687 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-10-06 13:14:51,394 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:51,395 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models
+2026-10-06 13:14:51,412 - telecom_app.src.models.manager - INFO - Found model: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:51,412 - telecom_app.src.models.manager - INFO - Loading model from: /workspaces/telecom-consumption-intelligence/models/mobile_data_consumption_pipeline.pkl
+2026-10-06 13:14:51,413 - telecom_app.src.models.manager - INFO - _repo_root resolved to: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:51,413 - telecom_app.src.models.manager - INFO - Pre-imported training.core.custom_transformers
+2026-10-06 13:14:51,432 - telecom_app.src.models.manager - INFO - Model loaded. Test R² = 0.7083600637268973
+2026-10-06 13:14:51,437 - telecom_app.src.data.processor - INFO - Prepared features: 5000 rows, 10 features
+2026-10-06 13:14:51,449 - telecom_app.src.models.explainer - INFO - SHAP explainer created successfully
+2026-10-06 13:14:51,450 - telecom_app.__main__ - INFO - SHAP explainer created: True
+2026-10-06 13:14:51,494 - telecom_app.src.models.manager - INFO - Project directory: /workspaces/telecom-consumption-intelligence
+2026-10-06 13:14:51,495 - telecom_app.src.models.manager - INFO - Models directory:  /workspaces/telecom-consumption-intelligence/models

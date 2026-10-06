@@ -39,66 +39,49 @@ anomaly_detector = AnomalyDetector()
 
 
 def render_tabs(df: pd.DataFrame, model_info: Dict[str, Any]):
-    """Render all tabs"""
-    
+    """Route to the correct section based on sidebar navigation."""
+
     vis = DashboardVisualizations()
     analytics_vis = AnalyticsVisualizations()
     network_vis = NetworkVisualizations()
     model_vis = ModelVisualizations()
-    
+
     tab_names = [f"{info['icon']} {info['label']}" for info in TABS.values()]
-    tabs = st.tabs(tab_names)
-    
-    # Tab 1: Command Centre
-    with tabs[0]:
+
+    # Read the selection set by the sidebar radio
+    page = st.session_state.get("main_navigation", tab_names[0])
+
+    # Guard against stale session state
+    if page not in tab_names:
+        page = tab_names[0]
+
+    idx = tab_names.index(page)
+
+    if idx == 0:
         render_command_centre(df, vis)
-    
-    # Tab 2: Predict & Explain
-    with tabs[1]:
+    elif idx == 1:
         render_predict(df, model_info)
-    
-    # Tab 3: Analytics
-    with tabs[2]:
+    elif idx == 2:
         render_analytics(df, analytics_vis, vis)
-    
-    # Tab 4: Forecast
-    with tabs[3]:
+    elif idx == 3:
         render_forecast(df, analytics_vis)
-    
-    # Tab 5: Segmentation
-    with tabs[4]:
+    elif idx == 4:
         render_segmentation(df)
-    
-    # Tab 6: Cohort Analysis (NEW)
-    with tabs[5]:
+    elif idx == 5:
         render_cohort_analysis(df)
-    
-    # Tab 7: A/B Testing (NEW)
-    with tabs[6]:
+    elif idx == 6:
         render_ab_testing(df)
-    
-    # Tab 8: Revenue
-    with tabs[7]:
-        render_revenue(df)
-    
-    # Tab 9: Network
-    with tabs[8]:
+    elif idx == 7:
+        render_revenue(df, model_info)
+    elif idx == 8:
         render_network(df, network_vis)
-    
-    # Tab 10: Maintenance (NEW)
-    with tabs[9]:
+    elif idx == 9:
         render_maintenance(df)
-    
-    # Tab 11: Model
-    with tabs[10]:
+    elif idx == 10:
         render_model(df, model_info, model_vis)
-    
-    # Tab 12: Data Explorer
-    with tabs[11]:
+    elif idx == 11:
         render_data_explorer(df)
-    
-    # Tab 13: Monitoring
-    with tabs[12]:
+    elif idx == 12:
         render_monitoring(df, model_info)
 
 
@@ -241,9 +224,9 @@ def render_predict(df: pd.DataFrame, model_info: Dict[str, Any]):
                 manager = ModelManager()
                 start_time = time.time()
                 
-                # Validate and predict
-                X_input = input_df[EXPECTED_FEATURES]
-                prediction = manager.predict(model_info['model'], X_input)[0]
+                # Pass the FULL input_df (which includes measurement_date).
+                # The saved pipeline handles all feature selection internally.
+                prediction = manager.predict(model_info['model'], input_df)[0]
                 
                 # Calculate ARPU
                 from ..models.manager import ModelMetrics

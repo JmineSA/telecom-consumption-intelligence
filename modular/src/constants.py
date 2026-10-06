@@ -5,13 +5,10 @@ from typing import Dict, Any
 
 # Feature definitions
 EXPECTED_FEATURES = [
-    'age_group', 'plan_type', 'network_type',
-    'device_type_Basic_Phone', 'device_type_Mid_Range',
-    'device_type_Premium_Smartphone', 'device_type_Tablet',
+    'age_group', 'plan_type', 'network_type', 'device_type',
     'hours_streaming', 'hours_social', 'hours_messaging', 'hours_gaming',
     'is_peak_hour_user', 'is_weekend'
 ]
-
 # Categorical mappings
 AGE_MAPPING: Dict[str, int] = {
     '18-24': 0, '25-34': 1, '35-44': 2, '45-54': 3, '55+': 4

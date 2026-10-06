@@ -9,7 +9,7 @@ sys.path.insert(0, str(project_root))
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 from sklearn.pipeline import Pipeline
-from src.core.custom_transformers import DropColumns, DateFeatures, CyclicalFeatures
+from training.core.custom_transformers import DropColumns, DateFeatures, CyclicalFeatures
 
 def build_pipeline():
     """Build the preprocessing pipeline."""
