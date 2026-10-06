@@ -1,31 +1,33 @@
-# src/models/compare_models.py
+# training/models/compare_models.py
 """
-Compare multiple regressors on the same train/val/test split.
+Compare a focused set of regressors on the same time-based split.
 
-Purpose: identify the best model for the forecasting task.
+Only the fast, production-viable models are included — slow "classic"
+GradientBoosting and generic RandomForest are omitted because they
+don't offer accuracy gains that justify their training time.
+
 Output: reports/model_comparison.csv + reports/model_comparison.md
 """
 
 import sys
 import time
+from datetime import datetime
 from pathlib import Path
 
-project_root = Path(__file__).parent.parent.parent
+project_root = Path(__file__).resolve().parent.parent.parent
+src_root = project_root / "src"
+if src_root.exists():
+    sys.path.insert(0, str(src_root))
 sys.path.insert(0, str(project_root))
 
 import numpy as np
 import pandas as pd
-from datetime import datetime
+from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn.linear_model import Ridge
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.pipeline import Pipeline
-from sklearn.linear_model import LinearRegression, Ridge
-from sklearn.ensemble import (
-    RandomForestRegressor,
-    GradientBoostingRegressor,
-    HistGradientBoostingRegressor,
-)
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-from src.pipelines.preprocessing_pipeline import build_pipeline
+from training.pipelines.preprocessing_pipeline import build_pipeline
 
 try:
     from xgboost import XGBRegressor
@@ -47,33 +49,14 @@ REPORTS_DIR.mkdir(exist_ok=True)
 
 
 # ------------------------------------------------------------------
-# MODEL REGISTRY (tuned for speed on 580K rows)
+# FOCUSED CANDIDATES — fast, production-viable
 # ------------------------------------------------------------------
 def get_candidates():
     models = {
-        "LinearRegression": LinearRegression(),
+        # Baseline — cheap, interpretable, tells us how much non-linearity matters
         "Ridge": Ridge(alpha=1.0, random_state=42),
 
-        # Faster RF — cap depth and use subsampling
-        "RandomForest": RandomForestRegressor(
-            n_estimators=100,
-            max_depth=10,
-            min_samples_leaf=20,
-            max_samples=0.5,          # subsample rows per tree
-            max_features=0.7,         # subsample features per split
-            n_jobs=-1,
-            random_state=42,
-        ),
-
-        "GradientBoosting": GradientBoostingRegressor(
-            n_estimators=200,
-            max_depth=4,
-            learning_rate=0.05,
-            subsample=0.8,
-            min_samples_leaf=20,
-            random_state=42,
-        ),
-
+        # Primary candidate — chosen in yesterday's comparison
         "HistGradientBoosting": HistGradientBoostingRegressor(
             max_iter=400,
             max_depth=6,
@@ -84,6 +67,7 @@ def get_candidates():
         ),
     }
 
+    # Optional: if the libs are installed, add them for context
     if HAS_XGB:
         models["XGBoost"] = XGBRegressor(
             n_estimators=400,
@@ -162,7 +146,7 @@ def main():
         try:
             pipeline.fit(X_train, y_train)
         except KeyboardInterrupt:
-            print(f"  SKIPPED (user interrupted)")
+            print("  SKIPPED (user interrupted)")
             continue
         except Exception as e:
             print(f"  FAILED: {type(e).__name__}: {e}")
@@ -217,6 +201,28 @@ def main():
         "test_mae", "test_mape", "overfit_gap", "train_time_s",
     ]].to_string(index=False))
 
+    # ----------------------------------------------------------------
+    # RECOMMENDATION — best balance of accuracy + speed + size
+    # ----------------------------------------------------------------
+    # Pick from models whose R² is within 0.005 of the best
+    best_r2 = results_df["test_r2"].max()
+    close = results_df[results_df["test_r2"] >= best_r2 - 0.005]
+
+    # Among the close ones, pick the fastest
+    recommended = close.sort_values("train_time_s").iloc[0]
+
+    print("\n" + "=" * 70)
+    print("RECOMMENDATION")
+    print("=" * 70)
+    print(f"Best R² model:   {results_df.iloc[0]['model']} "
+          f"(R²={results_df.iloc[0]['test_r2']:.4f}, "
+          f"{results_df.iloc[0]['train_time_s']}s)")
+    print(f"Recommended:     {recommended['model']} "
+          f"(R²={recommended['test_r2']:.4f}, "
+          f"{recommended['train_time_s']}s)")
+    print(f"Reason: within 0.005 R² of the best, but "
+          f"{results_df.iloc[0]['train_time_s'] / max(recommended['train_time_s'], 0.1):.1f}x faster")
+
     md_path = REPORTS_DIR / "model_comparison.md"
     with open(md_path, "w") as f:
         f.write("# Model Comparison Report\n\n")
@@ -230,16 +236,18 @@ def main():
                     f"{row['test_mae']:.4f} | {row['test_mape']:.2f}% | "
                     f"{row['overfit_gap']:.4f} | {row['train_time_s']} |\n")
 
-        best = results_df.iloc[0]
-        f.write(f"\n## Winner: **{best['model']}**\n\n")
-        f.write(f"- Test R²: {best['test_r2']:.4f}\n")
-        f.write(f"- Test MAE: {best['test_mae']:.4f} GB\n")
-        f.write(f"- Overfitting gap: {best['overfit_gap']:.4f}\n")
+        f.write(f"\n## Recommendation: **{recommended['model']}**\n\n")
+        f.write(f"- Test R²: {recommended['test_r2']:.4f}\n")
+        f.write(f"- Test MAE: {recommended['test_mae']:.4f} GB\n")
+        f.write(f"- Overfitting gap: {recommended['overfit_gap']:.4f}\n")
+        f.write(f"- Train time: {recommended['train_time_s']}s\n")
+        f.write(f"\nChosen because its R² is within 0.005 of the best "
+                f"({results_df.iloc[0]['model']}), but it trains "
+                f"{results_df.iloc[0]['train_time_s'] / max(recommended['train_time_s'], 0.1):.1f}x faster.\n")
 
     print(f"\nReports saved:")
     print(f"  {REPORTS_DIR / 'model_comparison.csv'}")
     print(f"  {md_path}")
-    print(f"\n→ Winner: {results_df.iloc[0]['model']}")
 
 
 if __name__ == "__main__":

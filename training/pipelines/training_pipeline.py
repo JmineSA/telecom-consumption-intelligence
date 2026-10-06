@@ -1,16 +1,20 @@
-# src/pipelines/training_pipeline.py
+# training/pipelines/training_pipeline.py
 import sys
 from pathlib import Path
 
 project_root = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(project_root))
+src_root = project_root / "src"
+for path in (str(src_root), str(project_root)):
+    if path not in sys.path:
+        sys.path.insert(0, path)
 
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import HistGradientBoostingRegressor
-from src.pipelines.preprocessing_pipeline import build_pipeline
+from pipelines.preprocessing_pipeline import build_pipeline
 
 
 def build_model_pipeline():
+    """Build the production model pipeline: preprocessing + HistGradientBoosting."""
     preprocessor = build_pipeline()
 
     model = HistGradientBoostingRegressor(
@@ -22,9 +26,7 @@ def build_model_pipeline():
         random_state=42,
     )
 
-    pipeline = Pipeline(steps=[
+    return Pipeline(steps=[
         ("preprocessor", preprocessor),
         ("regressor", model),
     ])
-
-    return pipeline
