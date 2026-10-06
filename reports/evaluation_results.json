@@ -1,30 +1,30 @@
 {
-  "evaluated_at": "2026-10-06T16:41:12.693597",
-  "model_path": "g:\\Study\\DATA SCINCE\\PROJECTS\\POTFOLIO\\telecom-consumption-intelligence\\models\\mobile_data_consumption_pipeline.pkl",
+  "evaluated_at": "2026-10-06T17:56:31.630644",
+  "model_path": "G:\\Study\\DATA SCINCE\\PROJECTS\\POTFOLIO\\telecom-consumption-intelligence\\models\\mobile_data_consumption_pipeline.pkl",
   "test_shape": {
     "rows": 103310,
     "cols": 37
   },
   "overall": {
-    "rmse": 3.375168313682607,
-    "mae": 2.021264058018002,
-    "r2": 0.7701463643917845,
-    "mape": 33.14521246539669
+    "rmse": 3.3796255752717994,
+    "mae": 2.024203326210421,
+    "r2": 0.7695388721560699,
+    "mape": 33.24744558085725
   },
   "by_congestion": {
     "normal": {
-      "rmse": 3.360072374931472,
-      "mae": 2.017584155093988,
-      "r2": 0.7716170591379364,
-      "mape": 33.075106495950884,
+      "rmse": 3.365077309034271,
+      "mae": 2.020535930003204,
+      "r2": 0.7709361851924573,
+      "mape": 33.18189582539811,
       "n_samples": 81967,
       "avg_usage_gb": 7.269417041004306
     },
     "congested": {
-      "rmse": 3.4325266745045444,
-      "mae": 2.035396588729368,
-      "r2": 0.7645654905224382,
-      "mape": 33.41445184119039,
+      "rmse": 3.434924975555935,
+      "mae": 2.038287825339734,
+      "r2": 0.7642363801365853,
+      "mape": 33.499186985801266,
       "n_samples": 21343,
       "avg_usage_gb": 7.290004399568946
     }

@@ -1,9 +1,9 @@
 {
-  "model_path": "g:\\Study\\DATA SCINCE\\PROJECTS\\POTFOLIO\\telecom-consumption-intelligence\\models\\mobile_data_consumption_pipeline.pkl",
+  "model_path": "G:\\Study\\DATA SCINCE\\PROJECTS\\POTFOLIO\\telecom-consumption-intelligence\\models\\mobile_data_consumption_pipeline.pkl",
   "model_type": "HistGradientBoostingRegressor",
   "target": "target_next_day_gb",
   "forecast_horizon_days": 1,
-  "trained_at": "2026-10-06T17:18:06.877344",
+  "trained_at": "2026-10-06T17:54:50.311625",
   "n_features": 34,
   "n_train_samples": 581971,
   "n_val_samples": 104192,
@@ -26,7 +26,7 @@
     "region",
     "contract_duration_months",
     "customer_tenure_months",
-    "monthly_bill_usd",
+    "monthly_bill_zar",
     "support_calls_6months",
     "churn_probability",
     "churn_status",
@@ -44,14 +44,14 @@
     "is_month_end"
   ],
   "train_metrics": {
-    "rmse": 3.3516272050977416,
-    "mae": 1.9763896332585997,
-    "r2": 0.7732865398212773
+    "rmse": 3.349358446516998,
+    "mae": 1.975591736587183,
+    "r2": 0.77359336632014
   },
   "val_metrics": {
-    "rmse": 3.4858384220382947,
-    "mae": 2.0300869554260985,
-    "r2": 0.7629292111118582
+    "rmse": 3.4868329900796744,
+    "mae": 2.0297336513459205,
+    "r2": 0.7627939112855069
   },
-  "overfitting_gap": 0.010357328709419078
+  "overfitting_gap": 0.010799455034633088
 }

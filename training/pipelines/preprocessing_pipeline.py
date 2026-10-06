@@ -56,7 +56,7 @@ NUMERIC_COLS = [
     "congested",
     "contract_duration_months",
     "customer_tenure_months",
-    "monthly_bill_usd",
+    "monthly_bill_zar",
     "support_calls_6months",
     "churn_probability",
     "lag_1d_total_gb",

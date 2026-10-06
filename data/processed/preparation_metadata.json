@@ -1,5 +1,5 @@
 {
-  "prepared_at": "2026-10-06 17:11:46",
+  "prepared_at": "2026-10-06 17:54:31",
   "shape": {
     "rows": 789473,
     "cols": 37
@@ -25,7 +25,7 @@
     "region",
     "contract_duration_months",
     "customer_tenure_months",
-    "monthly_bill_usd",
+    "monthly_bill_zar",
     "support_calls_6months",
     "churn_probability",
     "churn_status",

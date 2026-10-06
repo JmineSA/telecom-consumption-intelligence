@@ -109,7 +109,7 @@ def join_users(usage: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
         "user_id",
         "contract_duration_months",
         "customer_tenure_months",
-        "monthly_bill_usd",
+        "monthly_bill_zar",
         "support_calls_6months",
         "churn_probability",
         "churn_status",
