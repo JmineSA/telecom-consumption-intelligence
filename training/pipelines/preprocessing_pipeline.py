@@ -1,4 +1,7 @@
-# src/pipelines/preprocessing_pipeline.py
+"""
+PHASE 4.
+
+Preprocessing Pipeline for Telecom Consumption Intelligence (Time-Series)"""
 import sys
 from pathlib import Path
 

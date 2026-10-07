@@ -1,7 +1,7 @@
 {
-  "prepared_at": "2026-10-06 17:54:31",
+  "prepared_at": "2026-10-07 12:04:59",
   "shape": {
-    "rows": 789473,
+    "rows": 720362,
     "cols": 37
   },
   "columns": [
@@ -46,9 +46,9 @@
   "target": "target_next_day_gb",
   "forecast_horizon_days": 1,
   "split": {
-    "train_rows": 581971,
-    "val_rows": 104192,
-    "test_rows": 103310,
+    "train_rows": 531140,
+    "val_rows": 95019,
+    "test_rows": 94203,
     "train_dates": [
       "2026-01-02",
       "2026-03-03"
@@ -63,9 +63,14 @@
     ]
   },
   "target_stats": {
-    "mean": 7.131498203991776,
-    "std": 7.055879458472506,
+    "mean": 7.1274445771709205,
+    "std": 7.05367662479087,
     "min": 0.0589,
     "max": 168.8869
+  },
+  "leakage_policy": {
+    "imputation": "none \u2014 rows with missing categoricals are dropped",
+    "lag_fallbacks": "past-only \u2014 early days use lag_1d as proxy",
+    "missingness_threshold": "5% (below this, drop rather than impute)"
   }
 }

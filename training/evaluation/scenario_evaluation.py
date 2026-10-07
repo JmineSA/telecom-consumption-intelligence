@@ -1,4 +1,4 @@
-# src/evaluation/scenario_evaluation.py
+
 """
 Scenario-based stress testing.
 

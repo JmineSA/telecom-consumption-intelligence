@@ -1,4 +1,6 @@
 """
+PHASE 1. 
+
 Telecom Consumption Intelligence — Synthetic Data Generator (v2)
 
 South African telecom context:

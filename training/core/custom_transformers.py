@@ -1,4 +1,8 @@
-# src/core/custom_transformers.py
+"""
+PHASE 4. 
+
+Custom Transformers for Telecom Consumption Intelligence (Time-Series)"""
+
 import sys
 from pathlib import Path
 

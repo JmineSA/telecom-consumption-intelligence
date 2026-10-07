@@ -1,4 +1,7 @@
-# training/pipelines/training_pipeline.py
+"""PHASE 5.
+
+Training Pipeline for Telecom Consumption Intelligence (Time-Series)"""
+
 import sys
 from pathlib import Path
 

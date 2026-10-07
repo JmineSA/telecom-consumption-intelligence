@@ -1,5 +1,7 @@
-# src/models/mobile_data_consumption_model.py
+
 """
+PHASE 6.
+
 Train the mobile data consumption forecasting model.
 
 Responsibility: TRAIN ONLY.

@@ -1,5 +1,6 @@
 # src/evaluation/evaluate_model.py
 """
+PHASE 7.
 Evaluate the trained mobile data consumption model on the held-out test set.
 
 Responsibility: EVALUATE ONLY.
