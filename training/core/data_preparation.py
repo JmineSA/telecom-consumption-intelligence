@@ -1,18 +1,21 @@
-# src/core/data_preparation.py
+# training/core/data_preparation.py
 """
+PHASE 2. 
+
 Data Preparation for Telecom Consumption Intelligence (Time-Series)
 
 Pipeline:
 1. Load users + daily_usage
 2. Join and validate
-3. Handle missing values thoughtfully
-4. Build lag features (1d, 7d avg, 30d avg)
+3. Fix categorical typos only (NO imputation)
+4. Build lag features (past-only fallbacks — no backfill from future)
 5. Build calendar features
 6. Create forecasting target (total_gb on day D+1)
-7. Time-based split (train / val / test)
-8. Save modelling dataset + split metadata
+7. Drop rows with NaN in critical columns (missingness is ~3% MCAR,
+   below our 5% threshold, so dropping is cleaner than imputing)
+8. Time-based split (train / val / test)
+9. Save modelling dataset + split metadata
 """
-
 import pandas as pd
 import numpy as np
 import json
@@ -32,7 +35,7 @@ logger = logging.getLogger(__name__)
 # ------------------------------------------------------------------
 # CONFIG
 # ------------------------------------------------------------------
-BASE_PATH = Path(r"G:\Study\DATA SCINCE\PROJECTS\POTFOLIO\telecom-consumption-intelligence\data")
+BASE_PATH = Path(__file__).parent.parent.parent / "data"
 
 RAW_PATH = BASE_PATH / "raw"
 PROCESSED_PATH = BASE_PATH / "processed"
@@ -59,7 +62,7 @@ def load_raw_data() -> tuple[pd.DataFrame, pd.DataFrame]:
             f"Missing raw files. Expected:\n"
             f"  {users_file}\n"
             f"  {usage_file}\n"
-            f"Run src/core/data_generator.py first."
+            f"Run training/core/data_generator.py first."
         )
 
     users = pd.read_csv(users_file)
@@ -72,9 +75,15 @@ def load_raw_data() -> tuple[pd.DataFrame, pd.DataFrame]:
 
 
 # ------------------------------------------------------------------
-# 2. CLEAN
+# 2. CLEAN — typos only, no imputation
 # ------------------------------------------------------------------
 def clean_categoricals(usage: pd.DataFrame) -> pd.DataFrame:
+    """
+    Fix categorical typos only.
+
+    Missing values are intentionally left in place — they are dropped
+    later in main() after feature engineering, before the split.
+    """
     usage = usage.copy()
 
     if "region" in usage.columns:
@@ -82,13 +91,7 @@ def clean_categoricals(usage: pd.DataFrame) -> pd.DataFrame:
             {"gauteng": "Gauteng", "GP": "Gauteng"}
         )
 
-    for col in ["network_type", "age_group", "region"]:
-        if col in usage.columns and usage[col].isnull().any():
-            n_missing = usage[col].isnull().sum()
-            mode_val = usage[col].mode()[0]
-            usage[col] = usage[col].fillna(mode_val)
-            logger.info(f"Imputed {n_missing} missing values in '{col}' with '{mode_val}'")
-
+    logger.info("Cleaned categorical typos (no imputation)")
     return usage
 
 
@@ -97,7 +100,7 @@ def drop_duplicates(usage: pd.DataFrame) -> pd.DataFrame:
     usage = usage.drop_duplicates(subset=["user_id", "date"], keep="first")
     removed = before - len(usage)
     if removed > 0:
-        logger.info(f"Dropped {removed} duplicate (user_id, date) rows")
+        logger.info(f"Dropped {removed:,} duplicate (user_id, date) rows")
     return usage
 
 
@@ -121,9 +124,22 @@ def join_users(usage: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
 
 
 # ------------------------------------------------------------------
-# 4. LAG FEATURES (with NaN handling built in)
+# 4. LAG FEATURES (past-only)
 # ------------------------------------------------------------------
 def add_lag_features(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Build lag and rolling features per user.
+
+    Rule: every fallback uses ONLY past information.
+    - lag_1d  : yesterday's value (defined for day >= 2)
+    - lag_7d  : value 7 days ago  (defined for day >= 8)
+    - rolling_7d_avg  : past 7 days average
+    - rolling_30d_avg : past 30 days average
+
+    For early days where lag_7d / rolling_30d aren't available,
+    we fall back to lag_1d_total_gb (which IS known at prediction time).
+    We do NOT backfill from future values.
+    """
     df = df.sort_values(["user_id", "date"]).copy()
     group = df.groupby("user_id", sort=False)["total_gb"]
 
@@ -131,7 +147,7 @@ def add_lag_features(df: pd.DataFrame) -> pd.DataFrame:
     df["lag_1d_total_gb"] = group.shift(1)
     df["lag_7d_total_gb"] = group.shift(7)
 
-    # Rolling averages
+    # Rolling averages (past-only via shift(1))
     df["rolling_7d_avg_gb"] = group.transform(
         lambda s: s.shift(1).rolling(7, min_periods=1).mean()
     )
@@ -146,27 +162,23 @@ def add_lag_features(df: pd.DataFrame) -> pd.DataFrame:
     for col in ["streaming_gb", "social_gb", "gaming_gb", "messaging_gb"]:
         df[f"lag_1d_{col}"] = df.groupby("user_id", sort=False)[col].shift(1)
 
-    # ---- NaN handling for early days per user ----
-    # lag_7d and rolling_30d are NaN for the first days per user → backfill
+    # ----------------------------------------------------------------
+    # Past-only fallbacks 
+    # ----------------------------------------------------------------
+    # lag_7d and rolling_30d are undefined for early days.
+    # Fall back to lag_1d — which IS available at prediction time.
     for col in ["lag_7d_total_gb", "rolling_30d_avg_gb"]:
-        df[col] = df.groupby("user_id", sort=False)[col].transform(
-            lambda s: s.bfill()
-        )
-        # still NaN (very first day) → use lag_1d as proxy
         df[col] = df[col].fillna(df["lag_1d_total_gb"])
 
     df["delta_1d_gb"] = df["delta_1d_gb"].fillna(0.0)
 
-    # Service lags → backfill, then 0
+    # Service lags: fill missing with 0.0 (no service usage recorded yet)
     for col in ["lag_1d_streaming_gb", "lag_1d_social_gb",
                 "lag_1d_gaming_gb", "lag_1d_messaging_gb"]:
         if col in df.columns:
-            df[col] = df.groupby("user_id", sort=False)[col].transform(
-                lambda s: s.bfill()
-            )
             df[col] = df[col].fillna(0.0)
 
-    logger.info("Added lag and rolling features (with NaN handling)")
+    logger.info("Added lag and rolling features (past-only fallbacks, no leakage)")
     return df
 
 
@@ -195,7 +207,7 @@ def add_forecast_target(df: pd.DataFrame) -> pd.DataFrame:
 
     before = len(df)
     df = df.dropna(subset=["target_next_day_gb"])
-    logger.info(f"Dropped {before - len(df)} rows without a next-day target")
+    logger.info(f"Dropped {before - len(df):,} rows without a next-day target")
 
     return df
 
@@ -288,6 +300,11 @@ def save_outputs(df, train, val, test):
             "min": float(df["target_next_day_gb"].min()),
             "max": float(df["target_next_day_gb"].max()),
         },
+        "leakage_policy": {
+            "imputation": "none — rows with missing categoricals are dropped",
+            "lag_fallbacks": "past-only — early days use lag_1d as proxy",
+            "missingness_threshold": "5% (below this, drop rather than impute)",
+        },
     }
     with open(PROCESSED_PATH / "preparation_metadata.json", "w") as f:
         json.dump(metadata, f, indent=2)
@@ -306,25 +323,47 @@ def main():
     usage = clean_categoricals(usage)
     usage = drop_duplicates(usage)
     df = join_users(usage, users)
+
     df = add_lag_features(df)
     df = add_calendar_features(df)
     df = add_forecast_target(df)
 
-    # Drop rows without lag_1d (first day per user)
+    # Drop rows without lag_1d (first day per user — no history yet)
     before = len(df)
     df = df.dropna(subset=["lag_1d_total_gb"])
-    logger.info(f"Dropped {before - len(df)} rows without lag features")
+    logger.info(f"Dropped {before - len(df):,} rows without lag_1d features")
 
-    # Final NaN audit — safety net
-    nan_cols = df.isnull().sum()
-    nan_cols = nan_cols[nan_cols > 0]
-    if len(nan_cols) > 0:
-        logger.warning(f"Remaining NaN columns:\n{nan_cols}")
-        before = len(df)
-        df = df.dropna()
-        logger.info(f"Dropped {before - len(df)} residual NaN rows")
+    # ----------------------------------------------------------------
+    # Drop rows with NaN in critical columns.
+    #
+    # Decision: missingness is ~3% MCAR (injected by the generator), which
+    # is below our 5% drop threshold. Dropping is cleaner than imputing
+    # and eliminates any imputation-leakage questions.
+    # ----------------------------------------------------------------
+    critical_cols = [
+        "age_group",
+        "network_type",
+        "region",
+        "lag_1d_total_gb",
+        "rolling_7d_avg_gb",
+        "rolling_30d_avg_gb",
+        "target_next_day_gb",
+    ]
+    before = len(df)
+    df = df.dropna(subset=critical_cols)
+    dropped = before - len(df)
+    pct = dropped / before * 100 if before else 0
+    logger.info(
+        f"Dropped {dropped:,} rows ({pct:.2f}%) with NaN in critical columns"
+    )
+
+    # Safety net — should be no-op but catches anything unexpected
+    before = len(df)
+    df = df.dropna()
+    if before != len(df):
+        logger.info(f"Dropped {before - len(df):,} additional rows with residual NaN")
     else:
-        logger.info("No NaN values remain.")
+        logger.info("No residual NaN remaining")
 
     train, val, test = time_based_split(df)
     save_outputs(df, train, val, test)
