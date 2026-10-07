@@ -1,151 +1,71 @@
 """
-Data loading utilities
+Data loading for the forecasting app.
+
+Reads test split + model metadata from data/processed/ and models/.
 """
-import os
-import pandas as pd
-import numpy as np
-import streamlit as st
-from typing import Optional, Tuple
 from pathlib import Path
-from ..config import CONFIG
+from typing import Optional
+
+import pandas as pd
+import json
+
+from ..config import (
+    TEST_PATH, TRAIN_PATH, MODEL_INFO_PATH, PREP_META_PATH,
+)
 from ..utils.logger import get_logger
 
 logger = get_logger(__name__)
 
 
-class DataLoader:
-    """Handle data loading from various sources"""
-    
-    def __init__(self):
-        self.config = CONFIG.data
-        self.logger = logger
-    
-    @st.cache_data(ttl=3600)
-    def load_default_data(_self) -> Optional[pd.DataFrame]:  # ← FIXED: Added underscore to _self
-        """Load default data from configured paths"""
-        try:
-            for path in _self.config.default_data_paths:
-                if os.path.exists(path):
-                    _self.logger.info(f"Loading data from: {path}")
-                    
-                    if path.endswith('.parquet'):
-                        df = pd.read_parquet(path)
-                    else:
-                        df = pd.read_csv(path)
-                    
-                    _self.logger.info(f"Loaded {len(df)} rows from {path}")
-                    return df
-            
-            _self.logger.warning("No default data found")
-            return None
-            
-        except Exception as e:
-            _self.logger.error(f"Error loading default data: {str(e)}")
-            return None
-    
-    @st.cache_data(ttl=300)
-    def load_uploaded_data(_self, uploaded_file) -> Optional[pd.DataFrame]:  # ← FIXED: Added underscore to _self
-        """Load uploaded file data"""
-        try:
-            if uploaded_file.name.endswith('.csv'):
-                df = pd.read_csv(uploaded_file)
-            else:
-                df = pd.read_parquet(uploaded_file)
-            
-            _self.logger.info(f"Loaded {len(df)} rows from uploaded file: {uploaded_file.name}")
-            return df
-            
-        except Exception as e:
-            _self.logger.error(f"Error loading uploaded data: {str(e)}")
-            raise
-    
-    def get_sample_data(self, df: pd.DataFrame, n: int = None) -> pd.DataFrame:
-        """Get a sample of data for preview"""
-        if n is None:
-            n = self.config.sample_size_preview
-        
-        if len(df) > n:
-            return df.sample(n=n, random_state=42)
-        return df
-    
-    def get_data_hash(self, df: pd.DataFrame) -> str:
-        """Generate hash for data tracking"""
-        import hashlib
-        return hashlib.md5(
-            pd.util.hash_pandas_object(df).values.tobytes()
-        ).hexdigest()[:8]
+def load_test_data(path: Optional[Path] = None) -> pd.DataFrame:
+    """Load the time-based test split."""
+    p = path or TEST_PATH
+
+    if not p.exists():
+        logger.error(f"Test data not found: {p}")
+        raise FileNotFoundError(
+            f"Test data not found: {p}\n"
+            f"Run 'python -m training.core.data_preparation' first."
+        )
+
+    df = pd.read_parquet(p)
+    logger.info(f"Loaded test data: {df.shape} from {p}")
+    return df
 
 
-class DataValidator:
-    """Validate data for processing"""
-    
-    def __init__(self):
-        self.logger = logger
-    
-    def validate_file_size(self, file_size_bytes: int) -> bool:
-        """Validate file size doesn't exceed limit"""
-        from ..config import CONFIG
-        max_bytes = CONFIG.data.max_file_size_mb * 1024 * 1024
-        if file_size_bytes > max_bytes:
-            raise ValueError(f"File too large. Max size: {CONFIG.data.max_file_size_mb}MB")
-        return True
-    
-    def validate_format(self, filename: str) -> bool:
-        """Validate file format is supported"""
-        from ..config import CONFIG
-        ext = filename.split('.')[-1].lower()
-        if ext not in CONFIG.data.supported_formats:
-            raise ValueError(f"Unsupported format: {ext}. Supported: {CONFIG.data.supported_formats}")
-        return True
-    
-    def validate_dataframe(self, df: pd.DataFrame) -> Tuple[bool, list]:
-        """
-        Validate the DataFrame has required structure
-        
-        Returns:
-            (is_valid, errors)
-        """
-        errors = []
-        
-        if df is None or len(df) == 0:
-            errors.append("DataFrame is empty or None")
-            return False, errors
-        
-        # Check for required columns
-        required_columns = ['age_group', 'plan_type', 'network_type']
-        for col in required_columns:
-            if col not in df.columns:
-                errors.append(f"Missing required column: {col}")
-        
-        # Check data types
-        numeric_columns = ['hours_streaming', 'hours_social', 'hours_messaging', 'hours_gaming']
-        for col in numeric_columns:
-            if col in df.columns:
-                if not pd.api.types.is_numeric_dtype(df[col]):
-                    errors.append(f"Column {col} should be numeric")
-        
-        return len(errors) == 0, errors
-    
-    def validate_predictions(self, y_pred: np.ndarray) -> Tuple[bool, list]:
-        """
-        Validate predictions are reasonable
-        
-        Returns:
-            (is_valid, warnings)
-        """
-        import numpy as np
-        warnings = []
-        
-        if len(y_pred) == 0:
-            warnings.append("No predictions generated")
-            return False, warnings
-        
-        # Check for negative values
-        if np.any(y_pred < 0):
-            warnings.append("Some predictions are negative")
-        
-        # Check for extremely large values
-        if np.any(y_pred > 100):
-            warnings.append("Some predictions are very large (>100 GB)")
-        
-        return len(warnings) == 0, warnings
+def load_train_data(path: Optional[Path] = None) -> pd.DataFrame:
+    """Load the training split (used for feature inspection)."""
+    p = path or TRAIN_PATH
+
+    if not p.exists():
+        logger.error(f"Train data not found: {p}")
+        raise FileNotFoundError(f"Train data not found: {p}")
+
+    df = pd.read_parquet(p)
+    logger.info(f"Loaded train data: {df.shape}")
+    return df
+
+
+def load_model_info(path: Optional[Path] = None) -> dict:
+    """Load model metadata (metrics, features, training date)."""
+    p = path or MODEL_INFO_PATH
+
+    if not p.exists():
+        logger.warning(f"Model info not found: {p}")
+        return {}
+
+    with open(p) as f:
+        info = json.load(f)
+    logger.info(f"Loaded model info: {info.get('model_type', 'unknown')}")
+    return info
+
+
+def load_prep_metadata(path: Optional[Path] = None) -> dict:
+    """Load data preparation metadata."""
+    p = path or PREP_META_PATH
+
+    if not p.exists():
+        return {}
+
+    with open(p) as f:
+        return json.load(f)
