@@ -1,85 +1,104 @@
+"""
+PHASE 4.
 
+Preprocessing Pipeline for Telecom Consumption Intelligence (Time-Series)"""
 import sys
 from pathlib import Path
-
 
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
+from sklearn.preprocessing import OrdinalEncoder
 from sklearn.pipeline import Pipeline
-from training.core.custom_transformers import DropColumns, DateFeatures, CyclicalFeatures
+from training.core.custom_transformers import DropColumns, CyclicalDayOfWeek
+
+
+DROP_COLS = [
+    "user_id",
+    "date",
+    "total_gb",
+    "streaming_gb",
+    "social_gb",
+    "messaging_gb",
+    "gaming_gb",
+    "background_gb",
+    "arpu",
+    "region",
+    "is_month_start",
+    "is_month_end",
+    "churn_status",
+]
+
+
+ORDINAL_COLS = ["age_group", "plan_type", "network_type", "device_type"]
+
+AGE_ORDER = ["18-24", "25-34", "35-44", "45-54", "55+"]
+PLAN_ORDER = [
+    "Prepaid_Daily",
+    "Prepaid_Monthly",
+    "Postpaid_Basic",
+    "Postpaid_Premium",
+    "Postpaid_Unlimited",
+]
+NETWORK_ORDER = ["3G", "4G", "4G+", "5G"]
+DEVICE_ORDER = [
+    "Basic_Phone",
+    "Mid_Range",
+    "Premium_Smartphone",
+    "Tablet",
+    "5G_Device",
+]
+
+
+NUMERIC_COLS = [
+    "day_index",
+    "day_of_week",
+    "is_weekend",
+    "day_of_month",
+    "congested",
+    "contract_duration_months",
+    "customer_tenure_months",
+    "monthly_bill_zar",
+    "support_calls_6months",
+    "churn_probability",
+    "lag_1d_total_gb",
+    "lag_7d_total_gb",
+    "rolling_7d_avg_gb",
+    "rolling_30d_avg_gb",
+    "delta_1d_gb",
+    "lag_1d_streaming_gb",
+    "lag_1d_social_gb",
+    "lag_1d_gaming_gb",
+    "lag_1d_messaging_gb",
+]
+
 
 def build_pipeline():
-    """Build the preprocessing pipeline."""
-    
-    # Drop leakage + unnecessary columns
-    remove_cols = [
-        'user_id',
-        'data_usage_category',
-        'total_usage_gb',
-        'streaming_data_gb',
-        'social_data_gb',
-        'messaging_data_gb',
-        'gaming_data_gb',
-        'top_activity',
-        'day_of_week',
-        'hour',
-        'arpu_zar',
-        'arpu_per_gb',
-        'churn_risk_score'
-    ]
-
-    # Ordinal features
-    ordinal_cols = ['age_group', 'plan_type', 'network_type']
-    age_order = ['18-24', '25-34', '35-44', '45-54', '55+']
-    plan_order = [
-        'Prepaid_Daily', 'Prepaid_Monthly',
-        'Postpaid_Basic', 'Postpaid_Premium',
-        'Postpaid_Unlimited'
-    ]
-    network_order = ['3G', '4G', '4G+', '5G']
-
     ordinal_encoder = OrdinalEncoder(
-        categories=[age_order, plan_order, network_order]
+        categories=[
+            AGE_ORDER,
+            PLAN_ORDER,
+            NETWORK_ORDER,
+            DEVICE_ORDER,
+        ],
+        handle_unknown="use_encoded_value",
+        unknown_value=-1,
     )
 
-    # Nominal features
-    nominal_cols = ['device_type']
-    onehot = OneHotEncoder(
-        drop='first',
-        handle_unknown='ignore',
-        sparse_output=False
-    )
-
-    # Numeric features
-    numeric_cols = [
-        'hours_streaming',
-        'hours_social',
-        'hours_messaging',
-        'hours_gaming',
-        'is_peak_hour_user',
-        'is_weekend'
-    ]
-
-    # Column Transformer
     preprocessor = ColumnTransformer(
         transformers=[
-            ('ord', ordinal_encoder, ordinal_cols),
-            ('nom', onehot, nominal_cols),
-            ('num', 'passthrough', numeric_cols)
+            ("ord", ordinal_encoder, ORDINAL_COLS),
+            ("num", "passthrough", NUMERIC_COLS),
         ],
         verbose_feature_names_out=False,
-        remainder='drop'
+        remainder="drop",
     )
 
-    # Full Pipeline
     pipeline = Pipeline(steps=[
-        ('drop_cols', DropColumns(remove_cols)),
-        ('date_features', DateFeatures()),
-        ('cyclical', CyclicalFeatures()),
-        ('encoding', preprocessor)
+        ("drop_cols", DropColumns(DROP_COLS)),
+        ("cyclical_dow", CyclicalDayOfWeek(keep_original=True)),
+        ("encoding", preprocessor),
     ])
 
     return pipeline

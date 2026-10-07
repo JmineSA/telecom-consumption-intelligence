@@ -1,0 +1,76 @@
+{
+  "prepared_at": "2026-10-07 12:04:59",
+  "shape": {
+    "rows": 720362,
+    "cols": 37
+  },
+  "columns": [
+    "user_id",
+    "date",
+    "day_index",
+    "day_of_week",
+    "is_weekend",
+    "streaming_gb",
+    "social_gb",
+    "messaging_gb",
+    "gaming_gb",
+    "background_gb",
+    "total_gb",
+    "arpu",
+    "congested",
+    "plan_type",
+    "device_type",
+    "network_type",
+    "age_group",
+    "region",
+    "contract_duration_months",
+    "customer_tenure_months",
+    "monthly_bill_zar",
+    "support_calls_6months",
+    "churn_probability",
+    "churn_status",
+    "lag_1d_total_gb",
+    "lag_7d_total_gb",
+    "rolling_7d_avg_gb",
+    "rolling_30d_avg_gb",
+    "delta_1d_gb",
+    "lag_1d_streaming_gb",
+    "lag_1d_social_gb",
+    "lag_1d_gaming_gb",
+    "lag_1d_messaging_gb",
+    "day_of_month",
+    "is_month_start",
+    "is_month_end",
+    "target_next_day_gb"
+  ],
+  "target": "target_next_day_gb",
+  "forecast_horizon_days": 1,
+  "split": {
+    "train_rows": 531140,
+    "val_rows": 95019,
+    "test_rows": 94203,
+    "train_dates": [
+      "2026-01-02",
+      "2026-03-03"
+    ],
+    "val_dates": [
+      "2026-03-04",
+      "2026-03-16"
+    ],
+    "test_dates": [
+      "2026-03-17",
+      "2026-03-30"
+    ]
+  },
+  "target_stats": {
+    "mean": 7.1274445771709205,
+    "std": 7.05367662479087,
+    "min": 0.0589,
+    "max": 168.8869
+  },
+  "leakage_policy": {
+    "imputation": "none \u2014 rows with missing categoricals are dropped",
+    "lag_fallbacks": "past-only \u2014 early days use lag_1d as proxy",
+    "missingness_threshold": "5% (below this, drop rather than impute)"
+  }
+}

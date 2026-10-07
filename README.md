@@ -1,309 +1,107 @@
-# 📶 Mobile Data Consumption Intelligence System
+# 📶 Telecom Consumption Intelligence
 
-**Client:** SA Telecom Analytics *(Simulated Engagement)*  
-**Project Type:** Data Science & Business Analytics Portfolio Project  
-**Focus:** Predictive Analytics, Revenue Optimisation & Network Intelligence  
-**Status:** Completed  
-**Date:** July 2026
+**Domain:** Mobile data consumption forecasting for South African telecom operators
+**Type:** End-to-end data science portfolio project
+**Status:** Complete — ready for review
 
----
-
-## 🎯 Executive Summary
-
-Telecom providers need better visibility into customer data consumption, network conditions and subscription behaviour to optimise network capacity, improve customer targeting and identify revenue opportunities.
-
-This project delivers an end-to-end **Telecom Consumption Intelligence System** that analyses customer usage patterns and predicts mobile data consumption to support business decision-making.
-
-The analysis covers **20,002 records across 20,001 users** over a 30-day period and combines customer behaviour, device type, network conditions and subscription plans to generate actionable insights.
-
-### Key Outcomes
-
-- Identified **595 peak-hour users**, representing **29.7% of analysed users**.
-- Found that network congestion increased prediction error by approximately **255.7%**, highlighting an opportunity for congestion-aware forecasting and network capacity planning.
-- Identified **Gaming** as the most revenue-efficient service among high-intensity users.
-- Identified **Postpaid Unlimited** as the highest estimated-profitability plan.
-- Segmented customers and identified **573 high-value Revenue Drivers** for targeted retention and personalised offers.
-- Identified approximately **R32.8K in potential revenue opportunities** associated with under-predicted usage.
-- Identified approximately **R44.9K in potential network over-allocation costs** associated with over-predicted usage.
-
-The project translates predictive analytics into practical recommendations for **bundle optimisation, targeted upselling, customer retention, network capacity planning and revenue optimisation**.
+> ⚠️ **Disclaimer:** This project uses synthetically generated data designed to simulate South African telecom subscriber behaviour (Vodacom / MTN / Telkom / Cell C / Rain plan tiers). No real customer, billing, or network data is included. Architecture and methodology are production-grade; specific metric values will differ on real operator data.
 
 ---
 
-## 📊 Business Overview
+## 🎯 Problem
 
-| Metric | Result |
-|---|---:|
-| Total Records | 20,002 |
-| Unique Users | 20,001 |
-| Analysis Period | 19 March 2026 – 17 April 2026 |
-| Average Data Usage per Hour | 0.65 GB |
-| Average ARPU per GB | R123.32 |
-| Peak Hour Users | 595 |
-| Peak Hour User Share | 29.7% |
+Telecom operators need to forecast how much data each subscriber will consume **tomorrow** to:
+
+- Pre-provision network capacity
+- Personalise data bundles and top-up offers
+- Detect churn signals from declining consumption
+- Forecast usage-based revenue
+
+This project delivers a machine learning system that predicts next-day usage per subscriber, translates predictions into revenue implications, and produces actionable business recommendations.
 
 ---
 
-## 💡 Key Business Insights
+## 📊 Headline Results
 
-### 1. Network Congestion Impact
-
-Network congestion had a significant impact on prediction accuracy.
-
-| Network Condition | Average Data Usage | Average Prediction Error | Users |
+| Metric | Train | Validation | Test |
 |---|---:|---:|---:|
-| Normal | 2.73 GB | 0.37 GB | 1,823 |
-| Congested | 9.83 GB | 1.32 GB | 179 |
+| R² | 0.7748 | 0.7626 | **0.7698** |
+| RMSE (GB) | 3.339 | 3.486 | 3.379 |
+| MAE (GB) | 1.971 | 2.025 | **2.021** |
 
-Prediction error during congestion was approximately **255.7% higher** than during normal network conditions.
+- **Overfit gap** (train − val R²): **0.0122** — healthy
+- **Test R² = 0.77** — the model explains 77% of tomorrow's usage variance
+- **Typical error = 2 GB per subscriber per day**
 
-**Business opportunity:**
+### Key finding — Network congestion
 
-- Improve congestion-aware forecasting.
-- Optimise network capacity during high-demand periods.
-- Include congestion indicators in predictive models.
-- Improve network resource allocation using prediction confidence.
-
----
-
-### 2. Service Revenue Efficiency
-
-Revenue efficiency was analysed across high-intensity users.
-
-| Service | Average ARPU | Average Data Usage | ARPU per GB |
-|---|---:|---:|---:|
-| Gaming | R358.50 | 4.68 GB | R76.57 |
-| Messaging | R375.46 | 4.95 GB | R75.80 |
-| Social | R396.35 | 5.23 GB | R75.74 |
-| Streaming | R529.39 | 7.34 GB | R72.12 |
-
-**Gaming** demonstrated the highest revenue efficiency, while **Streaming** showed the lowest.
-
-**Business opportunity:**
-
-- Develop gaming-focused data bundles.
-- Create personalised offers based on service usage.
-- Review streaming bundle pricing and margins.
+During congested network conditions, prediction error rises relative to usage. This has direct implications for capacity planning: forecasts used naively will over-provision during peak windows.
 
 ---
 
-### 3. Customer Segment Profitability
-
-Customers were segmented based on their revenue and consumption behaviour.
-
-| Customer Segment | Average ARPU | Average Data Usage | Users |
-|---|---:|---:|---:|
-| Regular User | R191.64 | 1.85 GB | 890 |
-| Revenue Driver | R595.95 | 8.41 GB | 573 |
-| Upsell Opportunity | R77.56 | 0.50 GB | 539 |
-
-The analysis identified **573 high-value Revenue Drivers** with the highest average ARPU and data consumption.
-
-**Business opportunity:**
-
-- Target Revenue Drivers with retention and loyalty campaigns.
-- Offer personalised premium bundles.
-- Target Upsell Opportunities with tailored offers to increase engagement and ARPU.
-
----
-
-### 4. Subscription Plan Performance
-
-| Plan Type | Average ARPU | Average Data Usage | Estimated Profitability |
-|---|---:|---:|---:|
-| Postpaid Unlimited | R412.21 | 5.73 GB | R397.89 |
-| Postpaid Premium | R381.09 | 5.25 GB | R367.95 |
-| Postpaid Basic | R256.90 | 2.86 GB | R249.75 |
-| Prepaid Daily | R202.99 | 1.73 GB | R198.66 |
-| Prepaid Monthly | R183.92 | 2.07 GB | R178.74 |
-
-Estimated profitability was calculated using an assumed network cost of **R2.50 per GB**.
-
-**Key finding:** **Postpaid Unlimited** generated the highest estimated profitability, while **Prepaid Monthly** generated the lowest.
-
-**Business opportunity:**
-
-- Target high-usage customers for Postpaid Unlimited upgrades.
-- Review the pricing and value proposition of Prepaid Monthly.
-- Develop personalised migration campaigns between prepaid and postpaid plans.
+## 🏗️ Architecture
+┌─────────────────────────────┐
+│ Synthetic Data Generator │
+│ 10K users × 90 days │
+│ + 3% MCAR missing │
+│ + 1% duplicate rows │
+│ + congestion + drift │
+└──────────────┬──────────────┘
+│
+▼
+┌─────────────────────────────┐
+│ Data Preparation │
+│ - Fix typos (no impute) │
+│ - Build lag features │
+│ - Build D+1 target │
+│ - Drop NaN rows (~3%) │
+│ - Time-based split │
+└──────────────┬──────────────┘
+│
+▼
+┌─────────────────────────────┐
+│ Preprocessing Pipeline │
+│ - Drop leakage columns │
+│ - Ordinal encode cats │
+│ - Cyclical calendar │
+└──────────────┬──────────────┘
+│
+▼
+┌─────────────────────────────┐
+│ HistGradientBoosting │
+│ Regression Model │
+│ R² = 0.77 │
+└─────────────────────────────┘
 
 ---
 
-### 5. Device and Network Impact
+## 🎯 Key Design Decisions
 
-Device capability and network technology showed a relationship with customer consumption and revenue.
+### Target definition
+Predict `target_next_day_gb` — tomorrow's total usage — using only features known at end of today. No same-day features. No target leakage.
 
-Examples:
+### Lag features
+All lag features are past-only:
+- `lag_1d_total_gb` — yesterday's usage
+- `rolling_7d_avg_gb` — past 7 days average
+- `rolling_30d_avg_gb` — past 30 days average
 
-- **5G devices on 5G networks** averaged **8.26 GB** of usage and **R583.65 ARPU**.
-- **Premium smartphones on 5G networks** averaged **8.10 GB** of usage and **R554.74 ARPU**.
-- Basic phone users generally demonstrated lower data consumption and ARPU.
+Early-day fallbacks use `lag_1d_total_gb` (available at prediction time) — **never backfilled from future values**.
 
-**Business opportunity:**
+### Time-based split
+Train (70%) → Validation (15%) → Test (15%) ordered by date. No random shuffling. Test set is strictly after training — the realistic forecasting setup.
 
-- Target eligible customers with device upgrade campaigns.
-- Support 4G-to-5G migration strategies.
-- Personalise offers based on device and network capability.
+### Missing value policy
+Missingness is ~3% MCAR. Below the 5% threshold, so rows are **dropped** rather than imputed. Eliminates any imputation-leakage questions.
 
----
+### Model selection
+Benchmarked 7 models. All tree models within 0.007 R² of each other. Chose **HistGradientBoostingRegressor** because:
 
-## 📉 Prediction Error and Business Impact
-
-### Under-Predicted Usage
-
-**951 records (47.5%)** used more data than predicted.
-
-This identified approximately:
-
-> **R32,820.42 in potential revenue opportunities**
-
-Potential actions include:
-
-- Real-time usage alerts.
-- Personalised top-up recommendations.
-- Dynamic bundle offers.
-- Usage-based upselling.
-
-### Over-Predicted Usage
-
-**1,051 records (52.5%)** used less data than predicted.
-
-This identified approximately:
-
-> **R44,853.97 in potential network over-allocation costs**
-
-Potential actions include:
-
-- Improve demand forecasting.
-- Adjust network resource allocation.
-- Monitor high-variance customer segments.
-
-> **Note:** Revenue opportunity and cost estimates are based on assumptions within this simulated analysis and should be validated using real operational pricing and network cost data.
-
----
-
-## 🧠 Methodology
-
-### 1. Data Preparation
-
-- Data cleaning and validation.
-- Feature selection.
-- Identification and removal of potential data leakage.
-- Training and validation data splitting.
-- Pipeline-based preprocessing.
-
-### 2. Feature Engineering
-
-Features included:
-
-- Streaming activity.
-- Social media usage.
-- Messaging activity.
-- Gaming activity.
-- Subscription plan type.
-- Device type.
-- Network type.
-- Age group.
-- Date-based features.
-- Peak usage indicators.
-- Customer usage segments.
-
-### 3. Predictive Modelling
-
-The modelling workflow included:
-
-- Train-validation splitting.
-- Pipeline-based preprocessing.
-- Categorical feature encoding.
-- Feature engineering.
-- Model comparison.
-- Hyperparameter tuning.
-- Final model selection.
-
-### 4. Business Translation
-
-Model outputs and analytical findings were translated into recommendations for:
-
-- Revenue optimisation.
-- Bundle design.
-- Customer segmentation.
-- Targeted upselling.
-- Network capacity planning.
-- Congestion management.
-
----
-
-## 📈 Model Performance
-
-The final model achieved the following results:
-
-| Metric | Final Model |
-|---|---:|
-| MAE | **0.457 GB** |
-| RMSE | **0.922 GB** |
-| R² Score | **0.956** |
-| MAPE | **16.3%** |
-
-While the model demonstrated strong overall predictive performance, further analysis showed that prediction accuracy varied significantly across network conditions, particularly during congestion.
-
----
-
-## 💼 Strategic Recommendations
-
-### 🎮 Optimise Service Bundles
-
-Develop targeted gaming and high-engagement service bundles while reviewing streaming pricing and margins.
-
-### 🌐 Implement Congestion-Aware Forecasting
-
-Use congestion indicators and prediction confidence to improve network planning and resource allocation during high-demand periods.
-
-### 💰 Retain High-Value Revenue Drivers
-
-Target the **573 identified Revenue Drivers** with personalised retention offers, loyalty benefits and premium bundles.
-
-### 📱 Optimise Subscription Plans
-
-Promote Postpaid Unlimited to high-usage customers and review the pricing and bundle structure of Prepaid Monthly.
-
-### 📊 Improve Forecasting for High-Demand Conditions
-
-Develop additional features related to network congestion and customer behaviour to improve forecasting during peak and congested periods.
-
----
-
-## 📂 Project Deliverables
-
-| Deliverable | Description |
-|---|---|
-| Business Analysis | Customer usage, ARPU, service and plan performance analysis |
-| Predictive Model | Mobile data consumption forecasting model |
-| Customer Segmentation | Identification of Revenue Drivers, Regular Users and Upsell Opportunities |
-| Network Analysis | Peak-hour and congestion analysis |
-| Business Recommendations | Revenue, pricing, bundling and network optimisation strategies |
-| Dashboard | Interactive visualisation of telecom performance and insights |
-| Data Pipeline | Reusable preprocessing and feature engineering workflow |
-| Model Artifacts | Saved preprocessing pipeline and trained model |
-
----
-
-## 🧰 Tech Stack
-
-**Programming & Analysis**
-
-Python · Pandas · NumPy · SQL
-
-**Machine Learning**
-
-Scikit-learn · Gradient Boosting · Random Forest
-
-**Visualisation**
-
-Matplotlib · Seaborn · Plotly
-
-**Application**
-
-Streamlit · Joblib
+- Same accuracy as the best
+- 88× faster training than plain GradientBoosting
+- 100× smaller artifact than RandomForest
+- Sklearn-native (no extra dependencies)
+- Native NaN handling
 
 ---
 
@@ -313,98 +111,58 @@ Streamlit · Joblib
 telecom-consumption-intelligence/
 │
 ├── data/
-│   ├── raw/                         # Original simulated telecom datasets
-│   │   ├── user_activity.csv
-│   │   ├── user_churn.csv
-│   │   └── user_data_usage.csv
+│   ├── raw/                              # Generated data (not committed)
+│   │   ├── users.csv
+│   │   └── daily_usage.parquet
 │   │
-│   ├── processed/                   # Processed data and modelling datasets
-│   │   ├── train_data.parquet
-│   │   ├── test_data.parquet
-│   │   └── scenario datasets
-│   │
-│   ├── curated/                     # Cleaned and validated datasets
-│   │   ├── user_activity_curated.csv
-│   │   └── user_activity_curated.parquet
-│   │
-│   └── eda/                         # Data samples used for exploration
+│   └── processed/                        # Splits (not committed)
+│       ├── train.parquet
+│       ├── val.parquet
+│       ├── test.parquet
+│       └── preparation_metadata.json
 │
-├── docs/
-│   └── telecom_report.pdf           # Project documentation and report
+├── training/                             # ML training pipeline
+│   ├── core/
+│   │   ├── data_generator.py             # Synthetic data generation
+│   │   ├── data_preparation.py           # Features + time split
+│   │   └── custom_transformers.py        # DropColumns, CyclicalDayOfWeek
+│   │
+│   ├── pipelines/
+│   │   ├── preprocessing_pipeline.py     # sklearn ColumnTransformer
+│   │   └── training_pipeline.py          # Full pipeline (preproc + model)
+│   │
+│   ├── models/
+│   │   ├── mobile_data_consumption_model.py  # Train script
+│   │   ├── compare_models.py                 # Model comparison
+│   │   └── model_insights.py                 # Permutation + congestion
+│   │
+│   └── evaluation/
+│       └── evaluate_model.py             # Test-set evaluation
 │
-├── models/
-│   ├── gradient_boosting_final.pkl  # Final trained model
-│   ├── preprocessing_pipeline.pkl   # Data preprocessing pipeline
-│   ├── mobile_data_consumption_pipeline.pkl
-│   ├── model_info.json
-│   └── model_performance.json
+├── modular/                              # Streamlit application
+│   ├── app.py
+│   └── src/
+│       ├── analytics/
+│       ├── data/
+│       ├── models/
+│       ├── ui/
+│       └── visualizations/
 │
 ├── notebooks/
 │   ├── 01_exploratory_data_analysis.ipynb
-│   ├── 02_model_development.ipynb
-│   └── 03_insights_and_recommendations.ipynb
+│   ├── 03_insights_and_recommendations.ipynb
+│   └── 04_final_report.ipynb             # Auto-generated report
+│
+├── models/
+│   ├── mobile_data_consumption_pipeline.pkl
+│   └── model_info.json
 │
 ├── reports/
-│   ├── executive_summary.md
-│   ├── presentation_deck.md
-│   ├── technical_appendix.md
+│   ├── business_summary.txt              # Auto-generated narrative
+│   ├── feature_importance.csv
+│   ├── congestion_breakdown.csv
 │   ├── evaluation_results.json
-│   ├── customer and segment analysis
-│   ├── network and profitability analysis
-│   └── insights/
-│       ├── actual_vs_predicted.png
-│       ├── feature_importance.png
-│       └── residual_analysis.png
+│   └── insights/                         # Auto-generated charts
 │
-├── src/                             # Core data science pipeline
-│   ├── core/
-│   │   ├── data_generator.py
-│   │   ├── data_preparation.py
-│   │   └── custom_transformers.py
-│   │
-│   ├── pipelines/
-│   │   ├── preprocessing_pipeline.py
-│   │   └── training_pipeline.py
-│   │
-│   ├── models/
-│   │   ├── mobile_data_consumption_model.py
-│   │   └── model_insights.py
-│   │
-│   ├── evaluation/
-│   │   └── evaluate_model.py
-│   │
-│   └── tests/
-│       ├── test_model.py
-│       └── test_pipeline.py
-│
-├── modular/                         # Modular Streamlit application
-│   ├── app.py
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   │
-│   ├── src/
-│   │   ├── analytics/               # Cohorts, forecasting, A/B testing
-│   │   ├── data/                    # Data loading and validation
-│   │   ├── models/                  # Training, prediction and explainability
-│   │   ├── ui/                      # Streamlit interface components
-│   │   ├── utils/                   # Logging and helper functions
-│   │   └── visualizations/          # Analytics and dashboard visualisations
-│   │
-│   └── tests/
-│       ├── test_analytics/
-│       ├── test_data/
-│       ├── test_models/
-│       └── test_utils/
-│
-├── visuals/
-│   ├── dashboard/
-│   │   ├── Dashboard (dark_mode).png
-│   │   ├── Dashboard (light_mode).png
-│   │   └── Revenue_Analytics.png
-│   │
-│   └── plots/                       # EDA, segmentation and model visuals
-│
-├── main.py                          # Main project entry point
-├── requirements.txt                 # Project dependencies
-├── USER_GUIDE.md                    # Application usage guide
-└── README.md                        # Project documentation
+├── requirements.txt
+└── README.md
