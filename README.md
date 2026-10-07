@@ -212,8 +212,8 @@ telecom-consumption-intelligence/
 │
 ├── notebooks/
 │   ├── 01_exploratory_data_analysis.ipynb
-│   ├── 03_insights_and_recommendations.ipynb
-│   └── 04_final_report.ipynb        # Auto-generates business_summary.txt
+│   ├── 02_insights_and_recommendations.ipynb  # Auto-generates business_summary.txt
+│           
 │
 ├── models/                          # Trained artifacts
 ├── reports/
