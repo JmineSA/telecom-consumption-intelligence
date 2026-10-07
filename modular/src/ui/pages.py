@@ -13,6 +13,9 @@ from ..config import (
 )
 from ..constants import INSIGHT_CHARTS
 from ..utils.logger import get_logger
+from .components import (
+    metric_card, insight_card, section_header, page_header, result_card,
+)
 
 logger = get_logger(__name__)
 
@@ -21,11 +24,10 @@ logger = get_logger(__name__)
 # PAGE 1 — OVERVIEW
 # ======================================================================
 def render_overview(model_info: dict, test_df: pd.DataFrame):
-    st.markdown('<div class="section-title">🏠 Overview</div>', unsafe_allow_html=True)
-
-    st.markdown(
-        "Forecast of **tomorrow's** mobile data consumption per subscriber. "
-        "Built on synthetic South African telecom data."
+    page_header(
+        "🏠 Overview",
+        "Forecast of tomorrow's mobile data consumption per subscriber. "
+        "Built on synthetic South African telecom data.",
     )
 
     # ----- KPI row -----
@@ -39,95 +41,52 @@ def render_overview(model_info: dict, test_df: pd.DataFrame):
 
     with col1:
         if val_r2 is not None:
-            st.markdown(f"""
-            <div class="metric-card">
-                <div class="metric-label">Validation R²</div>
-                <div class="metric-value">{val_r2:.4f}</div>
-            </div>
-            """, unsafe_allow_html=True)
-
+            metric_card("Validation R²", f"{val_r2:.4f}")
     with col2:
         if val_mae is not None:
-            st.markdown(f"""
-            <div class="metric-card">
-                <div class="metric-label">Validation MAE</div>
-                <div class="metric-value">{val_mae:.2f} GB</div>
-            </div>
-            """, unsafe_allow_html=True)
-
+            metric_card("Validation MAE", f"{val_mae:.2f} GB")
     with col3:
         if n_features is not None:
-            st.markdown(f"""
-            <div class="metric-card">
-                <div class="metric-label">Features</div>
-                <div class="metric-value">{n_features}</div>
-            </div>
-            """, unsafe_allow_html=True)
-
+            metric_card("Features", f"{n_features}")
     with col4:
         if n_train is not None:
-            st.markdown(f"""
-            <div class="metric-card">
-                <div class="metric-label">Training Rows</div>
-                <div class="metric-value">{n_train:,}</div>
-            </div>
-            """, unsafe_allow_html=True)
-
-    st.markdown("---")
+            metric_card("Training Rows", f"{n_train:,}")
 
     # ----- Key insights -----
-    st.markdown('<div class="section-title">💡 Key Insights</div>', unsafe_allow_html=True)
+    section_header("💡 Key Insights", "What the model found")
 
     c1, c2 = st.columns(2)
     with c1:
-        st.markdown("""
-        <div class="insight-card">
-            <div class="insight-title">📈 Rolling averages dominate</div>
-            <div class="insight-body">
-                The target correlates more strongly with 30-day rolling averages
-                (0.87) than with yesterday's single value (0.76). The model
-                correctly weights longer-term behaviour over daily noise.
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="insight-card">
-            <div class="insight-title">🔍 Leakage-free design</div>
-            <div class="insight-body">
-                All features use past-only information. Target is tomorrow's
-                usage. Time-based split, no random shuffling.
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
+        insight_card(
+            "Rolling averages dominate",
+            "The target correlates more strongly with 30-day rolling averages "
+            "(0.87) than with yesterday's single value (0.76). The model "
+            "correctly weights longer-term behaviour over daily noise.",
+            icon="📈",
+        )
+        insight_card(
+            "Leakage-free design",
+            "All features use past-only information. Target is tomorrow's usage. "
+            "Time-based split, no random shuffling.",
+            icon="🔍",
+        )
     with c2:
-        st.markdown("""
-        <div class="insight-card">
-            <div class="insight-title">🌐 Congestion matters</div>
-            <div class="insight-body">
-                During network congestion, prediction error rises — usage
-                drops but the model doesn't fully anticipate it. Real
-                implication for capacity planning.
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="insight-card">
-            <div class="insight-title">💰 Revenue implications</div>
-            <div class="insight-body">
-                Under-predicted users = top-up opportunity. Over-predicted
-                users = possible churn signals or network over-allocation.
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("---")
+        insight_card(
+            "Congestion matters",
+            "During network congestion, prediction error rises — usage drops "
+            "but the model doesn't fully anticipate it. Real implication for "
+            "capacity planning.",
+            icon="🌐",
+        )
+        insight_card(
+            "Revenue implications",
+            "Under-predicted users = top-up opportunity. Over-predicted users = "
+            "possible churn signals or network over-allocation.",
+            icon="💰",
+        )
 
     # ----- Business summary -----
-    st.markdown('<div class="section-title">📄 Business Summary</div>',
-                unsafe_allow_html=True)
+    section_header("📄 Business Summary", "Auto-generated from the trained model")
 
     if BUSINESS_SUMMARY_PATH.exists():
         text = BUSINESS_SUMMARY_PATH.read_text(encoding="utf-8")
@@ -143,8 +102,11 @@ def render_overview(model_info: dict, test_df: pd.DataFrame):
 # PAGE 2 — PREDICT
 # ======================================================================
 def render_predict(model_manager, model_info: dict):
-    st.markdown('<div class="section-title">🎯 Predict Next-Day Usage</div>',
-                unsafe_allow_html=True)
+    page_header(
+        "🎯 Predict Next-Day Usage",
+        "Adjust the profile in the sidebar, then click Predict. "
+        "The app derives lag features from the user's typical usage.",
+    )
 
     if not model_manager.is_loaded:
         st.error("❌ Model not loaded.")
@@ -152,11 +114,6 @@ def render_predict(model_manager, model_info: dict):
             with st.expander("🐛 Traceback"):
                 st.code(model_manager.last_traceback, language="python")
         return
-
-    st.markdown(
-        "Adjust the profile in the sidebar, then click **Predict**. "
-        "The app derives lag features from the user's typical usage."
-    )
 
     # ----- Sidebar form -----
     with st.sidebar:
@@ -237,28 +194,22 @@ def render_predict(model_manager, model_info: dict):
 
     # ----- Build the input DataFrame with all 34 columns -----
     input_df = pd.DataFrame({
-        # Date / identifiers
         "measurement_date": [today],
-        # Categoricals
         "age_group": [age_group],
         "plan_type": [plan_type],
         "network_type": [network_type],
         "device_type": [device_type],
-        # Calendar
         "day_index": [day_index],
         "day_of_week": [dow],
         "is_weekend": [is_weekend],
         "day_of_month": [today.day],
-        # Network
         "congested": [congested],
-        # Profile
         "contract_duration_months": [contract_duration_months],
         "customer_tenure_months": [customer_tenure_months],
         "monthly_bill_zar": [monthly_bill_zar],
         "support_calls_6months": [support_calls_6months],
         "churn_probability": [churn_probability],
         "churn_status": [0],
-        # Lag / rolling
         "lag_1d_total_gb": [lag_1d_total_gb],
         "lag_7d_total_gb": [lag_7d_total_gb],
         "rolling_7d_avg_gb": [rolling_7d_avg_gb],
@@ -268,7 +219,6 @@ def render_predict(model_manager, model_info: dict):
         "lag_1d_social_gb": [lag_1d_social_gb],
         "lag_1d_gaming_gb": [lag_1d_gaming_gb],
         "lag_1d_messaging_gb": [lag_1d_messaging_gb],
-        # Service usage (dropped by pipeline — placeholder values)
         "streaming_gb": [0.0],
         "social_gb": [0.0],
         "messaging_gb": [0.0],
@@ -276,7 +226,6 @@ def render_predict(model_manager, model_info: dict):
         "background_gb": [0.0],
         "total_gb": [0.0],
         "arpu": [0.0],
-        # Region and calendar extras
         "region": ["Gauteng"],
         "is_month_start": [int(today.day <= 3)],
         "is_month_end": [int(today.day >= 28)],
@@ -288,20 +237,19 @@ def render_predict(model_manager, model_info: dict):
             pred = model_manager.predict(input_df)[0]
 
             if pred < 2:
-                color, label = "#16a34a", "Low Usage"
+                tag_color, label = "#16a34a", "Low Usage"
             elif pred < 5:
-                color, label = "#d97706", "Medium Usage"
+                tag_color, label = "#d97706", "Medium Usage"
             else:
-                color, label = "#dc2626", "High Usage"
+                tag_color, label = "#dc2626", "High Usage"
 
-            st.markdown(f"""
-            <div class="result-card">
-                <div style="color:#64748b; font-size:0.9rem;">Predicted usage tomorrow</div>
-                <div class="result-value" style="color:{color};">{pred:.2f}</div>
-                <div class="result-unit">GB</div>
-                <div style="margin-top:1rem; color:{color}; font-weight:600;">{label}</div>
-            </div>
-            """, unsafe_allow_html=True)
+            result_card(
+                value=pred,
+                unit="GB",
+                label="Predicted usage tomorrow",
+                tag=label,
+                tag_color=tag_color,
+            )
 
         except Exception as e:
             st.error(f"❌ Prediction failed: {e}")
@@ -310,8 +258,7 @@ def render_predict(model_manager, model_info: dict):
                 st.code(traceback.format_exc())
 
     # ----- Input summary -----
-    st.markdown("---")
-    st.markdown("#### Input Summary")
+    section_header("📋 Input Summary")
 
     summary = pd.DataFrame({
         "Field": [
@@ -336,7 +283,7 @@ def render_predict(model_manager, model_info: dict):
 # PAGE 3 — INSIGHTS
 # ======================================================================
 def render_insights():
-    st.markdown('<div class="section-title">📊 Insights</div>', unsafe_allow_html=True)
+    page_header("📊 Insights", "Charts and analysis from the trained model")
 
     if not INSIGHTS_DIR.exists():
         st.warning(
@@ -349,7 +296,7 @@ def render_insights():
     for title, filename in INSIGHT_CHARTS:
         path = INSIGHTS_DIR / filename
         if path.exists():
-            st.markdown(f"#### {title}")
+            section_header(f"📈 {title}")
             st.image(str(path), use_container_width=True)
             found_any = True
 
