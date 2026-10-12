@@ -1,109 +1,90 @@
-"""
-Telecom Consumption Intelligence — Streamlit app entry point.
-
-Three pages:
-    🏠 Overview  — model summary + key insights
-    🎯 Predict   — per-subscriber next-day forecast
-    📊 Insights  — charts from reports/insights/
-"""
-import sys
-from pathlib import Path
-
-# Make modular/ importable
-MODULAR_DIR = Path(__file__).resolve().parent
-if str(MODULAR_DIR) not in sys.path:
-    sys.path.insert(0, str(MODULAR_DIR))
-
+import pandas as pd
 import streamlit as st
-from src.config import (
-    PAGE_TITLE, PAGE_ICON, PAGE_LAYOUT, SIDEBAR_STATE,
-)
-from src.constants import NAV_ITEMS
 
-# ----- Page config (must be the FIRST Streamlit call) -----
-st.set_page_config(
-    page_title=PAGE_TITLE,
-    page_icon=PAGE_ICON,
-    layout=PAGE_LAYOUT,
-    initial_sidebar_state=SIDEBAR_STATE,
-)
+from src import config, state, theme, tour
+from src.theme import label
 
-# ----- Lazy imports (after set_page_config) -----
-from src.ui.styling import load_css
-from src.ui.pages import render_overview, render_predict, render_insights
-from src.data.loader import load_test_data, load_model_info
-from src.models.manager import ModelManager
-from src.utils.logger import get_logger
+st.set_page_config(page_title=config.APP_NAME, page_icon=":material/signal_cellular_alt:", layout="wide")
+theme.inject()
+_missing = config.missing_files()
+if _missing:
+    st.error("Some files the dashboard needs were not found.")
+    st.markdown("\n".join(f"- {m}" for m in _missing))
+    st.caption("Expected layout: training/, models/ and modular/ side by side in the project folder. "
+               "Set TELECOM_PROJECT_ROOT if your project folder is somewhere else.")
+    st.stop()
+state.init()
+ss = st.session_state
+ss.setdefault("uploader_n", 0)
 
-logger = get_logger(__name__)
+dq_page = st.Page("views/data_checks.py", title="Data Checks", icon=":material/fact_check:")
+pages = {
+    "Business": [
+        st.Page("views/overview.py", title="Overview", icon=":material/dashboard:", default=True),
+        st.Page("views/forecast.py", title="Tomorrow's Forecast", icon=":material/trending_up:"),
+        st.Page("views/revenue.py", title="Revenue Analysis", icon=":material/payments:"),
+        st.Page("views/geography.py", title="Geography", icon=":material/map:"),
+        st.Page("views/insights.py", title="Customer Insights", icon=":material/groups:"),
+        st.Page("views/compare.py", title="Compare Data", icon=":material/compare_arrows:"),
+    ],
+    "Model and data": [
+        st.Page("views/monitoring.py", title="Model Monitoring", icon=":material/monitoring:"),
+        dq_page,
+        st.Page("views/about.py", title="About", icon=":material/info:"),
+    ],
+}
+pg = st.navigation(pages)
+theme.begin_page(pg.url_path or pg.title)
 
-# ----- Load CSS -----
-load_css()
-
-# ----- Load model + data -----
-@st.cache_resource
-def get_model():
-    return ModelManager()
-
-
-@st.cache_data(ttl=3600)
-def get_test_data():
-    return load_test_data()
-
-
-@st.cache_data(ttl=3600)
-def get_model_info():
-    return load_model_info()
-
-
-model_manager = get_model()
-test_df = get_test_data()
-model_info = get_model_info()
-
-# ----- Sidebar nav -----
 with st.sidebar:
-    st.markdown("""
-    <div style="text-align:center; padding: 1rem 0;">
-        <div style="font-size:2rem; background: linear-gradient(135deg,#1a237e,#3949ab);
-                    width:60px; height:60px; line-height:60px; border-radius:16px;
-                    margin:0 auto; color:white;">📶</div>
-        <div style="color:#94a3b8; font-size:0.65rem; margin-top:0.5rem;
-                    letter-spacing:0.5px; font-weight:600;">
-            TELECOM FORECASTING
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    if st.button("How to read this dashboard", icon=":material/help:", key="tour_open"):
+        ss["tour_i"] = 0
+        tour.show()
+    st.markdown('<div class="side-h">Data and filters</div>', unsafe_allow_html=True)
+    up = st.file_uploader("Upload new data", type=["csv", "parquet"], key=f"up_{ss['uploader_n']}",
+                          help="CSV or Parquet. Include daily usage and customer columns. Lag features are built if missing.")
+    blocked_now = False
+    if up is not None and ss["last_upload"] != (up.name, up.size):
+        ss["last_upload"] = (up.name, up.size)
+        with st.spinner("Checking and scoring your data"):
+            blocked_now = not state.load_upload(up)
+    theme.gate_badge(ss["quality"], ss["quality_blocked"])
+    if st.button("Reset to default data"):
+        state.reset_to_default()
+        ss["last_upload"] = None
+        ss["uploader_n"] += 1
+        st.rerun()
 
-    st.markdown("---")
+    df, v = ss["data"], ss["version"]
+    dmin, dmax = df["date"].min().date(), df["date"].max().date()
+    rng = st.date_input("Period", value=(dmin, dmax), min_value=dmin, max_value=dmax, key=f"dates_{v}")
+    start, end = (rng if len(rng) == 2 else (dmin, dmax))
+    regions = sorted(df["region"].unique())
+    plans = [p for p in config.KNOWN["plan_type"] if p in set(df["plan_type"])] + \
+            sorted(set(df["plan_type"]) - set(config.KNOWN["plan_type"]))
+    nets = [n for n in config.KNOWN["network_type"] if n in set(df["network_type"])] + \
+           sorted(set(df["network_type"]) - set(config.KNOWN["network_type"]))
+    sel_r = st.multiselect("Region", regions, default=regions, key=f"region_{v}")
+    sel_p = st.multiselect("Plan", plans, default=plans, key=f"plan_{v}", format_func=label)
+    sel_n = st.multiselect("Network", nets, default=nets, key=f"net_{v}")
+    st.slider("Churn-risk threshold", 0.1, 0.9, 0.5, 0.05, key="threshold",
+              help="Customers at or above this churn probability count as at risk.")
 
-    st.markdown(
-        '<div style="font-size:0.65rem; font-weight:700; color:#94a3b8; '
-        'letter-spacing:0.8px; text-transform:uppercase; margin-bottom:0.5rem;">'
-        'Navigation</div>',
-        unsafe_allow_html=True,
-    )
+    with st.expander("Business assumptions"):
+        st.caption("Change these to match your business. They feed the forecast and revenue pages.")
+        st.slider("Capacity safety buffer (%)", 0, 30, 8, key="buffer")
+        st.slider("Top-up rule: days in a row", 2, 7, 3, key="topup_days")
+        st.slider("Top-up rule: GB above forecast", 0.5, 10.0, 2.0, 0.5, key="topup_gb")
+        st.slider("Retention rule: days in a row", 2, 10, 5, key="retain_days")
+        st.slider("Retention rule: GB below forecast", 0.5, 10.0, 2.0, 0.5, key="retain_gb")
+        st.number_input("Top-up price (R per GB)", 5, 200, 30, 5, key="price_gb")
+        st.slider("Top-up take-up rate (%)", 5, 60, 20, 5, key="takeup")
 
-    page = st.radio(
-        "Navigate",
-        NAV_ITEMS,
-        label_visibility="collapsed",
-        key="main_navigation",
-    )
+    st.caption("Appearance follows your device. To change it, open the top-right menu (three dots) and choose System, Light, or Dark.")
 
-    st.markdown("---")
+if blocked_now:
+    st.switch_page(dq_page)  # show why the file was not scored
 
-    # Model status footer
-    if model_info:
-        r2 = model_info.get("val_metrics", {}).get("r2")
-        if r2 is not None:
-            st.caption(f"**Model:** HistGradientBoosting")
-            st.caption(f"**Val R²:** {r2:.4f}")
-    st.caption("Synthetic data — demo")
-
-# ----- Route to the selected page -----
-if page == NAV_ITEMS[0]:
-    render_overview(model_info, test_df)
-elif page == NAV_ITEMS[1]:
-    render_predict(model_manager, model_info)
-elif page == NAV_ITEMS[2]:
-    render_insights()
+ss["filters"] = {"start": pd.Timestamp(start), "end": pd.Timestamp(end),
+                 "region": sel_r, "plan": sel_p, "network": sel_n}
+pg.run()

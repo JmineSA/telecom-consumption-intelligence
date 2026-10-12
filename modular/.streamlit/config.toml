@@ -1,0 +1,28 @@
+# Defining both a light and a dark theme adds a System / Light / Dark switch at the top of the app menu
+# (top-right, three dots). System is the default and follows the device.
+[theme.light]
+primaryColor = "#0E7C86"
+backgroundColor = "#F3F5F7"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#0F1B2D"
+
+[theme.light.sidebar]
+backgroundColor = "#0F1B2D"
+secondaryBackgroundColor = "#1B2A41"
+textColor = "#E6ECF3"
+primaryColor = "#3FB7C1"
+
+[theme.dark]
+primaryColor = "#3FB7C1"
+backgroundColor = "#0B1220"
+secondaryBackgroundColor = "#141C2C"
+textColor = "#E6ECF3"
+
+[theme.dark.sidebar]
+backgroundColor = "#070C16"
+secondaryBackgroundColor = "#141C2C"
+textColor = "#E6ECF3"
+primaryColor = "#3FB7C1"
+
+[server]
+maxUploadSize = 200
