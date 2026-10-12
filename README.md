@@ -1,224 +1,284 @@
 # 📶 Telecom Consumption Intelligence
 
-**Forecasting tomorrow's mobile data demand for South African operators**
+**Forecast tomorrow's mobile data demand. Identify commercial opportunities. Make better network and customer decisions.**
 
-An end-to-end machine learning system that predicts how much data each
-subscriber will consume tomorrow, quantifies the revenue implications, and
-produces actionable recommendations for network, retention, and product teams.
+[**🚀 Live Dashboard **](https://telecom-consumption-intelligence-7u9fclgabrv8tttvf2jpsx.streamlit.app/)
 
-> ⚠️ **Note:** Built on synthetically generated data simulating South African
-> telecom subscriber behaviour (Vodacom / MTN / Telkom / Cell C / Rain plan
-> tiers). Architecture and methodology are production-grade; specific values
-> will differ on real operator data.
+Telecom Consumption Intelligence is a business analytics and forecasting solution designed around the daily decisions facing South African telecom operators: network capacity planning, data bundle opportunities, customer engagement, and revenue protection.
 
----
+It predicts next-day mobile data consumption at subscriber level and translates forecasts into business insights through an interactive management dashboard.
 
-## 💼 The Business Problem
+The objective is not simply to predict data usage. It is to help teams understand **where demand is heading, which customers may need attention, and where commercial opportunities may exist.**
 
-Every telecom operator faces the same three questions every day:
-
-1. **How much data will subscribers consume tomorrow?** — so they can
-   pre-provision network capacity and avoid congestion.
-2. **Who is about to use more than expected?** — so they can offer top-ups
-   and bundles at the right moment.
-3. **Who is quietly disengaging?** — so retention teams can intervene before
-   they churn.
-
-Currently, most operators answer these questions with weekly historical
-reports — reacting to yesterday rather than preparing for tomorrow.
-
-This project answers them with a daily forecast per subscriber.
+> **Important:** This portfolio project uses synthetic data simulating South African telecom subscriber behaviour. The findings and financial estimates demonstrate an analytical approach; they are not actual operator results or realised financial returns.
 
 ---
 
-## 📊 What the Model Delivers
+## 💼 The Business Challenge
 
-| Question | Answer |
+Telecom operators must balance three competing priorities:
+
+- **Network performance:** Make capacity available where demand is expected, without unnecessarily over-allocating resources.
+- **Revenue growth:** Identify subscribers whose consumption patterns may create opportunities for relevant top-ups and data bundles.
+- **Customer retention:** Detect sustained changes in usage that may warrant customer engagement before dissatisfaction or disengagement develops.
+
+Historical reporting helps explain what has already happened. Forecasting adds another perspective: what may happen tomorrow, and what should the business investigate today?
+
+This project brings these questions together in one decision-support dashboard.
+
+## 📊 What the Solution Delivers
+
+| Business Question | How the Solution Helps |
 |---|---|
-| **How accurate is the forecast?** | 77% of tomorrow's usage variance explained (R² = 0.77) |
-| **How close is a typical prediction?** | Within **2 GB** of actual usage per subscriber per day |
-| **When does the model struggle?** | During network congestion — prediction error rises |
-| **How fast can it retrain?** | ~10 seconds — supports weekly retraining |
-| **How big is the model?** | ~10 MB — deployable in-app |
+| Where might demand increase tomorrow? | Forecasts subscriber usage and aggregates demand by region, plan and network. |
+| Where could additional data revenue exist? | Identifies subscribers whose actual usage exceeds predicted usage and estimates potential top-up opportunities. |
+| Which customers may need attention? | Highlights sustained usage changes and existing churn-risk indicators for further investigation. |
+| Which regions or customer segments differ? | Compares usage, revenue and other business measures across customer groups. |
+| Can management trust the results? | Monitors forecast errors, examines model drivers and validates uploaded data before scoring. |
 
-**Headline numbers (test set):**
+The dashboard includes Overview, Tomorrow's Forecast, Revenue Analysis, Geography, Customer Insights, Compare Data, Model Monitoring and Data Checks.
 
-| Metric | Value |
+---
+
+## 📈 Key Results
+
+The forecasting model was evaluated on a held-out test dataset that was not used to train the model.
+
+| Performance Metric | Test Result | Business Interpretation |
+|---|---:|---|
+| R² | 0.770 | Explains approximately 77% of the variation in next-day usage in the test data. |
+| Mean Absolute Error (MAE) | 2.02 GB | Average absolute prediction error per subscriber per day. |
+| Root Mean Squared Error (RMSE) | 3.38 GB | Measures prediction error while penalising larger errors more heavily. |
+| Training-to-validation R² gap | 0.012 | Indicates a relatively small observed gap between training and validation performance. |
+
+**What this means for the business**
+
+The model captures a substantial portion of variation in next-day subscriber usage, with an average absolute prediction error of approximately 2 GB per subscriber per day.
+
+This makes it a useful basis for exploring demand patterns and prioritising further analysis. It does not mean that 77% of individual predictions are correct, nor does it establish production readiness.
+
+---
+
+## 💰 Business Findings and Implications
+
+### 1. Customer usage patterns are more informative than a single day's activity
+
+The strongest predictive signal was the subscriber's 30-day average data consumption, followed by the 7-day average.
+
+| Signal | Correlation with Next-Day Usage |
 |---|---:|
-| R² | 0.77 |
-| MAE | 2.02 GB |
-| RMSE | 3.38 GB |
-| Overfit gap | 0.012 |
+| 30-day rolling average | 0.866 |
+| 7-day rolling average | 0.854 |
+| Previous day's usage | 0.758 |
+
+*These are correlations with the target, not percentages of model importance or proof of causation.*
+
+**Business implication:** Recent usage history provides a valuable baseline for understanding expected demand. Network and commercial teams can investigate persistent changes against that baseline rather than relying on an unusually high or low day.
+
+### 2. Forecast reliability is slightly weaker during congestion
+
+| Test Condition | Records | R² | Mean Absolute Error |
+|---|---:|---:|---:|
+| Normal conditions | 74,783 | 0.7711 | 2.016 GB |
+| Congested conditions | 19,420 | 0.7646 | 2.039 GB |
+
+Forecast performance is modestly weaker during congested conditions, with a slightly higher average error.
+
+**Business implication:** Capacity planners should examine forecast performance alongside congestion indicators. Before adjusting capacity allocations, the operator would need to establish whether forecast errors systematically overestimate or underestimate demand and whether that pattern persists in real network data.
+
+### 3. Forecast errors reveal potential commercial opportunities
+
+On the synthetic test dataset, the analysis identified:
+
+| Measure | Result |
+|---|---:|
+| Under-predicted records | 54,539 (57.9%) |
+| Estimated top-up opportunity | R7,344,112 |
+| Over-predicted records | 39,664 (42.1%) |
+| Estimated over-allocation cost | R7,122,874 |
+
+Under-prediction means actual usage exceeded the forecast; over-prediction means actual usage fell below it.
+
+**Business implication:** Persistent under-prediction could help identify customers for relevant top-up offers. Persistent over-prediction could help identify declining consumption or allocations that merit review.
+
+These figures are model-based estimates derived from synthetic records and financial assumptions. They are not verified incremental revenue, cash savings, or proof that every flagged customer represents an actionable opportunity. Commercial testing and cost validation would be necessary.
+
+### 4. Customer segments may need different commercial strategies
+
+The simulated dataset exhibits differences in consumption across plan, device and geographic segments.
+
+**Business implication:** Segment-level analysis can help teams investigate whether different data bundles, pricing structures or engagement strategies are appropriate for different subscriber groups.
+
+The relationships observed in synthetic data should be validated against actual customer behaviour before informing pricing or marketing decisions.
 
 ---
 
-## 🎯 Business Value
+## 🎯 Recommended Business Actions
 
-### 1. Network capacity planning
-Forecast tomorrow's aggregate demand by region, plan, and network tier.
-Pre-provision capacity where the model expects peaks — instead of reacting
-to yesterday's report.
-
-### 2. Personalised top-up offers
-When the model persistently under-predicts a subscriber's usage, they're
-using more than expected — a natural moment to offer a data top-up. Value
-captured without hard-selling.
-
-### 3. Churn early-warning signals
-When the model persistently over-predicts — meaning usage is falling —
-the subscriber may be disengaging. This is a leading indicator of churn,
-captured before it happens.
-
-### 4. Segment-specific bundles
-Usage varies 3–4× between plan types and 2× between device tiers. Offers
-priced per segment outperform one-size-fits-all bundles.
-
----
-
-## 🔍 What We Found
-
-### Rolling averages predict better than yesterday's single value
-
-The single strongest signal for tomorrow's usage is not yesterday's usage —
-it's the subscriber's recent **rolling average** (7-day and 30-day). Daily
-usage is noisy; longer windows smooth that noise and better predict the
-habit underneath.
-
-**Implication:** for network planning, forecast from smoothed baselines,
-not from yesterday's raw numbers.
-
-### Congestion hurts forecasting accuracy
-
-During congested network conditions, the model over-predicts — because
-congestion suppresses actual usage (subscribers give up or defer), but the
-model doesn't fully learn that effect.
-
-**Implication:** capacity plans based on these forecasts will over-provision
-during peak congestion. A congestion-aware variant of the model is the
-recommended follow-up.
-
-### Usage segments differ sharply
-
-- **Postpaid Unlimited** users consume 3–4× more than **Prepaid Daily** users
-- **5G device** users consume ~2× more than mid-range smartphone users
-- **Gauteng** users consume more than other provinces
-
-**Implication:** targeting and pricing should be segment-specific.
-
----
-
-## 💡 Recommendations
-
-| # | Recommendation | Owner |
+| Business Function | Proposed Action | Intended Outcome |
 |---|---|---|
-| 1 | Deploy congestion-aware forecasting for capacity planning | Network Ops |
-| 2 | Retrain the model every 4–6 weeks or on drift detection | Data Science |
-| 3 | Trigger top-up offers on 3-day persistent under-prediction (>2 GB) | Product |
-| 4 | Route 5-day persistent over-prediction (>2 GB) to retention campaigns | Customer Retention |
-| 5 | Design bundles by segment (plan, device, region) | Commercial |
+| Network operations | Review demand forecasts alongside congestion and capacity indicators. | Better-informed capacity planning. |
+| Commercial and product | Test targeted top-up offers for subscribers with persistent under-prediction. | Measure incremental top-up conversion and revenue. |
+| Customer retention | Investigate sustained consumption declines and relevant churn-risk indicators. | Identify customers who may benefit from engagement. |
+| Product management | Compare usage by plan, device and region. | Inform segment-specific bundle design. |
+| Data science | Monitor forecast error and data drift; retrain when justified by evidence. | Maintain reliable forecasting performance. |
+
+The dashboard's Business Actions translate calculated measures into suggested next steps. These are recommendations for human review, not automated customer decisions.
+
+Any operational thresholds, offer eligibility rules or retraining schedules should be validated against real business costs, customer outcomes and model performance.
 
 ---
 
-## 🧠 How It Works (Non-Technical)
+## 🖥️ Explore the Dashboard
 
----
+**[🚀 Open the Live Dashboard](https://telecom-consumption-intelligence-7u9fclgabrv8tttvf2jpsx.streamlit.app/)**
 
-## 📈 Model at a Glance
+The dashboard is designed for managers and analysts who need to move from metrics to decisions.
 
-| Aspect | Detail |
+| Dashboard Page | Business Purpose |
 |---|---|
-| **Type** | Supervised regression (forecasting) |
-| **Algorithm** | HistGradientBoostingRegressor (scikit-learn) |
-| **Target** | `target_next_day_gb` — tomorrow's usage per subscriber |
-| **Features** | 25 (lags, rolling averages, calendar, congestion, profile) |
-| **Training data** | 10,000 synthetic users × 90 days = ~817K rows |
-| **Train / Val / Test** | 70% / 15% / 15% (time-based, not random) |
-| **Test R²** | 0.77 |
-| **Test MAE** | 2.02 GB |
-| **Training time** | ~10 seconds |
-| **Model size** | ~10 MB |
+| Overview | Understand subscriber activity, usage, billing, churn indicators and forecast highlights. |
+| Tomorrow's Forecast | Explore expected demand by region, plan and network. |
+| Revenue Analysis | Examine revenue patterns and estimated commercial opportunities. |
+| Geography | Compare regions across selected business measures. |
+| Customer Insights | Explore customer segments and investigate individual subscriber records. |
+| Compare Data | Compare periods or datasets to understand what has changed. |
+| Model Monitoring | Assess forecast reliability, error patterns and model drivers. |
+| Data Checks | Identify data-quality issues before forecasts are produced. |
+
+Additional capabilities include PDF and Excel report exports, data uploads, configurable business assumptions and an interactive data viewer. Uploaded datasets are checked before they can replace the active dataset used by the dashboard.
 
 ---
 
-## ⚠️ Key Limitations
+## ⚙️ How It Works
 
-- **Synthetic data** — behaviour is generated. Real production behaviour
-  will differ.
-- **90-day window** — insufficient to model annual seasonality.
-- **Binary congestion** — real network states are graded.
-- **No external signals** — holidays, promotions, and device launches are
-  not modelled.
+The solution follows a straightforward forecasting workflow:
 
-These are deliberate boundaries for a portfolio project, and each one
-defines a natural next step.
+1. **Understand historical behaviour:** Analyse subscriber usage, customer profiles, plans and network conditions.
+2. **Build a forecast:** Use past usage patterns and other available information to predict each subscriber's next-day consumption.
+3. **Evaluate reliability:** Test the model on a separate, later time period and examine errors across different conditions.
+4. **Translate forecasts into business measures:** Aggregate demand, compare actual usage against predictions and estimate opportunities using explicit assumptions.
+5. **Support decisions:** Present the results through interactive charts, customer insights, data checks and management reports.
+
+The dashboard also supports comparisons between datasets, explanations of model behaviour and validation of new data before scoring.
+
+---
+
+## 🧰 Technical Overview
+
+The project combines a Python forecasting pipeline with a modular Streamlit business dashboard.
+
+| Component | Implementation |
+|---|---|
+| Forecasting task | Next-day subscriber-level regression |
+| Model | HistGradientBoostingRegressor |
+| Machine learning | scikit-learn 1.6.1 |
+| Data processing | Python, pandas and NumPy |
+| Business dashboard | Streamlit |
+| Explainability | Feature importance and optional SHAP analysis |
+| Reporting | PDF and Excel exports |
+| Quality assurance | Data validation and automated tests |
+
+### Model Evaluation
+
+| Dataset | Rows | R² | MAE |
+|---|---:|---:|---:|
+| Training | 531,140 | 0.7748 | 1.971 GB |
+| Validation | 95,019 | 0.7626 | 2.025 GB |
+| Test | 94,203 | 0.7698 | 2.021 GB |
+
+The split is time-based to better reflect forecasting future usage from past observations. The small training-to-validation performance gap is encouraging, although broader testing is needed to establish reliability across different periods and operating conditions.
+
+---
+
+## ⚠️ Data, Assumptions and Limitations
+
+This is a portfolio demonstration, not a production deployment for a real telecom operator.
+
+- **Synthetic data:** Subscriber activity and business results are generated, not obtained from Vodacom, MTN, Telkom, Cell C, Rain or another operator.
+- **Limited time horizon:** The simulated history covers approximately 90 days and does not establish annual seasonal patterns.
+- **Simplified congestion:** Congestion is represented as a binary indicator rather than a detailed measure of network conditions.
+- **Missing external factors:** Holidays, promotions, service disruptions, device launches and other external drivers are not fully represented.
+- **Estimated financial value:** Revenue opportunities and allocation costs depend on assumptions and require validation using real operator economics.
+- **Forecast uncertainty:** Individual predictions can differ materially from actual usage, and performance can vary by segment and network condition.
+- **Retention interpretation:** Changes in usage may warrant investigation but do not, on their own, establish that a customer will churn.
+
+These limitations define the next steps needed to evaluate the solution in a real operating environment.
 
 ---
 
 ## 🚀 Next Steps
 
-If this project were extended toward production:
+If extended with an operator or research partner, the project could progress through:
 
-1. **Validate on real operator data** — same methodology, real subscriber base
-2. **Add external signals** — public holidays, marketing campaigns, new device launches
-3. **Congestion-aware model variant** — separate model for congested windows
-4. **Automated retraining** — weekly pipeline with validation gates
-5. **Monitoring layer** — drift detection, reject thresholds for low-quality inputs
-6. **Integration** — feed forecasts into the operator's planning dashboards
+1. **Real-world validation:** Evaluate forecast performance against historical operator data.
+2. **Financial validation:** Calibrate top-up conversion, contribution margins and capacity costs using actual business assumptions.
+3. **Network-aware forecasting:** Test whether more detailed congestion and capacity signals improve demand estimates.
+4. **Customer outcome testing:** Measure whether forecast-led offers improve incremental revenue, retention or customer experience.
+5. **Operational monitoring:** Establish data-quality gates, drift monitoring and evidence-based retraining triggers.
+6. **Production integration:** Connect validated forecasts to existing planning and analytics workflows with appropriate human oversight.
 
 ---
 
 ## 📚 Technical Appendix
 
-### Leakage prevention
-The single most important design decision in forecasting is preventing the
-model from accidentally seeing tomorrow's data. Every feature is past-only:
+### Forecast Design and Leakage Prevention
 
-- Target built via `shift(-1)` per user
-- Lags use `shift(1)` and rolling windows over shifted values
-- Early-day fallbacks use `lag_1d_total_gb` (the latest known value) — no
-  backfilling from future values
-- Time-based split, no random shuffle
-- Missing values (~3% MCAR) dropped rather than imputed
+The target is the subscriber's total data consumption on the following day. Features are designed to use information available before the forecast day.
 
-### Feature engineering
-- **Lag features** — yesterday, 7 days ago, rolling 7-day and 30-day averages
-- **Service lags** — per-service yesterday's usage (streaming, social, gaming)
-- **Calendar** — day of week, weekend flag, cyclical sine/cosine encodings
-- **Network** — congestion indicator
-- **Profile** — plan type, device type, network tier, monthly bill (ZAR),
-  tenure, churn probability
+Key controls include:
 
-### Model selection
-Benchmarked 7 models. All tree-based models within 0.007 R² of each other.
-Chose **HistGradientBoostingRegressor** for:
-- Same accuracy as the best candidate
-- 88× faster training than plain GradientBoosting
-- 100× smaller artifact than RandomForest
-- Sklearn-native (no extra dependencies)
-- Native NaN handling
+- Creating the next-day target using a per-subscriber shift.
+- Constructing lag and rolling-window features from historical usage.
+- Using a time-based evaluation split instead of randomly shuffling observations.
+- Avoiding future-value backfilling in early-history fallbacks.
+- Dropping records with missing required values where appropriate.
 
-### Project structure
+These controls reduce the risk of data leakage, but do not eliminate the need for further validation of feature availability and the full scoring pipeline.
+
+### Feature Engineering
+
+The model uses historical usage patterns, including daily lags and rolling averages, alongside available customer, plan, device, network, calendar and billing information.
+
+Feature correlations help describe the data, while model importance and SHAP analysis can provide additional information about how the fitted model uses those features. Neither should automatically be interpreted as causal business drivers.
+
+### Project Structure
+
 ```text
 telecom-consumption-intelligence/
-├── training/                        # ML training pipeline
-│   ├── core/                        # Data generation, features, transformers
-│   ├── pipelines/                   # sklearn pipelines
-│   ├── models/                      # Training scripts + insights
-│   └── evaluation/                  # Test-set evaluation
-│
-├── modular/                         # Streamlit application (demo)
+├── training/       # Data preparation and model training
+├── models/         # Saved model and metadata
+├── modular/        # Streamlit business dashboard
 │   ├── app.py
-│   └── src/                         # UI, analytics, model loading
-│
-├── notebooks/
-│   ├── 01_exploratory_data_analysis.ipynb
-│   ├── 02_insights_and_recommendations.ipynb  # Auto-generates business_summary.txt
-│           
-│
-├── models/                          # Trained artifacts
-├── reports/
-│   ├── business_summary.txt         # Auto-generated narrative
-│   └── insights/                    # Six charts (PNG)
-│
+│   ├── views/      # Dashboard pages
+│   ├── src/        # Analytics, scoring, checks and reports
+│   ├── assets/     # Default data and reference profiles
+│   ├── scripts/    # Data and profile generation
+│   └── tests/      # Dashboard and data-quality tests
+├── notebooks/      # Exploratory analysis and business insights
+├── reports/        # Analysis outputs
+├── docs/           # Deployment and report documentation
 ├── requirements.txt
 └── README.md
+```
+
+### Run Locally
+
+From the repository root:
+
+```bash
+pip install -r modular/requirements.txt
+streamlit run modular/app.py
+```
+
+Use the repository's root `requirements.txt` as well if your development or training workflow requires additional dependencies.
+
+For deployment guidance, see [`docs/DEPLOY.md`](docs/DEPLOY.md).
+
+---
+
+**Project Focus:** Applied data science, demand forecasting, commercial analytics and decision support.
+
+The central question behind this project is simple:
+
+**How can a forecast become a useful business decision rather than just another model metric?**
