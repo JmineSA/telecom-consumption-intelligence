@@ -1,130 +1,72 @@
-"""
-Configuration management for Telecom Intelligence Platform
-"""
 import os
-from dataclasses import dataclass, field
-from typing import List, Optional
 from pathlib import Path
 
-
-@dataclass
-class ModelConfig:
-    """Model training configuration"""
-    n_estimators: int = 150
-    learning_rate: float = 0.05
-    max_depth: int = 5
-    random_state: int = 42
-    test_size: float = 0.2
-    cv_folds: int = 5
-    
-    # Feature names (must match training data)
-    feature_columns: List[str] = field(default_factory=lambda: [
-        'age_group', 'plan_type', 'network_type',
-        'device_type_Basic_Phone', 'device_type_Mid_Range',
-        'device_type_Premium_Smartphone', 'device_type_Tablet',
-        'hours_streaming', 'hours_social', 'hours_messaging', 'hours_gaming',
-        'is_peak_hour_user', 'is_weekend'
-    ])
-    
-    target_column: str = 'total_data_gb'
+# Layout: <project>/training, <project>/models, <project>/modular (this app). The app reads the model and its
+# metadata from the project's own models/ folder and only keeps what is specific to the dashboard in modular/assets.
+APP_DIR = Path(__file__).resolve().parent.parent                    # .../modular
+PROJECT_ROOT = Path(os.getenv("TELECOM_PROJECT_ROOT", APP_DIR.parent)).resolve()   # folder that holds training/ and models/
+ROOT = APP_DIR                                                      # kept for older imports
+ASSETS = APP_DIR / "assets"
 
 
-@dataclass
-class DataConfig:
-    """Data configuration - points to existing project data"""
-    max_file_size_mb: int = 100
-    supported_formats: List[str] = field(default_factory=lambda: ['csv', 'parquet'])
-    
-    # Get the absolute path to the data directory
-    @staticmethod
-    def _get_base_dir():
-        """Get the base directory (parent of modular)"""
-        # This file is in modular/src/config.py
-        # So we need to go up 2 levels to get the project root
-        current_file = os.path.abspath(__file__)
-        modular_dir = os.path.dirname(os.path.dirname(current_file))  # modular/
-        project_dir = os.path.dirname(modular_dir)  # telecom-consumption-intelligence/
-        return project_dir
-    
-    # Build paths dynamically
-    default_data_paths: List[str] = field(default_factory=lambda: [
-        # Absolute paths using the project directory
-        os.path.join(DataConfig._get_base_dir(), 'data', 'processed', 'train_data.parquet'),
-        os.path.join(DataConfig._get_base_dir(), 'data', 'train_data.parquet'),
-        os.path.join(DataConfig._get_base_dir(), 'data', 'user_activity_data_daily.csv'),
-        os.path.join(DataConfig._get_base_dir(), 'data', 'user_activity_data_processed.csv'),
-        # Fallback relative paths
-        '../data/processed/train_data.parquet',
-        '../data/train_data.parquet',
-        '../data/user_activity_data_daily.csv',
-        '../data/user_activity_data_processed.csv',
-    ])
-    sample_size_preview: int = 1000
+def find(*candidates: Path) -> Path:
+    """The first candidate that exists, else the first one (so error messages name the preferred location)."""
+    return next((p for p in candidates if p.exists()), candidates[0])
 
 
-@dataclass
-class CacheConfig:
-    """Cache configuration"""
-    ttl_seconds: int = 3600
-    max_entries: int = 10
-    redis_url: Optional[str] = None
+DEFAULT_DATA = find(ASSETS / "default_sample.parquet", PROJECT_ROOT / "data" / "default_sample.parquet")
+MODEL_PATH = find(PROJECT_ROOT / "models" / "mobile_data_consumption_pipeline.pkl", APP_DIR / "models" / "mobile_data_consumption_pipeline.pkl")
+
+TARGET = "target_next_day_gb"
+PRED = "pred_next_day_gb"
+APP_NAME = "SA Telecom Analytics"
+
+# Columns every uploaded file must have (daily usage plus customer profile).
+REQUIRED_RAW = [
+    "user_id", "date", "streaming_gb", "social_gb", "messaging_gb", "gaming_gb",
+    "background_gb", "total_gb", "arpu", "congested", "plan_type", "device_type",
+    "network_type", "age_group", "region", "contract_duration_months",
+    "customer_tenure_months", "monthly_bill_zar", "support_calls_6months",
+    "churn_probability", "churn_status",
+]
+# Columns built from daily usage. If an upload already has them, they are used as is.
+ENGINEERED = [
+    "lag_1d_total_gb", "lag_7d_total_gb", "rolling_7d_avg_gb", "rolling_30d_avg_gb",
+    "delta_1d_gb", "lag_1d_streaming_gb", "lag_1d_social_gb", "lag_1d_gaming_gb",
+    "lag_1d_messaging_gb",
+]
+# Not used by the model or any dashboard page. A file may leave them out.
+OPTIONAL_RAW = ["arpu", "churn_status", "background_gb"]
+MODEL_REQUIRED = [c for c in REQUIRED_RAW if c not in OPTIONAL_RAW]
+CALENDAR = ["day_index", "day_of_week", "is_weekend", "day_of_month", "is_month_start", "is_month_end"]
+# Rows missing any of these are removed, as in training. Other gaps are scored as unknown.
+CRITICAL = ["age_group", "plan_type", "device_type", "network_type", "region", "lag_1d_total_gb",
+            "rolling_7d_avg_gb", "rolling_30d_avg_gb"]
+
+KNOWN = {
+    "plan_type": ["Prepaid_Daily", "Prepaid_Monthly", "Postpaid_Basic", "Postpaid_Premium", "Postpaid_Unlimited"],
+    "network_type": ["3G", "4G", "4G+", "5G"],
+    "device_type": ["Basic_Phone", "Mid_Range", "Premium_Smartphone", "Tablet", "5G_Device"],
+    "age_group": ["18-24", "25-34", "35-44", "45-54", "55+"],
+}
+
+NAVY, TEAL, TEAL_LIGHT, AMBER, GREY, LINE, BG = (
+    "#0F1B2D", "#0E7C86", "#3FB7C1", "#E8833A", "#5B6B7F", "#E1E6EC", "#F3F5F7")
+
+MODEL_INFO = find(PROJECT_ROOT / "models" / "model_info.json", ASSETS / "model_info.json")
+REFERENCE_PROFILE = find(ASSETS / "reference_profile.json", PROJECT_ROOT / "models" / "reference_profile.json")
+PREP_META = find(PROJECT_ROOT / "models" / "preparation_metadata.json", PROJECT_ROOT / "data" / "preparation_metadata.json",
+                 ASSETS / "preparation_metadata.json")
 
 
-@dataclass
-class LoggingConfig:
-    """Logging configuration"""
-    level: str = "INFO"
-    format: str = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    file_path: str = "logs/app.log"
-    max_bytes: int = 10_000_000  # 10MB
-    backup_count: int = 5
+def missing_files() -> list:
+    """Files the app cannot start without, with where it looked. Empty when everything is in place."""
+    need = {"the trained model": MODEL_PATH, "model_info.json": MODEL_INFO, "the default dataset": DEFAULT_DATA,
+            "preparation_metadata.json": PREP_META}
+    out = [f"{what}: {p}" for what, p in need.items() if not p.exists()]
+    if not (PROJECT_ROOT / "training").is_dir():
+        out.append(f"the training package (needed to open the saved model): {PROJECT_ROOT / 'training'}")
+    return out
 
-
-@dataclass
-class AppConfig:
-    """Main application configuration"""
-    env: str = "development"
-    debug: bool = True
-    secret_key: str = "dev-secret-key-change-in-production"
-    
-    # Sub-configs
-    model: ModelConfig = field(default_factory=ModelConfig)
-    data: DataConfig = field(default_factory=DataConfig)
-    cache: CacheConfig = field(default_factory=CacheConfig)
-    logging: LoggingConfig = field(default_factory=LoggingConfig)
-    
-    # App settings
-    app_name: str = "Telecom Consumption Intelligence"
-    app_version: str = "3.0.0"
-    page_title: str = "Telecom Consumption Intelligence"
-    page_icon: str = "📡"
-
-
-def get_config() -> AppConfig:
-    """Get configuration based on environment"""
-    env = os.getenv("APP_ENV", "development")
-    
-    config = AppConfig()
-    config.env = env
-    
-    if env == "production":
-        config.debug = False
-        config.logging.level = "WARNING"
-        config.secret_key = os.getenv("SECRET_KEY", config.secret_key)
-        
-        # Redis cache in production
-        redis_url = os.getenv("REDIS_URL")
-        if redis_url:
-            config.cache.redis_url = redis_url
-    
-    elif env == "testing":
-        config.debug = True
-        config.logging.level = "DEBUG"
-        config.data.max_file_size_mb = 10
-        config.model.n_estimators = 50  # Faster for testing
-    
-    return config
-
-
-# Singleton config instance
-CONFIG = get_config()
+# Largest upload accepted, to protect memory on small hosts. Override with the MAX_UPLOAD_ROWS environment variable.
+MAX_ROWS = int(os.getenv("MAX_UPLOAD_ROWS", "1000000"))
